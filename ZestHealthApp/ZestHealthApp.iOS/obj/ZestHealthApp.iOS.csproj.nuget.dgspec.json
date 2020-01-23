@@ -42,6 +42,10 @@
       "frameworks": {
         "xamarinios10": {
           "dependencies": {
+            "MagicGradients": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Sharpnado.Presentation.Forms": {
               "target": "Package",
               "version": "[1.3.0, )"
@@ -107,6 +111,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "MagicGradients": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
