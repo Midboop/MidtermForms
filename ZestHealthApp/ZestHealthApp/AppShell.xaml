@@ -9,10 +9,10 @@
              FlyoutBackgroundColor="LightGray"
              x:Class="ZestHealthApp.AppShell">
     <!-- ItemTemplate="{DataTemplate views:MenuItem}" Create this file for visuals later-->
-    
+
     <!-- This is how you comment in these types of files. Kind of a pain but ok-->
     <!-- This is the main hub for anything utlizing Shell-->
-    
+
     <!-- This Creates a Header from Drawable Resource and Sets it's properties-->
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
@@ -23,37 +23,46 @@
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-    
-    <!-- This is a template for an item. Each (different) icon will need a seperate one -->
+
+    <!-- This is the template for the flyout menu items -->
     <Shell.ItemTemplate>
         <DataTemplate>
-            <StackLayout Orientation="Horizontal" 
-                         Margin="20,0,0,0"
-                         Spacing="20" 
-                         HeightRequest="44">
-                <!--Insert Icons Here-->
-                <Label Text="{Binding Title}"   
-                   FontSize="18"
-                   TextColor="Black"
-                   VerticalOptions="Center"/>
-            </StackLayout>
+            <Grid>
+                <!-- Sets Columms to help Center Text and Icons-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.6*" />
+                    <ColumnDefinition Width="0.2*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Binds the following Attributes to any Icons or Titles referenced after -->
+                <Image Source="{Binding FlyoutIcon}"
+                       Margin="5"
+                       HeightRequest="30" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontAttributes="Italic"
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"/>
+            </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
- 
-    <!-- This are the individual Menu Items Directing to their respective pages-->
-        <FlyoutItem Title="Recipes">
-            <ShellContent ContentTemplate="{DataTemplate Zest:MainPage}"/>
-        </FlyoutItem>
-        <FlyoutItem Title="Pantry">
-            <ShellContent ContentTemplate="{DataTemplate Zest:PantryPage}"/>
-        </FlyoutItem>
-        <FlyoutItem Title="Calculator">
-            <ShellContent ContentTemplate="{DataTemplate Zest:CalculatorPage}"/>
-        </FlyoutItem>
-        <FlyoutItem Title="Profile">
-            <ShellContent ContentTemplate="{DataTemplate Zest:ProfilePage}"/>
-        </FlyoutItem>
 
-   
+
+    <!-- This are the individual Menu Items Directing to their respective pages-->
+    <FlyoutItem Title="Recipes" Icon="LemonIcon.png">
+        <ShellContent ContentTemplate="{DataTemplate Zest:MainPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Pantry" Icon="ShopingBasketIcon.png">
+        <ShellContent ContentTemplate="{DataTemplate Zest:PantryPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Calculator" Icon="CalculatorIcon.png">
+        <ShellContent ContentTemplate="{DataTemplate Zest:CalculatorPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Profile" Icon="ProfileIcon.png">
+        <ShellContent ContentTemplate="{DataTemplate Zest:ProfilePage}"/>
+    </FlyoutItem>
+
+
 
 </Shell>
