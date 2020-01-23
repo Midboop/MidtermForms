@@ -3,13 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.ProfilePage">
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Your Profile!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <magic:GradientView>
+                <magic:GradientView.GradientSource>
+                    <magic:CssGradientSource>
+                        <!-- Css Gradient Code-->
+                        <x:String>
+                            <![CDATA[
+                    linear-gradient(10deg, rgba(134, 134, 134, 0.05) 0%, rgba(134, 134, 134, 0.05) 33.333%,rgba(203, 203, 203, 0.05) 33.333%, rgba(203, 203, 203, 0.05) 66.666%,rgba(48, 48, 48, 0.05) 66.666%, rgba(48, 48, 48, 0.05) 99.999%),linear-gradient(295deg, rgba(90, 90, 90, 0.05) 0%, rgba(90, 90, 90, 0.05) 33.333%,rgba(23, 23, 23, 0.05) 33.333%, rgba(23, 23, 23, 0.05) 66.666%,rgba(71, 71, 71, 0.05) 66.666%, rgba(71, 71, 71, 0.05) 99.999%),linear-gradient(313deg, rgba(186, 186, 186, 0.05) 0%, rgba(186, 186, 186, 0.05) 33.333%,rgba(174, 174, 174, 0.05) 33.333%, rgba(174, 174, 174, 0.05) 66.666%,rgba(196, 196, 196, 0.05) 66.666%, rgba(196, 196, 196, 0.05) 99.999%),linear-gradient(356deg, rgba(2, 2, 2, 0.05) 0%, rgba(2, 2, 2, 0.05) 33.333%,rgba(110, 110, 110, 0.05) 33.333%, rgba(110, 110, 110, 0.05) 66.666%,rgba(207, 207, 207, 0.05) 66.666%, rgba(207, 207, 207, 0.05) 99.999%),linear-gradient(343deg, rgba(39, 39, 39, 0.05) 0%, rgba(39, 39, 39, 0.05) 33.333%,rgba(145, 145, 145, 0.05) 33.333%, rgba(145, 145, 145, 0.05) 66.666%,rgba(205, 205, 205, 0.05) 66.666%, rgba(205, 205, 205, 0.05) 99.999%),linear-gradient(90deg, rgb(227, 5, 98),rgb(215, 148, 27))   ]]>
+                        </x:String>
+                    </magic:CssGradientSource>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+   
+            <Label Grid.Row ="0"
+                   Text="Welcome to Your Profile!"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

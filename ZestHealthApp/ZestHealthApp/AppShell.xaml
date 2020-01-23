@@ -6,15 +6,54 @@
              xmlns:Zest="clr-namespace:ZestHealthApp"
              mc:Ignorable="d"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarTitleColor="Salmon"
-             Shell.TabBarUnselectedColor="DarkGray"
-             Shell.TabBarBackgroundColor="WhiteSmoke"
-       
              x:Class="ZestHealthApp.AppShell">
     <!-- ItemTemplate="{DataTemplate views:MenuItem}" Create this file for visuals later-->
 
     <!-- This is how you comment in these types of files. Kind of a pain but ok-->
     <!-- This is the main hub for anything utlizing Shell-->
+
+    <Shell.Resources>
+        <Style x:Key="BaseStyle" 
+           TargetType="Element">
+            <Setter Property="Shell.TabBarBackgroundColor" 
+                Value="#a68ad1" />
+            <Setter Property="Shell.TabBarTitleColor" 
+                Value="#bdfff9" />
+            <Setter Property="Shell.TabBarUnselectedColor" 
+                Value="WhiteSmoke" />
+        </Style>
+
+        <Style x:Key="PantryStyle" 
+           TargetType="Element">
+            <Setter Property="Shell.TabBarBackgroundColor" 
+                Value="#388da2" />
+            <Setter Property="Shell.TabBarTitleColor" 
+                Value="#86fa50" />
+            <Setter Property="Shell.TabBarUnselectedColor" 
+                Value="WhiteSmoke" />
+        </Style>
+
+        <Style x:Key="CalculatorStyle" 
+           TargetType="Element">
+            <Setter Property="Shell.TabBarBackgroundColor" 
+                Value="#9c14be" />
+            <Setter Property="Shell.TabBarTitleColor" 
+                Value="#0084ff" />
+            <Setter Property="Shell.TabBarUnselectedColor" 
+                Value="WhiteSmoke" />
+        </Style>
+
+        <Style x:Key="ProfileStyle" 
+             TargetType="Element">
+            <Setter Property="Shell.TabBarBackgroundColor" 
+                Value="#ff6047" />
+            <Setter Property="Shell.TabBarTitleColor" 
+                Value="#ff0d6a" />
+            <Setter Property="Shell.TabBarUnselectedColor" 
+                Value="WhiteSmoke" />
+        </Style>
+    </Shell.Resources>
+
 
     <Shell.ItemTemplate>
         <DataTemplate>
@@ -43,16 +82,21 @@
     <!-- This are the individual Menu Items Directing to their respective pages-->
     <TabBar>
         <Tab Title="Recipes" Icon="LemonIcon.png">
-        <ShellContent ContentTemplate="{DataTemplate Zest:MainPage}"/>
+        <ShellContent Style="{StaticResource BaseStyle}"
+            ContentTemplate="{DataTemplate Zest:MainPage}"/>
+            
     </Tab>
     <Tab Title="Pantry" Icon="ShopingBasketIcon.png">
-        <ShellContent ContentTemplate="{DataTemplate Zest:PantryPage}"/>
+            <ShellContent Style="{StaticResource PantryStyle}"
+            ContentTemplate="{DataTemplate Zest:PantryPage}"/>
     </Tab>
     <Tab Title="Calculator" Icon="CalculatorIcon.png">
-        <ShellContent ContentTemplate="{DataTemplate Zest:CalculatorPage}"/>
+            <ShellContent Style="{StaticResource CalculatorStyle}"
+            ContentTemplate="{DataTemplate Zest:CalculatorPage}"/>
     </Tab>
     <Tab Title="Profile" Icon="ProfileIcon.png">
-        <ShellContent ContentTemplate="{DataTemplate Zest:ProfilePage}"/>
+            <ShellContent Style="{StaticResource ProfileStyle}"
+            ContentTemplate="{DataTemplate Zest:ProfilePage}"/>
     </Tab>
     </TabBar>
 
