@@ -3,24 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       xmlns:Zest="clr-namespace:ZestHealthApp"
-       mc:Ignorable="d"
+             xmlns:Zest="clr-namespace:ZestHealthApp"
+             mc:Ignorable="d"
+             FlyoutHeaderBehavior="CollapseOnScroll" 
+             FlyoutBackgroundColor="LightGray"
              x:Class="ZestHealthApp.AppShell">
-
-    <TabBar>
-        <Tab Title="Recipes">
+    <!-- ItemTemplate="{DataTemplate views:MenuItem}" Create this file for visuals later-->
+    
+    <!-- This is how you comment in these types of files. Kind of a pain but ok-->
+    <!-- This is the main hub for anything utlizing Shell-->
+    
+    <!-- This Creates a Header from Drawable Resource and Sets it's properties-->
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+                HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="FlyoutHeader.png"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    
+    <!-- This is a template for an item. Each (different) icon will need a seperate one -->
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal" 
+                         Margin="20,0,0,0"
+                         Spacing="20" 
+                         HeightRequest="44">
+                <!--Insert Icons Here-->
+                <Label Text="{Binding Title}"   
+                   FontSize="18"
+                   TextColor="Black"
+                   VerticalOptions="Center"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+ 
+    <!-- This are the individual Menu Items Directing to their respective pages-->
+        <FlyoutItem Title="Recipes">
             <ShellContent ContentTemplate="{DataTemplate Zest:MainPage}"/>
-        </Tab>
-        <Tab Title="Pantry">
+        </FlyoutItem>
+        <FlyoutItem Title="Pantry">
             <ShellContent ContentTemplate="{DataTemplate Zest:PantryPage}"/>
-        </Tab>
-        <Tab Title="Calculator">
+        </FlyoutItem>
+        <FlyoutItem Title="Calculator">
             <ShellContent ContentTemplate="{DataTemplate Zest:CalculatorPage}"/>
-        </Tab>
-        <Tab Title="Profile">
+        </FlyoutItem>
+        <FlyoutItem Title="Profile">
             <ShellContent ContentTemplate="{DataTemplate Zest:ProfilePage}"/>
-        </Tab>
+        </FlyoutItem>
 
-    </TabBar>
+   
 
 </Shell>

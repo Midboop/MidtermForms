@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tkill\\OneDrive\\Desktop\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {}
+    "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tkill\\OneDrive\\Desktop\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+    "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
         "projectName": "ZestHealthApp",
-        "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
         "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\ZestHealthApp\\ZestHealthApp\\obj\\",
+        "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

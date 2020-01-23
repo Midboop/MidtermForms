@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZestHealthApp.Android", "Ze
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZestHealthApp.iOS", "ZestHealthApp.iOS\ZestHealthApp.iOS.csproj", "{9D666077-84DA-4CE2-8E0C-6933D5720D90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZestHealthApp", "ZestHealthApp\ZestHealthApp.csproj", "{2C42CB2C-3390-4A05-8BCC-350440CCE5EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZestHealthApp", "ZestHealthApp\ZestHealthApp.csproj", "{2C42CB2C-3390-4A05-8BCC-350440CCE5EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FCF96453-4F58-49C4-989C-FFE366410DD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
