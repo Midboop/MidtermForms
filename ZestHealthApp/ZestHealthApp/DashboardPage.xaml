@@ -4,17 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ZestHealthApp.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome To Your Recipes!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-
-       
-
-    </StackLayout>
-   
-
+             x:Class="ZestHealthApp.DashboardPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Your Dashboard!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
