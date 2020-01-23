@@ -26,6 +26,20 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Sharpnado.Presentation.Forms/1.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Sharpnado.Infrastructure.dll": {},
+          "lib/netstandard2.0/Sharpnado.Presentation.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Sharpnado.Infrastructure.dll": {},
+          "lib/netstandard2.0/Sharpnado.Presentation.Forms.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -209,6 +223,37 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Sharpnado.Presentation.Forms/1.3.0": {
+      "sha512": "baDTEVvudfaNzdlqZIGdcvNlD7qlwzal6K1grEcVcdQzyIiGGKIkWYlYhWK2yTYyhO475z+mEGchrB/J+orQLw==",
+      "type": "package",
+      "path": "sharpnado.presentation.forms/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Sharpnado.Infrastructure.dll",
+        "lib/MonoAndroid10/Sharpnado.Infrastructure.pdb",
+        "lib/MonoAndroid10/Sharpnado.Presentation.Forms.Droid.dll",
+        "lib/MonoAndroid10/Sharpnado.Presentation.Forms.Droid.pdb",
+        "lib/MonoAndroid10/Sharpnado.Presentation.Forms.dll",
+        "lib/MonoAndroid10/Sharpnado.Presentation.Forms.pdb",
+        "lib/Xamarin.iOS10/Sharpnado.Infrastructure.dll",
+        "lib/Xamarin.iOS10/Sharpnado.Infrastructure.pdb",
+        "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.dll",
+        "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.iOS.dll",
+        "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.iOS.pdb",
+        "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.pdb",
+        "lib/netstandard2.0/Sharpnado.Infrastructure.dll",
+        "lib/netstandard2.0/Sharpnado.Infrastructure.pdb",
+        "lib/netstandard2.0/Sharpnado.Presentation.Forms.dll",
+        "lib/netstandard2.0/Sharpnado.Presentation.Forms.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Infrastructure.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Infrastructure.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Presentation.Forms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Presentation.Forms.pdb",
+        "sharpnado.presentation.forms.1.3.0.nupkg.sha512",
+        "sharpnado.presentation.forms.nuspec"
       ]
     },
     "System.Numerics.Vectors/4.5.0": {
@@ -562,6 +607,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
+      "Sharpnado.Presentation.Forms >= 1.3.0",
       "Xamarin.Essentials >= 1.3.1",
       "Xamarin.Forms >= 4.3.0.908675"
     ]
@@ -613,6 +659,10 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Sharpnado.Presentation.Forms": {
+            "target": "Package",
+            "version": "[1.3.0, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+xmlns:local="clr-ZestHealthApp; assembly:ZestHealthApp" 
+x:Class="ZestHealthApp.Views.GradientColorPage">
+    <Grid VerticalOptions="FillAndExpand" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" BackgroundColor="#3e5151">
+            <StackLayout VerticalOptions="Center">
+                <Label Text="Normal color for StackLayout" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" />
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="1">
+            <local:GradientColorStack StartColor="#3e5151" EndColor="#decba4">
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Label Text="Horizontal Gradient color for StackLayout" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" />
+                </StackLayout>
+            </local:GradientColorStack>
+        </Grid>
+    </Grid>
+</ContentPage> 
