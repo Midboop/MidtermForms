@@ -12,7 +12,7 @@ using Xamarin.Essentials;
 namespace ZestHealthApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PantryPage : ContentPage
+    public partial class PantryPage : CarouselPage
     {
         public PantryPage()
         {

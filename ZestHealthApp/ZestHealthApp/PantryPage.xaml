@@ -1,23 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.PantryPage">
-            
+    
+    
 
+    <ContentPage>
 
-    <!-- Place Content in the same row to stack and overlap-->
-    <ContentPage.Content>
-        <Grid>
-            <magic:GradientView>
-                <magic:GradientView.GradientSource>
-                    <magic:CssGradientSource>
-                        <!-- Css Gradient Code-->
-                        <x:String>
-                            <![CDATA[
+        <!-- Place Content in the same row to stack and overlap-->
+        <ContentPage.Content>
+            <Grid>
+                <magic:GradientView>
+                    <magic:GradientView.GradientSource>
+                        <magic:CssGradientSource>
+                            <!-- Css Gradient Code-->
+                            <x:String>
+                                <![CDATA[
                     linear-gradient(246deg, rgba(234, 234, 234, 0.04) 0%, rgba(234, 234, 234, 0.04) 33.3%,
                     rgba(69, 69, 69, 0.04) 33.3%, rgba(69, 69, 69, 0.04) 66.6%,rgba(189, 189, 189, 0.04) 66.6%, 
                     rgba(189, 189, 189, 0.04) 99.89999999999999%),linear-gradient(81deg, rgba(126, 126, 126, 0.05) 0%, 
@@ -37,20 +39,48 @@
                     rgba(85, 85, 85, 0.03) 99.89999999999999%),linear-gradient(103deg, rgba(247, 247, 247, 0.07) 0%, 
                     rgba(247, 247, 247, 0.07) 33.3%,rgba(93, 93, 93, 0.07) 33.3%, rgba(93, 93, 93, 0.07) 66.6%,rgba(208, 208, 208, 0.07) 66.6%, 
                     rgba(208, 208, 208, 0.07) 99%),linear-gradient(0deg, #0b91d7,#6efc29)]]>
-                        </x:String>
-                    </magic:CssGradientSource>
-                </magic:GradientView.GradientSource>
-            </magic:GradientView>
-            
-            <Label Grid.Row="0"
-                Text="Welcome to Your Pantry!"
+                            </x:String>
+                        </magic:CssGradientSource>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
+
+                <Label Grid.Row="0"
+                Text="Welcome to Your Pantry PART 1!"
                 FontSize="Large"
                 TextColor="WhiteSmoke"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </Grid>
-    </ContentPage.Content>
+            </Grid>
+        </ContentPage.Content>
 
-    
-</ContentPage>
+    </ContentPage>
+    <ContentPage>
+        
+        <!-- Place Content in the same row to stack and overlap-->
+        <ContentPage.Content>
+            <Grid>
+                <magic:GradientView>
+                    <magic:GradientView.GradientSource>
+                        <magic:CssGradientSource>
+                            <!-- Css Gradient Code-->
+                            <x:String>
+                                <![CDATA[
+                                linear-gradient(44deg, rgba(243, 243, 243, 0.05) 0%, rgba(243, 243, 243, 0.05) 33.333%,rgba(79, 79, 79, 0.05) 33.333%, rgba(79, 79, 79, 0.05) 66.666%,rgba(9, 9, 9, 0.05) 66.666%, rgba(9, 9, 9, 0.05) 99.999%),linear-gradient(97deg, rgba(150, 150, 150, 0.05) 0%, rgba(150, 150, 150, 0.05) 33.333%,rgba(34, 34, 34, 0.05) 33.333%, rgba(34, 34, 34, 0.05) 66.666%,rgba(40, 40, 40, 0.05) 66.666%, rgba(40, 40, 40, 0.05) 99.999%),linear-gradient(29deg, rgba(56, 56, 56, 0.05) 0%, rgba(56, 56, 56, 0.05) 33.333%,rgba(226, 226, 226, 0.05) 33.333%, rgba(226, 226, 226, 0.05) 66.666%,rgba(221, 221, 221, 0.05) 66.666%, rgba(221, 221, 221, 0.05) 99.999%),linear-gradient(90deg, rgb(163, 238, 211),rgb(149, 75, 252))
+                                 ]]>
+                            </x:String>
+                        </magic:CssGradientSource>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
+
+                <Label Grid.Row="0"
+                Text="Welcome to Your Pantry PART 2!"
+                FontSize="Large"
+                TextColor="WhiteSmoke"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            </Grid>
+        </ContentPage.Content>
+
+    </ContentPage>
+</CarouselPage>
 
