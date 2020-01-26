@@ -27,6 +27,8 @@
                    TextColor="WhiteSmoke"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
+
+            <Button Text="Logout" TextColor="Blue" Grid.Row="0" Clicked="Button_Clicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" BackgroundColor="#00000000"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

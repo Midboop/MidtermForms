@@ -11,7 +11,7 @@ namespace ZestHealthApp
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
