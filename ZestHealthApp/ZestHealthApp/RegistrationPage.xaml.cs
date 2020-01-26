@@ -44,16 +44,22 @@ namespace ZestHealthApp
                 //        await Navigation.PushModalAsync(new RegistrationPage());
                 //}
                 //else
-                
+
+                //{
                     var result = await this.DisplayAlert("Congratulations!", "User Regitration Successful", "Continue", "Cancel");
                     if (result)
                     {
                         await Navigation.PushModalAsync(new LoginPage());
                     }
-                
 
+                
               
             });
+        }
+
+        async private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new LoginPage());
         }
     }
 }
