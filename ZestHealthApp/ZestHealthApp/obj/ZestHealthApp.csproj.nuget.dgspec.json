@@ -46,6 +46,14 @@
               "target": "Package",
               "version": "[3.0.3, )"
             },
+            "FirebaseAuthentication.net": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.0.4, )"
+            },
             "MagicGradients": {
               "target": "Package",
               "version": "[1.0.0, )"
