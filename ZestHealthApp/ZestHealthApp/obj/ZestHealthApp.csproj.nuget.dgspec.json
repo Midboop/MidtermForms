@@ -46,10 +46,13 @@
               "target": "Package",
               "version": "[3.0.3, )"
             },
+<<<<<<< Updated upstream
             "FirebaseAuthentication.net": {
               "target": "Package",
               "version": "[3.4.0, )"
             },
+=======
+>>>>>>> Stashed changes
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.0.4, )"
@@ -66,7 +69,7 @@
             },
             "Sharpnado.Presentation.Forms": {
               "target": "Package",
-              "version": "[1.3.0, )"
+              "version": "[1.4.0, )"
             },
             "SkiaSharp": {
               "target": "Package",
