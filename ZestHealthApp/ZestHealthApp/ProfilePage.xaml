@@ -22,7 +22,8 @@
             </magic:GradientView>
    
             <Label Grid.Row ="0"
-                   Text="Welcome to Your Profile!"
+                   x:Name="LabelName"
+                   Text="text"
                    FontSize="Large"
                    TextColor="WhiteSmoke"
                    VerticalOptions="CenterAndExpand" 
