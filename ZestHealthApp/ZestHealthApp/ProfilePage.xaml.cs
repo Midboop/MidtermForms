@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZestHealthApp.newViews;
+<<<<<<< Updated upstream
 using ZestHealthApp.Models;
+=======
+>>>>>>> Stashed changes
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZestHealthApp.ViewModel;

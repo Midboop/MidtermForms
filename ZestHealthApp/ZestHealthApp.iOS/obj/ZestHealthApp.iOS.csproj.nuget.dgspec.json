@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[3.0.3, )"
             },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.0.4, )"
+            },
             "MagicGradients": {
               "target": "Package",
               "version": "[1.0.0, )"
@@ -132,10 +136,13 @@
               "version": "[3.0.3, )"
             },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "FirebaseAuthentication.net": {
               "target": "Package",
               "version": "[3.4.0, )"
             },
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             "FirebaseDatabase.net": {

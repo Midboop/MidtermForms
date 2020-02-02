@@ -47,10 +47,13 @@
               "version": "[3.0.3, )"
             },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "FirebaseAuthentication.net": {
               "target": "Package",
               "version": "[3.4.0, )"
             },
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             "FirebaseDatabase.net": {

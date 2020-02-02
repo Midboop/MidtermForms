@@ -13,7 +13,10 @@
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.3" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <PackageReference Include="FirebaseAuthentication.net" Version="3.4.0" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
