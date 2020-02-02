@@ -2879,7 +2879,6 @@
     "MonoAndroid,Version=v9.0": [
       "Com.Airbnb.Android.Lottie >= 3.0.5",
       "Com.Airbnb.Xamarin.Forms.Lottie >= 3.0.3",
-      "FirebaseDatabase.net >= 4.0.4",
       "MagicGradients >= 1.0.0",
       "Sharpnado.Presentation.Forms >= 1.4.0",
       "SkiaSharp >= 1.68.2-preview.21",
@@ -2939,10 +2938,6 @@
           "Com.Airbnb.Xamarin.Forms.Lottie": {
             "target": "Package",
             "version": "[3.0.3, )"
-          },
-          "FirebaseDatabase.net": {
-            "target": "Package",
-            "version": "[4.0.4, )"
           },
           "MagicGradients": {
             "target": "Package",
