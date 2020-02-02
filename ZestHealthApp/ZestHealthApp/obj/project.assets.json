@@ -14,25 +14,6 @@
           "lib/netstandard2.0/Lottie.Forms.dll": {}
         }
       },
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "FirebaseAuthentication.net/3.4.0": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/netstandard1.1/Firebase.Auth.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.1/Firebase.Auth.dll": {}
-        }
-      },
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       "FirebaseDatabase.net/4.0.4": {
         "type": "package",
         "dependencies": {
@@ -115,45 +96,18 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
       "Sharpnado.Presentation.Forms/1.3.0": {
-=======
-      "Sharpnado.Presentation.Forms/1.4.0": {
->>>>>>> Stashed changes
         "type": "package",
         "dependencies": {
-          "Sharpnado.TaskLoaderView": "2.0.0"
+          "Xamarin.Forms": "3.4.0"
         },
         "compile": {
+          "lib/netstandard2.0/Sharpnado.Infrastructure.dll": {},
           "lib/netstandard2.0/Sharpnado.Presentation.Forms.dll": {}
         },
         "runtime": {
+          "lib/netstandard2.0/Sharpnado.Infrastructure.dll": {},
           "lib/netstandard2.0/Sharpnado.Presentation.Forms.dll": {}
-        }
-      },
-      "Sharpnado.TaskLoaderView/2.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Sharpnado.TaskMonitor": "1.0.0",
-          "Xamarin.Forms": "3.4.0.33328"
-        },
-        "compile": {
-          "lib/netstandard2.0/Sharpnado.TaskLoaderView.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Sharpnado.TaskLoaderView.dll": {}
-        }
-      },
-      "Sharpnado.TaskMonitor/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Sharpnado.TaskMonitor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Sharpnado.TaskMonitor.dll": {}
         }
       },
       "SkiaSharp/1.68.2-preview.21": {
@@ -452,24 +406,6 @@
         "readme.txt"
       ]
     },
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    "FirebaseAuthentication.net/3.4.0": {
-      "sha512": "KLoD8nqKe2OwZ9SqyblEle0LM7QtDMEf7eqwzUQxAkMiViKvbSb8Rp9UGTuSkMtsekdYDtreI2H7/5Fq+hnbwg==",
-      "type": "package",
-      "path": "firebaseauthentication.net/3.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "firebaseauthentication.net.3.4.0.nupkg.sha512",
-        "firebaseauthentication.net.nuspec",
-        "lib/netstandard1.1/Firebase.Auth.dll"
-      ]
-    },
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     "FirebaseDatabase.net/4.0.4": {
       "sha512": "XkdKzFT4rU7x1GEO3v0bGmLT7eXDZ/kHa+77mCHn9LP2KjCEQqt1R5tIctwmlaOEVy66Eb4QxHJ5rjaG8Et1/A==",
       "type": "package",
@@ -704,58 +640,35 @@
         "newtonsoft.json.nuspec"
       ]
     },
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     "Sharpnado.Presentation.Forms/1.3.0": {
       "sha512": "baDTEVvudfaNzdlqZIGdcvNlD7qlwzal6K1grEcVcdQzyIiGGKIkWYlYhWK2yTYyhO475z+mEGchrB/J+orQLw==",
-=======
-    "Sharpnado.Presentation.Forms/1.4.0": {
-      "sha512": "4MWis1Eb6QLMNvMTLlBn10F/lx+J4w5GMXmmg7GwNtpJGQiweA0/a/u/PnG6Otq96UHPw6UZscDNELW6ZdSW2A==",
->>>>>>> Stashed changes
       "type": "package",
-      "path": "sharpnado.presentation.forms/1.4.0",
+      "path": "sharpnado.presentation.forms/1.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/MonoAndroid10/Sharpnado.Infrastructure.dll",
+        "lib/MonoAndroid10/Sharpnado.Infrastructure.pdb",
         "lib/MonoAndroid10/Sharpnado.Presentation.Forms.Droid.dll",
-        "lib/MonoAndroid10/Sharpnado.Presentation.Forms.Droid.dll.mdb",
         "lib/MonoAndroid10/Sharpnado.Presentation.Forms.Droid.pdb",
         "lib/MonoAndroid10/Sharpnado.Presentation.Forms.dll",
         "lib/MonoAndroid10/Sharpnado.Presentation.Forms.pdb",
+        "lib/Xamarin.iOS10/Sharpnado.Infrastructure.dll",
+        "lib/Xamarin.iOS10/Sharpnado.Infrastructure.pdb",
         "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.dll",
         "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.iOS.dll",
         "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.iOS.pdb",
         "lib/Xamarin.iOS10/Sharpnado.Presentation.Forms.pdb",
+        "lib/netstandard2.0/Sharpnado.Infrastructure.dll",
+        "lib/netstandard2.0/Sharpnado.Infrastructure.pdb",
         "lib/netstandard2.0/Sharpnado.Presentation.Forms.dll",
         "lib/netstandard2.0/Sharpnado.Presentation.Forms.pdb",
-        "sharpnado.presentation.forms.1.4.0.nupkg.sha512",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Infrastructure.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Infrastructure.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Presentation.Forms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Sharpnado.Presentation.Forms.pdb",
+        "sharpnado.presentation.forms.1.3.0.nupkg.sha512",
         "sharpnado.presentation.forms.nuspec"
-      ]
-    },
-    "Sharpnado.TaskLoaderView/2.0.0": {
-      "sha512": "iT+E4p4w2a17F9AMeVm1z83xHFbtBOig2hraryI+4xrpDckw3Y5eiD8AAx9hgvDpGwN8Tg7tI6uieqRXoVUOLQ==",
-      "type": "package",
-      "path": "sharpnado.taskloaderview/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Sharpnado.TaskLoaderView.dll",
-        "sharpnado.taskloaderview.2.0.0.nupkg.sha512",
-        "sharpnado.taskloaderview.nuspec"
-      ]
-    },
-    "Sharpnado.TaskMonitor/1.0.0": {
-      "sha512": "Yc3P4jOWrF3IVpJSfEookkGkmkbcdvyp/2WLz8dNR5b7/7iyI7tDo64HnyNJ5HVy45g8nrPaGwuauG6rHhZAZg==",
-      "type": "package",
-      "path": "sharpnado.taskmonitor/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Sharpnado.TaskMonitor.dll",
-        "sharpnado.taskmonitor.1.0.0.nupkg.sha512",
-        "sharpnado.taskmonitor.nuspec"
       ]
     },
     "SkiaSharp/1.68.2-preview.21": {
@@ -1921,17 +1834,10 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Com.Airbnb.Xamarin.Forms.Lottie >= 3.0.3",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "FirebaseAuthentication.net >= 3.4.0",
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       "FirebaseDatabase.net >= 4.0.4",
       "MagicGradients >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
-      "Sharpnado.Presentation.Forms >= 1.4.0",
+      "Sharpnado.Presentation.Forms >= 1.3.0",
       "SkiaSharp >= 1.68.2-preview.21",
       "SkiaSharp.Views.Forms >= 1.68.2-preview.21",
       "Xamarin.Essentials >= 1.3.1",
@@ -1985,16 +1891,6 @@
             "target": "Package",
             "version": "[3.0.3, )"
           },
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-          "FirebaseAuthentication.net": {
-            "target": "Package",
-            "version": "[3.4.0, )"
-          },
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
           "FirebaseDatabase.net": {
             "target": "Package",
             "version": "[4.0.4, )"
@@ -2011,7 +1907,7 @@
           },
           "Sharpnado.Presentation.Forms": {
             "target": "Package",
-            "version": "[1.4.0, )"
+            "version": "[1.3.0, )"
           },
           "SkiaSharp": {
             "target": "Package",
