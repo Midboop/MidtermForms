@@ -1,23 +1,28 @@
-﻿using Firebase.Database;
+﻿using Firebase.Auth;
+using Firebase.Database;
 using Firebase.Database.Query;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 using ZestHealthApp.Models;
 
 namespace ZestHealthApp.ViewModel
 {
-    public class FirebaseHelper
+    public class FirebaseHelper : ContentPage
     {
         // Connects to the Firebase DataBase
         public static FirebaseClient firebase = new FirebaseClient("https://zest-app-d7dee.firebaseio.com/");
+        
 
         // Read All
         public static async Task<List<Users>> GetAllUser()
         {
+            
             try
             {
                 var userlist = (await firebase
@@ -38,7 +43,7 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
-        //Read
+        //Read email
         public static async Task<Users> GetUser(string email)
         {
             try
@@ -57,6 +62,7 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
+ 
         // Read name
         public static async Task<Users> GetName(string name)
         {
@@ -67,6 +73,11 @@ namespace ZestHealthApp.ViewModel
                     .Child("Users")
                     .OnceAsync<Users>();
                 return allUsers.Where(a => a.Name == name).FirstOrDefault();
+                // This is me trying to make it display the name, but this way seems to only display the first name from the Users list on the database
+                //return allUsers.Where(a => a.Name == a.Name).FirstOrDefault();
+
+               
+                
             }
 
             catch (Exception e)
@@ -75,6 +86,8 @@ namespace ZestHealthApp.ViewModel
                 return null;
             }
         }
+
+
         //Add user
         public static async Task<bool> AddUser(string email, string password, string name)
         {
@@ -112,7 +125,8 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
-        // Delete user
+
+        // Delete user ---- Maybe use at a later time
         public static async Task<bool> DeleteUser(string email)
         {
             try

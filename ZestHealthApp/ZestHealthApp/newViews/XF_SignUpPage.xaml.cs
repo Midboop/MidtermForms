@@ -15,6 +15,7 @@ namespace ZestHealthApp.newViews
         SignUpVM signUpVM;
         public XF_SignUpPage()
         {
+            // The main setup for the signup page, the meat and taters are in the XF_signup page
             InitializeComponent();
             signUpVM = new SignUpVM();
             BindingContext = signUpVM;

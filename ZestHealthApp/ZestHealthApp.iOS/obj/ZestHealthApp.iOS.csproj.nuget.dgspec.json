@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[3.0.3, )"
             },
+            "FirebaseAuthentication.net": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.0.4, )"
@@ -135,6 +139,10 @@
               "target": "Package",
               "version": "[3.0.3, )"
             },
+            "FirebaseAuthentication.net": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.0.4, )"
@@ -160,6 +168,10 @@
             "SkiaSharp.Views.Forms": {
               "target": "Package",
               "version": "[1.68.2-preview.21, )"
+            },
+            "Spire.PDF": {
+              "target": "Package",
+              "version": "[6.1.8, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

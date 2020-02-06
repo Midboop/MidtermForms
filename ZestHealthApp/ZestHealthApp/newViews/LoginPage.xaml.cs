@@ -21,11 +21,13 @@ namespace ZestHealthApp.newViews
 
         void LoginClicked(object sender, EventArgs e)
         {
+            // logs the user in if the user name and password match
             login.Login(EmailInput.Text, PasswordInput.Text);
         }
 
         async void SignUpClicked(object sender, EventArgs e)
         {
+            // Creates new signup page if the signup button is clocked
             await Navigation.PushModalAsync(new XF_SignUpPage());
         }
     }

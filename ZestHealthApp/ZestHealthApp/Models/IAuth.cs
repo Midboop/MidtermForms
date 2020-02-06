@@ -7,6 +7,7 @@ namespace ZestHealthApp.Models
 {
     public interface IAuth
     {
+        // Login with email and password is true
         Task<string> LoginWithEmailPassword(string email, string password);
     }
 }

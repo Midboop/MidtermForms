@@ -20,6 +20,7 @@ namespace ZestHealthApp.ViewModel
             get { return email; }
             set
             {
+                // sets the email value in the database
                 email = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Email"));
             }
@@ -33,7 +34,8 @@ namespace ZestHealthApp.ViewModel
         {
             get { return password; }
             set
-            {
+            { 
+                // and the password value
                 password = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Password"));
             }
@@ -46,11 +48,13 @@ namespace ZestHealthApp.ViewModel
             get { return name; }
             set
             {
+                // and the name
                 name = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
+        // Not sure why this didn't work, it always popped up invalid if I tried it. Coming back at a later date
         //private string confirmpassword;
 
         //public string ConfirmPassowrd
@@ -70,7 +74,7 @@ namespace ZestHealthApp.ViewModel
                 return new Command(() =>
                 {
                    // if (Password == ConfirmPassowrd)
-                        SignUp();
+                        SignUp(); // initiates signup
                     //else
                     //    App.Current.MainPage.DisplayAlert("", "Password Must be the same", "OK");
                 });
