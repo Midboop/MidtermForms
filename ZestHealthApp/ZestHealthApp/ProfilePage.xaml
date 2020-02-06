@@ -21,8 +21,8 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
    
-            <Label Grid.Row ="0"
-                   Text="Welcome to Your Profile!"
+            <Label Grid.Row ="0" x:Name="DisplayName"
+                   Text="{Binding DisplayName}"
                    FontSize="Large"
                    TextColor="WhiteSmoke"
                    VerticalOptions="CenterAndExpand" 
