@@ -22,12 +22,11 @@ namespace ZestHealthApp.ViewModel
                     if(email == user.Email && password == user.Password)
                     {
                         // if login is successful
-                        await App.Current.MainPage.DisplayAlert("Login Success", "", "OK");
                          App.Current.MainPage = new AppShell(); // This is why the navigation bar didn't work. The main page MUST be an AppShell
                         
                     }
                     else
-                        await App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct Email and Password", "OK"); // one way for unsuccessful login
+                        await App.Current.MainPage.DisplayAlert("Login Fail", "Incorrect Email or Passcode", "OK"); // one way for unsuccessful login
                     else
                         await App.Current.MainPage.DisplayAlert("Login Fail", "User not found", "OK");
                 
