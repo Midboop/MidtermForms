@@ -104,6 +104,47 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
+
+        // Add pantry items to the database
+        public static async Task<bool> AddPantryItem(string itemname, string cals, string quantity )
+        {
+            try
+            {
+                await firebase
+                    .Child("PantryItems")
+                    .PostAsync(new PantryItems { ItemName = itemname, Calories = cals, Quantity = quantity });
+                return true;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+        // Read all pantry items
+        public static async Task<List<PantryItems>> GetPantry()
+        {
+            try
+            {
+                var userlist = (await firebase
+                .Child("PantryItems")
+                .OnceAsync<PantryItems>()).Select(item =>
+                new PantryItems
+                {
+                    ItemName = item.Object.ItemName,
+                    Calories = item.Object.Calories,
+                    Quantity = item.Object.Quantity
+                }).ToList();
+                return userlist;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
         // Update user info
         public static async Task<bool> UpdateUser(string email, string password, string name)
         {

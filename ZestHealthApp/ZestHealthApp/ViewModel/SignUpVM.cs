@@ -7,7 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Linq;
 using System.Threading.Tasks;
-
+using ZestHealthApp.newViews;
 
 
 namespace ZestHealthApp.ViewModel
@@ -92,7 +92,7 @@ namespace ZestHealthApp.ViewModel
                 {
                     await App.Current.MainPage.DisplayAlert("SignUp Success!", "", "OK");
 
-                    await App.Current.MainPage.Navigation.PushModalAsync(new AppShell());
+                    await App.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
                 }
                 else
                     await App.Current.MainPage.DisplayAlert("Error", "SignUp Fail", "OK");

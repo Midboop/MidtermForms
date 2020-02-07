@@ -8,6 +8,8 @@ using ZestHealthApp;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using Rg.Plugins.Popup.Services;
+using ZestHealthApp.newViews;
 
 namespace ZestHealthApp
 {
@@ -18,6 +20,11 @@ namespace ZestHealthApp
         {
             InitializeComponent();
           
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new PopupNewTaskView());
         }
     }
 }

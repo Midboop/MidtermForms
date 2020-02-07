@@ -14,6 +14,7 @@
         <!-- Place Content in the same row to stack and overlap-->
         <ContentPage.Content>
             <Grid>
+
                 <magic:GradientView>
                     <magic:GradientView.GradientSource>
                         <magic:CssGradientSource>
@@ -50,6 +51,15 @@
                 TextColor="WhiteSmoke"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+                <Button Grid.Column="0" Grid.Row="0" Text="New Item"
+                        Margin="100,50"
+                        BackgroundColor="DodgerBlue" 
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="End"
+                        CornerRadius="20"
+                        TextColor="White"
+                        Clicked="Button_Clicked"/>
             </Grid>
         </ContentPage.Content>
 
