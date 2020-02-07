@@ -96,6 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\splashLoader.json" />
+    <AndroidAsset Include="Assets\welcome.json" />
+    <AndroidAsset Include="Assets\gradientBackground.json" />
+    <AndroidAsset Include="Assets\gradientLines.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -152,6 +155,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\zestblanklogo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\zestcolor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\KeyIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

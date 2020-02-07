@@ -3,42 +3,121 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.newViews.LoginPage">
+    
     <ContentPage.Content>
+
         <StackLayout >
+           
+            <Grid ColumnSpacing="15" RowSpacing="30">
+                <Grid.RowDefinitions>
+                   <!--Zest Image 0--> 
+                    <RowDefinition Height="Auto" />
+                   <!--Username Icon and Entry 1--> 
+                    <RowDefinition Height="50" />
+                   <!--Password Icon and Entry 2--> 
+                    <RowDefinition Height="50" />
+                   <!--Spacer 3-->
+                    <RowDefinition Height="60" />
+                   <!--Enter Button 4-->
+                    <RowDefinition Height="40" />
+                   <!--New Account Button 5-->
+                    <RowDefinition Height="40" />
+                   <!--Remaining Page Length 6-->
+                    <RowDefinition Height="*" />
+                    
+                </Grid.RowDefinitions>
 
-            <Label
-                Text="Zest"
-                HorizontalOptions="Center"
-                TextColor="#4682B4"
-                FontSize="35"
-  
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10" />
+                        
+                </Grid.ColumnDefinitions>
+
+                <lottie:AnimationView 
+                     Grid.Row="0" 
+                     Grid.Column ="0" 
+                     Grid.RowSpan="7"
+                     Grid.ColumnSpan="4" 
+                     Loop ="true" 
+                     ScaleX = "2.0"
+                     Speed= ".3"
+                     AutoPlay ="true" 
+                     Animation ="gradientBackground.json"
+                 />
+                
+                <Image Source="zestblanklogo.png" 
+                     HeightRequest="175"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="4" 
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                />
+                
+                <Image Source="ProfileIcon.png" 
+                     HeightRequest="30"
+                     WidthRequest="30"
+                     VerticalOptions="Center"
+                     Grid.Row="1" Grid.Column="1"
+                />
+                
+                <Image Source="KeyIcon.png" 
+                     HeightRequest="20"
+                     WidthRequest="20"
+                     VerticalOptions="Center"
+                     Grid.Row="2" Grid.Column="1"
                 />
 
-            <Entry
-                Placeholder="Username"
-                Keyboard="Email"
-                x:Name="EmailInput"
+                <Entry 
+                    ClearButtonVisibility="WhileEditing"
+                    Grid.Row="1" Grid.Column="2"
+                    Placeholder="Username"
+                    Keyboard="Email"
+                    x:Name="EmailInput"
+                    
                 />
-            <Entry
-                Placeholder="Password"
-                IsPassword="True"
-                x:Name="PasswordInput"
+                
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    Grid.Row="2" Grid.Column="2"
+                    Placeholder="Password"
+                    IsPassword="True"
+                    x:Name="PasswordInput"
+                    ReturnType="Send"
+                   
                 />
-            <Button
-                Text="Enter"
-                Clicked="LoginClicked"
-                Margin="60, 40"
-                BackgroundColor="#4682B4"
-                TextColor="White"
+                
+                <Button
+                    Text="Enter"
+                    Clicked="LoginClicked"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    CornerRadius="10"
+                    WidthRequest="100"
+                    BackgroundColor="DarkViolet"
+                    TextColor="White"
                 />
-            <Button
-                Text="SignUp"
-                Clicked="SignUpClicked"
-                Margin="60,40"
-                TextColor="Blue"
+
+                <Button
+                    Text="Create Account"
+                    Clicked="SignUpClicked"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    WidthRequest="150"
+                    CornerRadius="10"
+                    BackgroundColor="LightGray"
+                    TextColor="DarkViolet"
                 />
+                
+            </Grid>
+           
 
         </StackLayout>
     </ContentPage.Content>

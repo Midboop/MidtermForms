@@ -43,7 +43,7 @@ namespace ZestHealthApp.Droid
             SetContentView(Resource.Layout.splash);
             animationView = FindViewById<LottieAnimationView>(Resource.Id.lottie_animationView);
             animationView.AddAnimatorListener(this);
-            animationView.RepeatCount = 1;
+            animationView.RepeatCount = 0;
             animationView.PlayAnimation();
         }
 
