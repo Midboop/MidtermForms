@@ -92,7 +92,7 @@ namespace ZestHealthApp.ViewModel
                 {
                     await App.Current.MainPage.DisplayAlert("SignUp Success!", "", "OK");
 
-                    await App.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+                    await App.Current.MainPage.Navigation.PopModalAsync();
                 }
                 else
                     await App.Current.MainPage.DisplayAlert("Error", "SignUp Fail", "OK");
