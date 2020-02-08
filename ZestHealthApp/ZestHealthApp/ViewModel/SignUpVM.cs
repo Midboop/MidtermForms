@@ -7,7 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Linq;
 using System.Threading.Tasks;
-
+using ZestHealthApp.newViews;
 
 
 namespace ZestHealthApp.ViewModel

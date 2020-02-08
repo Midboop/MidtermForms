@@ -29,6 +29,7 @@ namespace ZestHealthApp.newViews
         {
             // Creates new signup page if the signup button is clocked
             await Navigation.PushModalAsync(new XF_SignUpPage());
+           
         }
     }
 
