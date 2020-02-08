@@ -44,12 +44,21 @@
                     </magic:GradientView.GradientSource>
                 </magic:GradientView>
 
-                <Label Grid.Row="0"
-                Text="Welcome to Your Pantry PART 1!"
-                FontSize="Large"
-                TextColor="WhiteSmoke"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                <StackLayout Grid.Row="0">
+                    <Frame CornerRadius="10" HasShadow="True" Margin="15" BorderColor="Gray" Padding="8" HeightRequest="30">
+                        <Grid  ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="3" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                            <Label Grid.Column="2" Text="Watermelon" VerticalTextAlignment="Center" />
+                            <Label Grid.Column="3" Text="exp 10/1" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
             </Grid>
         </ContentPage.Content>
 
@@ -72,12 +81,7 @@
                     </magic:GradientView.GradientSource>
                 </magic:GradientView>
 
-                <Label Grid.Row="0"
-                Text="Welcome to Your Pantry PART 2!"
-                FontSize="Large"
-                TextColor="WhiteSmoke"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+               
             </Grid>
         </ContentPage.Content>
 
