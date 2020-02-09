@@ -16,8 +16,8 @@ namespace ZestHealthApp
             InitializeComponent();
 
 
-            MainPage = new AppShell();
-            //MainPage = new FacebookLoginPage();
+           // MainPage = new AppShell();
+            MainPage = new FacebookLoginPage();
         }
         protected override void OnStart()
         {
