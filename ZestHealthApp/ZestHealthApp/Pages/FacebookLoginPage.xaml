@@ -10,19 +10,19 @@
 
         <StackLayout >
 
-            <Grid ColumnSpacing="15" RowSpacing="30">
+            <Grid ColumnSpacing="15" RowSpacing="20">
                 <Grid.RowDefinitions>
-                    <!--Spacer-->
+                    <!--Spacer 0-->
                     <RowDefinition Height="40" />
-                    <!--Zest Image 0-->
+                    <!--Zest Image 1-->
                     <RowDefinition Height="175" />
-                    <!--Spacer-->
-                    <RowDefinition Height="140" />
-                    <!--Enter Button 4-->
-                    <RowDefinition Height="40" />
-                    <!--New Account Button 5-->
-                    <RowDefinition Height="40" />
-                    <!--Remaining Page Length -->
+                    <!--Spacer 2-->
+                    <RowDefinition Height="190" />
+                    <!--Google Button 3-->
+                    <RowDefinition Height="*" />
+                    <!--Facebook Button 4-->
+                    <RowDefinition Height="*" />
+                    <!--Remaining Page Length 5-->
                     <RowDefinition Height="*" />
 
                 </Grid.RowDefinitions>
@@ -46,22 +46,41 @@
                      HorizontalOptions="CenterAndExpand"
                 />
 
+                <BoxView BackgroundColor="Snow"
+                         Grid.Row="3"
+                         Opacity=".4"
+                         HeightRequest="55"
+                         WidthRequest="55"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center" 
+                         CornerRadius="10" />
+
+                <ImageButton Source="gIcon.png"
+                     BackgroundColor="Transparent"
+                     Grid.Row="3"
+                     HeightRequest="40"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center" 
+                     Clicked="Button_Clicked"/>
 
 
-                <ImageButton Source="GoogleLogo.png"
-                    Grid.Row="2"
-                     HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
-                             CornerRadius="15"
-                      Clicked="Button_Clicked"/>
+                <BoxView BackgroundColor="Snow"
+                         Grid.Row="4"
+                         Opacity=".4"
+                         HeightRequest="55"
+                         WidthRequest="55"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center" 
+                         CornerRadius="10" />
 
-                <ImageButton Source="FacebookLogo.png"
-                    Grid.Row="3"
-                    HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
-                    CornerRadius="15"
-                             
+                <ImageButton Source="facebookIcon.png"
+                    BackgroundColor="Transparent"
+                    Grid.Row="4"
+                    HeightRequest="40"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" 
                     Clicked="ImageButton_Clicked" />
+
 
             </Grid>
         </StackLayout>

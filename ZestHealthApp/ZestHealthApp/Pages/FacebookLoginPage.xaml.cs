@@ -14,6 +14,7 @@ namespace ZestHealthApp.Pages
     {
         GoogleVM vm;
         FacebookVM vm2;
+
         public FacebookLoginPage()
         {
             InitializeComponent();
