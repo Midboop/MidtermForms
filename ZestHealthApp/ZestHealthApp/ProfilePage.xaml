@@ -9,7 +9,7 @@
 
     <ContentPage.Content>
         <Grid>
-            <magic:GradientView>
+            <magic:GradientView Grid.Row="0">
                 <magic:GradientView.GradientSource>
                     <magic:CssGradientSource>
                         <!-- Css Gradient Code-->
@@ -20,15 +20,23 @@
                     </magic:CssGradientSource>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
-   
-            <Label Grid.Row ="0" x:Name="DisplayName"
-                   Text="{Binding DisplayName}"
-                   FontSize="Large"
-                   TextColor="WhiteSmoke"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+
+            <Image x:Name="imgProfilePicture" Source="ProfilePicture.png" Grid.Row="1"></Image>
+            <Label></Label>
+
+
+            <Label x:Name="lblFirstNameValue" FontSize="Large" Text="First Name : " Grid.Row="2"/>
+            <Label></Label>
+
+            <Label x:Name="lblLastNameValue" FontSize="Large" Text="Last Name :" Grid.Row="3"/>
+            <Label></Label>
+
+            <Label x:Name="lblEmailAddressValue" FontSize="Large" Text="Email Address : " Grid.Row="4"/>
+            <Label></Label>
 
             <Button Text="Logout" TextColor="Blue" Grid.Row="0" Clicked="Button_Clicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" BackgroundColor="#00000000"/>
+
+            <!--<Button Text="Logout" TextColor="Blue" Grid.Row="0" Clicked="Button_Clicked" VerticalOptions="End" HorizontalOptions="CenterAndExpand" BackgroundColor="#00000000"/>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

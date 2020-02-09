@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             mc:Ignorable="d"
+             x:Class="ZestHealthApp.Pages.FacebookLoginPage">
+    <ContentPage.Content>
+
+        <StackLayout >
+
+            <Grid ColumnSpacing="15" RowSpacing="30">
+                <Grid.RowDefinitions>
+                    <!--Spacer-->
+                    <RowDefinition Height="40" />
+                    <!--Zest Image 0-->
+                    <RowDefinition Height="175" />
+                    <!--Spacer-->
+                    <RowDefinition Height="140" />
+                    <!--Enter Button 4-->
+                    <RowDefinition Height="40" />
+                    <!--New Account Button 5-->
+                    <RowDefinition Height="40" />
+                    <!--Remaining Page Length -->
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+
+
+
+                <lottie:AnimationView 
+                     Grid.Row="0" 
+                     Grid.RowSpan="4"
+                     Loop ="true" 
+                     Scale = "2.0"
+                     Speed = ".3"
+                     AutoPlay ="true" 
+                     Animation ="gradientBackground.json"
+                 />
+
+                <Image Source="zestblanklogo.png" 
+                     HeightRequest="175"
+                     Grid.Row="1"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                />
+
+
+
+                <ImageButton Source="GoogleLogo.png"
+                    Grid.Row="2"
+                     HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                             CornerRadius="15"
+                      Clicked="Button_Clicked"/>
+
+                <ImageButton Source="FacebookLogo.png"
+                    Grid.Row="3"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    CornerRadius="15"
+                             
+                    Clicked="ImageButton_Clicked" />
+
+            </Grid>
+        </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>

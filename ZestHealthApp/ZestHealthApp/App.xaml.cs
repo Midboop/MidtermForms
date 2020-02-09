@@ -2,19 +2,23 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SkiaSharp.Views.Forms;
-using ZestHealthApp.newViews;
+using ZestHealthApp.Services;
+using ZestHealthApp.Pages;
 
 namespace ZestHealthApp
 {
     public partial class App : Application
     {
+      
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
-        }
+            
 
+            MainPage = new FacebookLoginPage();
+        }
         protected override void OnStart()
         {
         }

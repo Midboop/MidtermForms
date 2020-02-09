@@ -52,7 +52,7 @@
             },
             "FirebaseAuthentication.net": {
               "target": "Package",
-              "version": "[3.4.0, )"
+              "version": "[4.0.0-alpha.1, )"
             },
             "FirebaseDatabase.net": {
               "target": "Package",
@@ -62,9 +62,13 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[1.2.0.223, )"
+            },
             "Sharpnado.Presentation.Forms": {
               "target": "Package",
-              "version": "[1.3.0, )"
+              "version": "[1.4.0, )"
             },
             "SkiaSharp": {
               "target": "Package",
@@ -74,13 +78,21 @@
               "target": "Package",
               "version": "[1.68.2-preview.21, )"
             },
+            "Xamarin.Android.Support.v7.CardView": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
             },
+            "Xamarin.Facebook.Android": {
+              "target": "Package",
+              "version": "[5.11.2, )"
+            },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.4.0.991537, )"
+              "version": "[4.4.0.991640, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
@@ -134,7 +146,7 @@
             },
             "FirebaseAuthentication.net": {
               "target": "Package",
-              "version": "[3.4.0, )"
+              "version": "[4.0.0-alpha.1, )"
             },
             "FirebaseDatabase.net": {
               "target": "Package",
@@ -150,9 +162,13 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[1.2.0.223, )"
+            },
             "Sharpnado.Presentation.Forms": {
               "target": "Package",
-              "version": "[1.3.0, )"
+              "version": "[1.4.0, )"
             },
             "SkiaSharp": {
               "target": "Package",
@@ -166,13 +182,17 @@
               "target": "Package",
               "version": "[6.1.8, )"
             },
+            "Xamarin.Auth": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.4.0.991537, )"
+              "version": "[4.4.0.991640, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
