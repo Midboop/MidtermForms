@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj": {}
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj": {
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
+        "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
         "projectName": "ZestHealthApp.iOS",
-        "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
-        "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\obj\\",
+        "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
+        "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+        "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -27,14 +27,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
-                "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
+              "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+                "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
               }
             }
           }
@@ -49,7 +48,7 @@
             },
             "FirebaseAuthentication.net": {
               "target": "Package",
-              "version": "[3.4.0, )"
+              "version": "[4.0.0-alpha.1, )"
             },
             "FirebaseDatabase.net": {
               "target": "Package",
@@ -65,7 +64,7 @@
             },
             "Sharpnado.Presentation.Forms": {
               "target": "Package",
-              "version": "[1.3.0, )"
+              "version": "[1.4.0, )"
             },
             "SkiaSharp": {
               "target": "Package",
@@ -75,17 +74,13 @@
               "target": "Package",
               "version": "[1.68.2-preview.21, )"
             },
-            "Xamarin.Android.Support.v7.CardView": {
-              "target": "Package",
-              "version": "[28.0.0.3, )"
-            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.4.0.991537, )"
+              "version": "[4.4.0.991640, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
@@ -106,20 +101,20 @@
         }
       }
     },
-    "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
         "projectName": "ZestHealthApp",
-        "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
-        "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\obj\\",
+        "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+        "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -128,8 +123,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
@@ -151,7 +145,7 @@
             },
             "FirebaseAuthentication.net": {
               "target": "Package",
-              "version": "[3.4.0, )"
+              "version": "[4.0.0-alpha.1, )"
             },
             "FirebaseDatabase.net": {
               "target": "Package",
@@ -173,7 +167,7 @@
             },
             "Sharpnado.Presentation.Forms": {
               "target": "Package",
-              "version": "[1.3.0, )"
+              "version": "[1.4.0, )"
             },
             "SkiaSharp": {
               "target": "Package",
@@ -187,13 +181,17 @@
               "target": "Package",
               "version": "[6.1.8, )"
             },
+            "Xamarin.Auth": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.4.0.991537, )"
+              "version": "[4.4.0.991640, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",

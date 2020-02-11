@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             mc:Ignorable="d"
+             x:Class="ZestHealthApp.Pages.FacebookLoginPage">
+    <ContentPage.Content>
+
+        <StackLayout >
+
+            <Grid ColumnSpacing="15" RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <!--Spacer 0-->
+                    <RowDefinition Height="40" />
+                    <!--Zest Image 1-->
+                    <RowDefinition Height="175" />
+                    <!--Spacer 2-->
+                    <RowDefinition Height="190" />
+                    <!--Google Button 3-->
+                    <RowDefinition Height="*" />
+                    <!--Facebook Button 4-->
+                    <RowDefinition Height="*" />
+                    <!--Remaining Page Length 5-->
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+
+
+
+                <lottie:AnimationView 
+                     Grid.Row="0" 
+                     Grid.RowSpan="4"
+                     Loop ="true" 
+                     Scale = "2.0"
+                     Speed = ".3"
+                     AutoPlay ="true" 
+                     Animation ="gradientBackground.json"
+                 />
+
+                <Image Source="zestblanklogo.png" 
+                     HeightRequest="175"
+                     Grid.Row="1"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                />
+
+                <BoxView BackgroundColor="Snow"
+                         Grid.Row="3"
+                         Opacity=".4"
+                         HeightRequest="55"
+                         WidthRequest="55"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center" 
+                         CornerRadius="10" />
+
+                <ImageButton Source="gIcon.png"
+                     BackgroundColor="Transparent"
+                     Grid.Row="3"
+                     HeightRequest="40"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center" 
+                     Clicked="Button_Clicked"/>
+
+
+                <BoxView BackgroundColor="Snow"
+                         Grid.Row="4"
+                         Opacity=".4"
+                         HeightRequest="55"
+                         WidthRequest="55"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center" 
+                         CornerRadius="10" />
+
+                <ImageButton Source="facebookIcon.png"
+                    BackgroundColor="Transparent"
+                    Grid.Row="4"
+                    HeightRequest="40"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" 
+                    Clicked="ImageButton_Clicked" />
+
+
+            </Grid>
+        </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
