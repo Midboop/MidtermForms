@@ -90,7 +90,15 @@ namespace ZestHealthApp
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            Application.Current.Properties["IsLoggedIn"] = Boolean.FalseString;
+            Application.Current.Properties.Remove("Id");
+            Application.Current.Properties.Remove("FirstName");
+            Application.Current.Properties.Remove("LastName");
+            Application.Current.Properties.Remove("DisplayName");
+            Application.Current.Properties.Remove("EmailAddress");
+            Application.Current.Properties.Remove("ProfilePicture");
             await Navigation.PushModalAsync(new FacebookLoginPage());
+            
         }
     }
 }

@@ -77,9 +77,9 @@ namespace ZestHealthApp.ViewModel
 				// If the user is authenticated, request their basic user data from Google
 				// UserInfoUrl = https://www.googleapis.com/oauth2/v2/userinfo
 				var request = new OAuth2Request("GET", new Uri(Constants.UserInfoUrl), null, e.Account);
-				//var request2 = new OAuth2Request("GET", new Uri(Constants.UserProfileUrl), null, e.Account);
+				
 				var response = await request.GetResponseAsync();
-				//var response2 = await request2.GetResponseAsync();
+				
 				if (response != null)
 				{
 					// Deserialize the data and store it in the account store
@@ -87,22 +87,16 @@ namespace ZestHealthApp.ViewModel
 					string userJson = await response.GetResponseTextAsync();
 					user = JsonConvert.DeserializeObject<GoogleUsers>(userJson);
 				}
-				//if (response2 != null)
-				//{
-				//	// Deserialize the data and store it in the account store
-				//	// The users email address will be used to identify data in SimpleDB
-				//	string userJson2 = await response2.GetResponseTextAsync();
-				//	user = JsonConvert.DeserializeObject<GoogleUsers>(userJson2);
-				//}
+
 
 				if (account != null)
 				{
 					store.Delete(account, Constants.AppName);
 				}
-				//await Navigation.PushModalAsync(new AppShell());
+			
 
 
-
+				
 
 				await store.SaveAsync(account = e.Account, Constants.AppName);
 				Application.Current.Properties.Remove("Id");
@@ -111,6 +105,8 @@ namespace ZestHealthApp.ViewModel
 				Application.Current.Properties.Remove("DisplayName");
 				Application.Current.Properties.Remove("EmailAddress");
 				Application.Current.Properties.Remove("ProfilePicture");
+			//	Application.Current.Properties.Remove("IsLoggedIn");
+					
 
 				Application.Current.Properties.Add("Id", user.Id);
 				Application.Current.Properties.Add("FirstName", user.GivenName);
@@ -118,10 +114,12 @@ namespace ZestHealthApp.ViewModel
 				Application.Current.Properties.Add("DisplayName", user.Name);
 				Application.Current.Properties.Add("EmailAddress", user.Email);
 				Application.Current.Properties.Add("ProfilePicture", user.Picture);
+				//Application.Current.Properties.Add("IsLoggedIn", user.isLoggedIn);
 
 				//await Navigation.PushModalAsync(new AppShell());
 				App.Current.MainPage = new AppShell();
-				await DisplayAlert("Name ", user.GivenName, "OK");
+				//await DisplayAlert("Name ", user.GivenName, "OK");
+				Application.Current.Properties["IsLoggedIn"] = Boolean.TrueString;
 			}
 		}
 

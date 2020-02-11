@@ -68,14 +68,14 @@ namespace ZestHealthApp.ViewModel
                 authenticator.Completed -= OnAuthCompleted;
                 authenticator.Error -= OnAuthError;
             }
-
+           
 
             if (e.IsAuthenticated)
             {
                 if (authenticator.AuthorizeUrl.Host == "www.facebook.com")
                 {
                     FacebookEmail facebookEmail = null;
-                    GoogleUsers user = null;
+                   
                     
 
                     var httpClient = new HttpClient();
@@ -85,7 +85,7 @@ namespace ZestHealthApp.ViewModel
                     facebookEmail = JsonConvert.DeserializeObject<FacebookEmail>(json);
 
                     await store.SaveAsync(account = e.Account, Constants.AppName);
-
+                    Application.Current.Properties["IsLoggedIn"] = Boolean.TrueString;
 
                     Application.Current.Properties.Remove("Id");
                     Application.Current.Properties.Remove("FirstName");
@@ -100,49 +100,12 @@ namespace ZestHealthApp.ViewModel
                     Application.Current.Properties.Add("DisplayName", facebookEmail.Name);
                     Application.Current.Properties.Add("EmailAddress", facebookEmail.Email);
                     Application.Current.Properties.Add("ProfilePicture", facebookEmail.Picture.Data.Url);
-                    faceBook = true;
-
+                    
+                    
                     App.Current.MainPage = new AppShell();
                 }
-                else
-                {
-                    GoogleUsers user = null;
-
-                    // If the user is authenticated, request their basic user data from Google
-                    // UserInfoUrl = https://www.googleapis.com/oauth2/v2/userinfo
-                    var request = new OAuth2Request("GET", new Uri(Constants.UserInfoUrl), null, e.Account);
-                    var response = await request.GetResponseAsync();
-                    if (response != null)
-                    {
-                        // Deserialize the data and store it in the account store
-                        // The users email address will be used to identify data in SimpleDB
-                        string userJson = await response.GetResponseTextAsync();
-                        user = JsonConvert.DeserializeObject<GoogleUsers>(userJson);
-                    }
-
-                    if (account != null)
-                    {
-                        store.Delete(account, Constants.AppName);
-                    }
-
-                    await store.SaveAsync(account = e.Account, Constants.AppName);
-
-                    Application.Current.Properties.Remove("Id");
-                    Application.Current.Properties.Remove("given_name");
-                    Application.Current.Properties.Remove("LastName");
-                    Application.Current.Properties.Remove("DisplayName");
-                    Application.Current.Properties.Remove("EmailAddress");
-                    Application.Current.Properties.Remove("ProfilePicture");
-
-                    Application.Current.Properties.Add("Id", user.Id);
-                    Application.Current.Properties.Add("given_name", user.GivenName);
-                    Application.Current.Properties.Add("LastName", user.FamilyName);
-                    Application.Current.Properties.Add("DisplayName", user.Name);
-                    Application.Current.Properties.Add("EmailAddress", user.Email);
-                    Application.Current.Properties.Add("ProfilePicture", user.Picture);
-
-                    App.Current.MainPage = new AppShell();
-                }
+              
+               
             }
         }
 
