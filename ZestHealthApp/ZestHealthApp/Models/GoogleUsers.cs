@@ -35,6 +35,7 @@ namespace ZestHealthApp.Models
 		[JsonProperty("gender")]
 		public string Gender { get; set; }
 
+		public List<Object> PantryList;
 
 		public bool isLoggedIn = false;
 	}

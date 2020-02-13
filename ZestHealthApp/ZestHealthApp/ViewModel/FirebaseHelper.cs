@@ -16,7 +16,7 @@ namespace ZestHealthApp.ViewModel
     public class FirebaseHelper : ContentPage
     {
         // Connects to the Firebase DataBase
-        public static FirebaseClient firebase = new FirebaseClient("https://zest-app-d7dee.firebaseio.com/");
+        public static FirebaseClient firebase = new FirebaseClient("https://zesthealth-1f666.firebaseio.com/");
         
 
         // Read All
@@ -106,13 +106,13 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Add pantry items to the database
-        public static async Task<bool> AddPantryItem(string itemname, string cals, string quantity )
+        public static async Task<bool> AddPantryItem(string name, string amount, string cals )
         {
             try
             {
                 await firebase
                     .Child("PantryItems")
-                    .PostAsync(new PantryItems { ItemName = itemname, Calories = cals, Quantity = quantity });
+                    .PostAsync(new PantryItems { ItemName = name, Calories = cals, Quantity = amount });
                 return true;
             }
             catch(Exception e)
@@ -186,6 +186,8 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
+
+        
     }
 
  

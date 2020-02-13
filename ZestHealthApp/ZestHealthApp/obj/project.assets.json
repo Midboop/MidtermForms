@@ -40,6 +40,12 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "Fody/6.1.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
       "LiteDB/4.1.4": {
         "type": "package",
         "dependencies": {
@@ -106,6 +112,22 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/PropertyChanged.Fody.props": {}
         }
       },
       "Rg.Plugins.Popup/1.2.0.223": {
@@ -524,6 +546,39 @@
         "lib/netstandard2.0/Firebase.xml"
       ]
     },
+    "Fody/6.1.0": {
+      "sha512": "64W16axa5vtBF3J5UqR5cNNGcJ+tRKa7owYNbzIWWx2mjXbmCqfpjWLEGTAL0YEe8YE4QMde+WN7w6IY3tspYQ==",
+      "type": "package",
+      "path": "fody/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.1.0.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
     "LiteDB/4.1.4": {
       "sha512": "g4g9JlHzRBZl+Gd2UbiRdszZ7t8wozU2wX7+5xY5uE79tmcgcDhha+ubAP84G1VLbwQmhBGCzRfIx+epLmJciQ==",
       "type": "package",
@@ -743,6 +798,24 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "PropertyChanged.Fody/3.2.6": {
+      "sha512": "LpeV66T+AcWB9NTuGjGE7dm4ykudqZEByQdYvzK0PS0uwKUgU/vOqUSaTueSq6ZY0Mbg0mDdoQbKUDZKwpuj0g==",
+      "type": "package",
+      "path": "propertychanged.fody/3.2.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/PropertyChanged.Fody.props",
+        "lib/net40/PropertyChanged.dll",
+        "lib/net40/PropertyChanged.xml",
+        "lib/netstandard1.0/PropertyChanged.dll",
+        "lib/netstandard1.0/PropertyChanged.xml",
+        "propertychanged.fody.3.2.6.nupkg.sha512",
+        "propertychanged.fody.nuspec",
+        "weaver/PropertyChanged.Fody.dll",
+        "weaver/PropertyChanged.Fody.xcf"
       ]
     },
     "Rg.Plugins.Popup/1.2.0.223": {
@@ -2121,6 +2194,7 @@
       "FirebaseDatabase.net >= 4.0.4",
       "MagicGradients >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
+      "PropertyChanged.Fody >= 3.2.6",
       "Rg.Plugins.Popup >= 1.2.0.223",
       "Sharpnado.Presentation.Forms >= 1.4.0",
       "SkiaSharp >= 1.68.2-preview.21",
@@ -2195,6 +2269,10 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "PropertyChanged.Fody": {
+            "target": "Package",
+            "version": "[3.2.6, )"
           },
           "Rg.Plugins.Popup": {
             "target": "Package",

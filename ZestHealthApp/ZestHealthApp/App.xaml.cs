@@ -16,11 +16,14 @@ namespace ZestHealthApp
         {
             InitializeComponent();
             users = new GoogleUsers();
-           // Application.Current.Properties.Remove("IsLoggedIn");
-            
-            
+            Device.SetFlags(new[] {
+                "SwipeView_Experimental"
+            });
+            // Application.Current.Properties.Remove("IsLoggedIn");
 
-              bool isLoggedIn = Current.Properties.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(Current.Properties["IsLoggedIn"]) : false;
+
+
+            bool isLoggedIn = Current.Properties.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(Current.Properties["IsLoggedIn"]) : false;
            
             if (isLoggedIn == false)
             {

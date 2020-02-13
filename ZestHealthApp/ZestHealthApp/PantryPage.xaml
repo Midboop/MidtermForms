@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,7 +9,7 @@
     
     
 
-    <ContentPage>
+   
 
         <!-- Place Content in the same row to stack and overlap-->
         <ContentPage.Content>
@@ -44,34 +44,52 @@
                     </magic:GradientView.GradientSource>
                 </magic:GradientView>
 
-                <StackLayout Grid.Row="0">
-                    <Frame CornerRadius="10" HasShadow="True" Margin="15" BorderColor="Gray" Padding="8" HeightRequest="30">
-                        <Grid  ColumnSpacing="5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Text="3" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                            <Label Grid.Column="2" Text="Watermelon" VerticalTextAlignment="Center" />
-                            <Label Grid.Column="3" Text="exp 10/1" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
-                        </Grid>
-                    </Frame>
-                </StackLayout>
+                <CollectionView ItemsSource="{Binding PantryList}" Margin="15" Grid.Row="0">
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem  IconImageSource="delete.png"
+                                                    BackgroundColor="Red"/>
+                                    <SwipeItem IconImageSource="minus.png"
+                                                   BackgroundColor="LightPink" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <Frame CornerRadius="10" HasShadow="True" Margin="15" BorderColor="Gray" Padding="8" HeightRequest="30">
+                                <Grid  ColumnSpacing="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:Name="Quantity" Grid.Column="0" Text="{Binding Quantity}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                    <Label x:Name="ItemName" Grid.Column="2" Text="{Binding ItemName}" VerticalTextAlignment="Center" />
+                                    <Label x:Name="Exp" Grid.Column="3" Text="{Binding Calories}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                                </Grid>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                   
+                </CollectionView>
+                <Button Grid.Row="0" VerticalOptions="End" BackgroundColor="DodgerBlue" Text="Add Item" Clicked="Button_Clicked"/>
             </Grid>
         </ContentPage.Content>
 
     </ContentPage>
-    <ContentPage>
+    <!--<ContentPage>
         
-        <!-- Place Content in the same row to stack and overlap-->
+        --><!-- Place Content in the same row to stack and overlap--><!--
         <ContentPage.Content>
             <Grid>
                 <magic:GradientView>
                     <magic:GradientView.GradientSource>
                         <magic:CssGradientSource>
-                            <!-- Css Gradient Code-->
+                            --><!-- Css Gradient Code--><!--
                             <x:String>
                                 <![CDATA[
                                 linear-gradient(44deg, rgba(243, 243, 243, 0.05) 0%, rgba(243, 243, 243, 0.05) 33.333%,rgba(79, 79, 79, 0.05) 33.333%, rgba(79, 79, 79, 0.05) 66.666%,rgba(9, 9, 9, 0.05) 66.666%, rgba(9, 9, 9, 0.05) 99.999%),linear-gradient(97deg, rgba(150, 150, 150, 0.05) 0%, rgba(150, 150, 150, 0.05) 33.333%,rgba(34, 34, 34, 0.05) 33.333%, rgba(34, 34, 34, 0.05) 66.666%,rgba(40, 40, 40, 0.05) 66.666%, rgba(40, 40, 40, 0.05) 99.999%),linear-gradient(29deg, rgba(56, 56, 56, 0.05) 0%, rgba(56, 56, 56, 0.05) 33.333%,rgba(226, 226, 226, 0.05) 33.333%, rgba(226, 226, 226, 0.05) 66.666%,rgba(221, 221, 221, 0.05) 66.666%, rgba(221, 221, 221, 0.05) 99.999%),linear-gradient(90deg, rgb(163, 238, 211),rgb(149, 75, 252))
@@ -86,5 +104,5 @@
         </ContentPage.Content>
 
     </ContentPage>
-</CarouselPage>
+</ContentPage>-->
 

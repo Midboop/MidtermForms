@@ -25,6 +25,7 @@ namespace ZestHealthApp.Droid
             // Create callback manager using CallbackManagerFactory
            // CallbackManager = CallbackManagerFactory.Create();
             base.OnCreate(bundle);
+            Rg.Plugins.Popup.Popup.Init(this, bundle);
            // global::Xamarin.Forms.Forms.Init(this, bundle);
            // AnimationViewRenderer.Init();
             global::Xamarin.Forms.Forms.Init(this, bundle);

@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.2.6, )"
+            },
             "Rg.Plugins.Popup": {
               "target": "Package",
               "version": "[1.2.0.223, )"
@@ -160,6 +164,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.2.6, )"
             },
             "Rg.Plugins.Popup": {
               "target": "Package",

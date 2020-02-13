@@ -6,13 +6,25 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Linq;
 using System.Threading.Tasks;
+using ZestHealthApp.Models;
+using System.Collections.ObjectModel;
 
 namespace ZestHealthApp.ViewModel
 {
-   public class PantryView : INotifyPropertyChanged
+   public class PantryView : BaseFodyObservable
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        PantryItems items; 
+        public ObservableCollection<PantryItems> PantryList { get; set; } = new ObservableCollection<PantryItems>
+        {
+         new PantryItems
+         { 
+           ItemName = "Example Item",
+           Calories = 130.ToString(),
+           Quantity = 1.ToString()}
+        };
 
         private string itemname;
         public string ItemName
@@ -21,7 +33,8 @@ namespace ZestHealthApp.ViewModel
             set
             {
                 itemname = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ItemName"));
+                items = ItemName;
+               // PropertyChanged(this, new PropertyChangedEventArgs("ItemName"));
             }
         }
 
@@ -32,7 +45,7 @@ namespace ZestHealthApp.ViewModel
             set
             {
                 cals = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Calories"));
+                //PropertyChanged(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -43,7 +56,7 @@ namespace ZestHealthApp.ViewModel
             set
             {
                 quantity = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Quantity"));
+               //PropertyChanged(this, new PropertyChangedEventArgs("Quantity"));
             }
         }
 
@@ -60,11 +73,13 @@ namespace ZestHealthApp.ViewModel
 
         private async void AddPantry()
         {
+            GoogleUsers users;
+            users = new GoogleUsers();
             if (string.IsNullOrEmpty(ItemName) || string.IsNullOrEmpty(Quantity) || string.IsNullOrEmpty(Calories))
                 await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Item Name, Calories, and Quantity.", "OK");
             else
             {
-                var user = await FirebaseHelper.AddPantryItem(ItemName, Calories, Quantity);
+                var user = await FirebaseHelper.AddPantryItem(itemname, quantity, cals);
                 if(user)
                 {
                     await App.Current.MainPage.DisplayAlert("Item Added!", "", "OK");

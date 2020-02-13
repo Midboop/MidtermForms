@@ -7,19 +7,29 @@ using Xamarin.Auth;
 using Xamarin.Forms.Xaml;
 using ZestHealthApp.Services;
 using ZestHealthApp.Models;
+using Firebase.Database;
+using System.Threading.Tasks;
+using Firebase.Database.Query;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace ZestHealthApp.ViewModel
 {
     public class GoogleVM : ContentPage
     {
+
+		public static FirebaseClient firebase = new FirebaseClient("https://zesthealth-1f666.firebaseio.com/");
+		
 		Account account;
 		AccountStore store;
+		GoogleSignUpHelperVM google;
 		public GoogleVM()
 		{
 			
 
 			store = AccountStore.Create();
-
+			google = new GoogleSignUpHelperVM();
+			BindingContext = google;
 		}
 
 		public void GoogleLogin()
@@ -70,7 +80,7 @@ namespace ZestHealthApp.ViewModel
 				authenticator.Completed -= OnAuthCompleted;
 				authenticator.Error -= OnAuthError;
 			}
-
+			Users users = null;
 			GoogleUsers user = null;
 			if (e.IsAuthenticated)
 			{
@@ -115,6 +125,14 @@ namespace ZestHealthApp.ViewModel
 				Application.Current.Properties.Add("EmailAddress", user.Email);
 				Application.Current.Properties.Add("ProfilePicture", user.Picture);
 				//Application.Current.Properties.Add("IsLoggedIn", user.isLoggedIn);
+				//await GetUser(users.Email);
+				//if (users.Email != user.Email)
+				//{
+					await AddUser(user.Email, user.Picture, user.Name, user.PantryList);
+				//}
+				
+
+				
 
 				//await Navigation.PushModalAsync(new AppShell());
 				App.Current.MainPage = new AppShell();
@@ -134,6 +152,72 @@ namespace ZestHealthApp.ViewModel
 
 			Debug.WriteLine("Authentication error: " + e.Message);
 		}
+
+		public static async Task<bool> AddUser(string email, string picture, string name, List<Object> list)
+		{
+			try
+			{
+				await firebase
+					.Child("GoogleUsers")
+					.PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, PantryList = list });
+				
+				return true;
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine($"Error:{e}");
+				return false;
+			}
+		}
+
+		public static async Task<GoogleUsers> GetUser(string email)
+		{
+			try
+			{
+				var allUsers = await GetAllUser();
+				await firebase
+					.Child("GoogleUsers")
+					.OnceAsync<GoogleUsers>();
+				return allUsers.Where(a => a.Email == email).FirstOrDefault();
+			}
+
+			catch (Exception e)
+			{
+				Debug.WriteLine($"Error:{e}");
+				return null;
+			}
+		}
+
+		public static async Task<List<GoogleUsers>> GetAllUser()
+		{
+
+			try
+			{
+				var userlist = (await firebase
+				.Child("GoogleUsers")
+				.OnceAsync<GoogleUsers>()).Select(item =>
+				new GoogleUsers
+				{
+					Email = item.Object.Email,
+					Picture = item.Object.Picture,
+					Name = item.Object.Name
+				}).ToList();
+				return userlist;
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine($"Error:{e}");
+				return null;
+			}
+		}
+
+
+
+
+
+
+
+
 	}
 }
 
