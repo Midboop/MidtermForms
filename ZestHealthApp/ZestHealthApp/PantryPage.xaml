@@ -52,9 +52,11 @@
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Reveal">
                                     <SwipeItem  IconImageSource="delete.png"
-                                                    BackgroundColor="Red"/>
+                                                    BackgroundColor="Red"
+                                                    Invoked="DeleteItem_Invoked"/>
                                     <SwipeItem IconImageSource="minus.png"
-                                                   BackgroundColor="LightPink" />
+                                                   BackgroundColor="LightPink" 
+                                                   Invoked="MinusItem_Invoked"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
 

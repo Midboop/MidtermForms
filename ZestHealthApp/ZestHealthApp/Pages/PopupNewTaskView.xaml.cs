@@ -22,17 +22,20 @@ namespace ZestHealthApp.newViews
             users = new GoogleUsers();
         }
         List<Object> itemInfo = new List<object>();
-        private void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
+        private async void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(TaskEntry.Text) || !string.IsNullOrEmpty(TaskEntry1.Text) || !string.IsNullOrEmpty(TaskEntry2.Text))
             {
+
                 TaskButton.IsEnabled = true;
                 //itemInfo.Add(TaskEntry.Text);
                 //itemInfo.Add(TaskEntry1.Text);
                 //itemInfo.Add(TaskEntry2.Text);
                 //users.PantryList.Add(itemInfo);
                 //users.PantryList.ForEach(Console.WriteLine);
+
                 Debug.WriteLine("Items: " + users.PantryList);
+               
             }
             else if (string.IsNullOrEmpty(TaskEntry.Text) || string.IsNullOrEmpty(TaskEntry1.Text) || string.IsNullOrEmpty(TaskEntry2.Text))
                 TaskButton.IsEnabled = false;
@@ -40,10 +43,8 @@ namespace ZestHealthApp.newViews
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-           
-            await FirebaseHelper.GetPantry();
-            
             await PopupNavigation.PopAsync();
+            
         }
     }
 }

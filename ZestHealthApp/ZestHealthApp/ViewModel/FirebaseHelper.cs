@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZestHealthApp.Models;
+using ZestHealthApp.ViewModel;
 
 namespace ZestHealthApp.ViewModel
 {
@@ -113,6 +114,7 @@ namespace ZestHealthApp.ViewModel
                 await firebase
                     .Child("PantryItems")
                     .PostAsync(new PantryItems { ItemName = name, Calories = cals, Quantity = amount });
+                
                 return true;
             }
             catch(Exception e)
@@ -121,7 +123,7 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
-
+       
         // Read all pantry items
         public static async Task<List<PantryItems>> GetPantry()
         {

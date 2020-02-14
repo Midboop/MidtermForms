@@ -16,15 +16,35 @@ namespace ZestHealthApp.ViewModel
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
-        PantryItems items; 
+        //async await
         public ObservableCollection<PantryItems> PantryList { get; set; } = new ObservableCollection<PantryItems>
         {
          new PantryItems
-         { 
+         {
            ItemName = "Example Item",
            Calories = 130.ToString(),
            Quantity = 1.ToString()}
-        };
+
+    };
+    public PantryView()
+        {
+            GetPantryItems().ContinueWith(t =>
+            {
+                PantryList = new ObservableCollection<PantryItems>(t.Result);
+            });
+        }
+
+        public async Task RefreshPantry()
+        {
+             await  GetPantryItems().ContinueWith(t =>
+            {
+                PantryList = new ObservableCollection<PantryItems>(t.Result);
+            });
+        }
+        private async Task<List<PantryItems>> GetPantryItems()
+        {
+            return (await FirebaseHelper.GetPantry());
+        }
 
         private string itemname;
         public string ItemName
@@ -33,7 +53,7 @@ namespace ZestHealthApp.ViewModel
             set
             {
                 itemname = value;
-                items = ItemName;
+               // items = ItemName;
                // PropertyChanged(this, new PropertyChangedEventArgs("ItemName"));
             }
         }

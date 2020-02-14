@@ -28,14 +28,26 @@ namespace ZestHealthApp
             BindingContext = new PantryView();
 
         }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await (BindingContext as PantryView).RefreshPantry();
+        }
+
 
         private void Button_Clicked(object sender, EventArgs e)
         {
             PopupNavigation.PushAsync(new PopupNewTaskView());
         }
 
+        private void DeleteItem_Invoked(object sender, EventArgs e)
+        {
+            //Dylan add delete item method
+        }
 
-
-
+        private void MinusItem_Invoked(object sender, EventArgs e)
+        {
+            //Dylan -1 item to .quantity
+        }
     }
 }
