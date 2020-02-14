@@ -24,7 +24,7 @@
                  BackgroundColor="WhiteSmoke"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-        <Label Text="Food Info"/>
+        <Label Text="New Item" FontSize="Subtitle" TextColor="LightGray"/>
         <Entry x:Name="TaskEntry" Placeholder="Name" Text="{Binding ItemName}"/>
         <Entry x:Name="TaskEntry1" Placeholder="Calories" Text="{Binding Calories}"/>
         <Entry x:Name="TaskEntry2" Placeholder="Quantity" Text="{Binding Quantity}"/>
