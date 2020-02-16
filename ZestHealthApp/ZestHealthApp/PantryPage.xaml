@@ -62,8 +62,10 @@
                                     <SwipeItem IconImageSource="minus.png"
                                                    BackgroundColor="LightPink" 
                                                    Invoked="MinusItem_Invoked"/>
+                                    
                                 </SwipeItems>
                             </SwipeView.RightItems>
+                           
 
                             <Frame CornerRadius="10" HasShadow="True" Margin="10" BorderColor="Gray" Padding="10" HeightRequest="10" IsClippedToBounds="True" BackgroundColor="WhiteSmoke">
                                 <Grid  ColumnSpacing="5">
@@ -75,11 +77,16 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Label x:Name="Quantity" Grid.Column="0" Grid.Row="0" Text="{Binding Quantity}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold"/>
-                                    <Label x:Name="ItemName" Grid.Column="1" Grid.Row ="0" Text="{Binding ItemName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="Medium" FontAttributes="Bold"/>
-                                    <Label x:Name="Exp" Grid.Column="2" Grid.Row="0" Text="{Binding Calories}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                                        <Label x:Name="Quantity" Grid.Column="0" Grid.Row="0" Text="{Binding Quantity}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold"/>
+                                        <Label x:Name="itemName" Text="{Binding ItemName}" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label x:Name="Exp" Grid.Column="2" Grid.Row="0" Text="{Binding ExpirationDate}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    
+
+
                                 </Grid>
                             </Frame>
+                           
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -87,7 +94,9 @@
                 </CollectionView>
             <Frame Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" CornerRadius="20" HasShadow="False" Margin="5"  Padding="0" HeightRequest="50" BackgroundColor="Transparent">
                 <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="Button_Clicked" VerticalOptions="CenterAndExpand"/>
+                
             </Frame>
+
         </Grid>
         </ContentPage.Content>
 

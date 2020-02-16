@@ -8,6 +8,6 @@ namespace ZestHealthApp.Models
     {
         public string ItemName { get; set; }
         public string Quantity { get; set; }
-        public string Calories { get; set; }
+        public string ExpirationDate { get; set; }
     }
 }

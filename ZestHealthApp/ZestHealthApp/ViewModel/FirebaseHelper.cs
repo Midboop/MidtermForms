@@ -107,13 +107,13 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Add pantry items to the database
-        public static async Task<bool> AddPantryItem(string name, string amount, string cals )
+        public static async Task<bool> AddPantryItem(string name, string amount, string exp )
         {
             try
             {
                 await firebase
                     .Child("PantryItems")
-                    .PostAsync(new PantryItems { ItemName = name, Calories = cals, Quantity = amount });
+                    .PostAsync(new PantryItems { ItemName = name, ExpirationDate = exp, Quantity = amount });
                 
                 return true;
             }
@@ -135,7 +135,7 @@ namespace ZestHealthApp.ViewModel
                 new PantryItems
                 {
                     ItemName = item.Object.ItemName,
-                    Calories = item.Object.Calories,
+                    ExpirationDate = item.Object.ExpirationDate,
                     Quantity = item.Object.Quantity
                 }).ToList();
                 return userlist;
@@ -168,6 +168,26 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
+        public static async Task<bool> UpdateQuantity(string quantity, string name, string exp)
+        {
+            try
+            {
+                var toUpdateQuantity = (await firebase.
+                    Child("PantryItems")
+                    .OnceAsync<PantryItems>()).Where(a => a.Object.ItemName == name).FirstOrDefault();
+                await firebase
+                    .Child("PantryItems")
+                    .Child(toUpdateQuantity.Key)
+                    .PutAsync(new PantryItems() { ItemName = name, Quantity = quantity, ExpirationDate = exp});
+                return true;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
 
         // Delete user ---- Maybe use at a later time
         public static async Task<bool> DeleteUser(string email)
@@ -183,6 +203,23 @@ namespace ZestHealthApp.ViewModel
             }
 
             catch(Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+        public static async Task<bool> DeletePantryItem(string name)
+        {
+            try
+            {
+                var toDeleteItem = (await firebase
+                    .Child("PantryItems")
+                    .OnceAsync<PantryItems>()).Where(a => a.Object.ItemName == name).FirstOrDefault();
+                await firebase.Child("PantryItems").Child(toDeleteItem.Key).DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
                 return false;

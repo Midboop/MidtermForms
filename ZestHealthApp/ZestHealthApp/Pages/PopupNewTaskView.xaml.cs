@@ -14,6 +14,7 @@ namespace ZestHealthApp.newViews
     {
         GoogleUsers users;
         PantryView pantryView;
+        
         public PopupNewTaskView()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace ZestHealthApp.newViews
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await PopupNavigation.PopAsync();
-            
+           
         }
     }
 }

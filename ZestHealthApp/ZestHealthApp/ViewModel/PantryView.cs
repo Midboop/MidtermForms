@@ -22,7 +22,7 @@ namespace ZestHealthApp.ViewModel
          new PantryItems
          {
            ItemName = "Example Item",
-           Calories = 130.ToString(),
+           ExpirationDate = "12/15/2015",
            Quantity = 1.ToString()}
 
     };
@@ -58,13 +58,13 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
-        private string cals;
-        public string Calories
+        private string exp;
+        public string ExpirationDate
         {
-            get { return cals; }
+            get { return exp; }
             set
             {
-                cals = value;
+                exp = value;
                 //PropertyChanged(this, new PropertyChangedEventArgs("Calories"));
             }
         }
@@ -95,11 +95,11 @@ namespace ZestHealthApp.ViewModel
         {
             GoogleUsers users;
             users = new GoogleUsers();
-            if (string.IsNullOrEmpty(ItemName) || string.IsNullOrEmpty(Quantity) || string.IsNullOrEmpty(Calories))
+            if (string.IsNullOrEmpty(ItemName) || string.IsNullOrEmpty(Quantity) || string.IsNullOrEmpty(ExpirationDate))
                 await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Item Name, Calories, and Quantity.", "OK");
             else
             {
-                var user = await FirebaseHelper.AddPantryItem(itemname, quantity, cals);
+                var user = await FirebaseHelper.AddPantryItem(itemname, quantity, exp);
                 if(user)
                 {
                     await App.Current.MainPage.DisplayAlert("Item Added!", "", "OK");

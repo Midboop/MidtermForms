@@ -1,17 +1,12 @@
-﻿using MagicGradients;
+﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ZestHealthApp;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
 using Rg.Plugins.Popup.Services;
 using ZestHealthApp.newViews;
 using ZestHealthApp.Models;
 using ZestHealthApp.ViewModel;
+using System.Diagnostics;
 
 namespace ZestHealthApp
 {
@@ -20,13 +15,16 @@ namespace ZestHealthApp
     {
         FirebaseHelper helper;
         PantryItems items;
+        PantryView view;
         public PantryPage()
         {
             helper = new FirebaseHelper();
             items = new PantryItems();
+            view = new PantryView();
             InitializeComponent();
             BindingContext = new PantryView();
-
+          
+         
         }
         protected override async void OnAppearing()
         {
@@ -40,14 +38,33 @@ namespace ZestHealthApp
             PopupNavigation.PushAsync(new PopupNewTaskView());
         }
 
-        private void DeleteItem_Invoked(object sender, EventArgs e)
+        private async void DeleteItem_Invoked(object sender, EventArgs e)
         {
+             await PopupNavigation.PushAsync(new PopupDeleteTaskView());
+            
+
+            //await FirebaseHelper.GetPantry();
+            //string test = items.ItemName;
+            //string name = view.ItemName;
+            //Debug.WriteLine($"Item: {test}");
+
+            //await FirebaseHelper.DeletePantryItem(test);
             //Dylan add delete item method
+
         }
 
-        private void MinusItem_Invoked(object sender, EventArgs e)
+        private async void MinusItem_Invoked(object sender, EventArgs e)
         {
+            //int newQuantity = Convert.ToInt32(items.Quantity);
+            //newQuantity = newQuantity - 1;
+            //items.Quantity = newQuantity.ToString();
+            await PopupNavigation.PushAsync(new PopupEditQuantityView());
+           //await FirebaseHelper.UpdateQuantity(newQuantity.ToString());
             //Dylan -1 item to .quantity
         }
+
+ 
+
+
     }
 }
