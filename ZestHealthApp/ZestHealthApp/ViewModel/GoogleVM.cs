@@ -103,12 +103,22 @@ namespace ZestHealthApp.ViewModel
 				{
 					store.Delete(account, Constants.AppName);
 				}
+
 			
 
 
-				
 
 				await store.SaveAsync(account = e.Account, Constants.AppName);
+
+
+				bool newuser = false;
+				if (await CheckEmail(user.Email) == false)
+				{
+					await AddUser(user.Email, user.Picture, user.Name, user.Id, user.PantryList);
+					newuser = true;
+				}
+
+
 				Application.Current.Properties.Remove("Id");
 				Application.Current.Properties.Remove("FirstName");
 				Application.Current.Properties.Remove("LastName");
@@ -126,13 +136,12 @@ namespace ZestHealthApp.ViewModel
 				Application.Current.Properties.Add("ProfilePicture", user.Picture);
 				//Application.Current.Properties.Add("IsLoggedIn", user.isLoggedIn);
 				//await GetUser(users.Email);
-				//if (users.Email != user.Email)
-				//{
-					await AddUser(user.Email, user.Picture, user.Name, user.PantryList);
-				//}
 				
+				if (newuser)
+					await FirebaseHelper.AddPantryItem("Example Item", "5", "12/15");
 
-				
+
+
 
 				//await Navigation.PushModalAsync(new AppShell());
 				App.Current.MainPage = new AppShell();
@@ -153,15 +162,14 @@ namespace ZestHealthApp.ViewModel
 			Debug.WriteLine("Authentication error: " + e.Message);
 		}
 
-		public static async Task<bool> AddUser(string email, string picture, string name, List<Object> list)
+		public static async Task<bool> AddUser(string email, string picture, string name, string id, List<Object> list)
 		{
 			try
 			{
 				await firebase
 					.Child("GoogleUsers")
-					.PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, PantryList = list });
-				
-				return true;
+					.PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id, PantryList = list });	
+					return true;
 			}
 			catch (Exception e)
 			{
@@ -169,7 +177,18 @@ namespace ZestHealthApp.ViewModel
 				return false;
 			}
 		}
+		public static async Task<bool> CheckEmail(string email)
+		{
+			bool accountFound = false;
+			await GetAllUser().ContinueWith(t =>
+			{
+				List<GoogleUsers> userCheck = (t.Result);
+				if (userCheck.Find(x => x.Email.Contains(email)) != null)
+					accountFound = true;
+			});
 
+			return accountFound;
+		}
 		public static async Task<GoogleUsers> GetUser(string email)
 		{
 			try

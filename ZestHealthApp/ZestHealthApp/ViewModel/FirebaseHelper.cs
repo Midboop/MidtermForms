@@ -112,8 +112,9 @@ namespace ZestHealthApp.ViewModel
             try
             {
                 await firebase
-                    .Child("PantryItems")
-                    .PostAsync(new PantryItems { ItemName = name, ExpirationDate = exp, Quantity = amount });
+                    .Child(Application.Current.Properties["Id"].ToString()).Child("PantryItems")
+                    .PostAsync(new PantryItems { ItemName = name, ExpirationDate = exp, Quantity = amount
+            });
                 
                 return true;
             }
@@ -130,7 +131,7 @@ namespace ZestHealthApp.ViewModel
             try
             {
                 var userlist = (await firebase
-                .Child("PantryItems")
+                .Child(Application.Current.Properties["Id"].ToString()).Child("PantryItems")
                 .OnceAsync<PantryItems>()).Select(item =>
                 new PantryItems
                 {
@@ -214,9 +215,9 @@ namespace ZestHealthApp.ViewModel
             try
             {
                 var toDeleteItem = (await firebase
-                    .Child("PantryItems")
+                     .Child(Application.Current.Properties["Id"].ToString()).Child("PantryItems")
                     .OnceAsync<PantryItems>()).Where(a => a.Object.ItemName == name).FirstOrDefault();
-                await firebase.Child("PantryItems").Child(toDeleteItem.Key).DeleteAsync();
+                await firebase.Child(Application.Current.Properties["Id"].ToString()).Child("PantryItems").Child(toDeleteItem.Key).DeleteAsync();
                 return true;
             }
             catch (Exception e)

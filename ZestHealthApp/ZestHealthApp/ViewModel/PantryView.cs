@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic;           // This Code Has been Cleaned and Tidy-ed up - Tk<3
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
@@ -12,72 +12,26 @@ using System.Collections.ObjectModel;
 namespace ZestHealthApp.ViewModel
 {
    public class PantryView : BaseFodyObservable
-    {
+    {       
+        // This is the Binding Source List for PantryPage.xaml's CollectionView Template items
+        public ObservableCollection<PantryItems> PantryList { get; set; } = new ObservableCollection<PantryItems> {};
+        public string ItemName { get; set; }
+        public string ExpirationDate { get; set; }
+        public string Quantity { get; set; }
 
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //async await
-        public ObservableCollection<PantryItems> PantryList { get; set; } = new ObservableCollection<PantryItems>
-        {
-         new PantryItems
-         {
-           ItemName = "Example Item",
-           ExpirationDate = "12/15/2015",
-           Quantity = 1.ToString()}
-
-    };
-    public PantryView()
-        {
-            GetPantryItems().ContinueWith(t =>
-            {
-                PantryList = new ObservableCollection<PantryItems>(t.Result);
-            });
+        // Constructor 
+        public PantryView()
+        {  
+            GetPantryItems().ContinueWith(t => { PantryList = new ObservableCollection<PantryItems>(t.Result); });
         }
 
         public async Task RefreshPantry()
         {
-             await  GetPantryItems().ContinueWith(t =>
-            {
-                PantryList = new ObservableCollection<PantryItems>(t.Result);
-            });
+             await  GetPantryItems().ContinueWith(t => { PantryList = new ObservableCollection<PantryItems>(t.Result);});
         }
         private async Task<List<PantryItems>> GetPantryItems()
         {
             return (await FirebaseHelper.GetPantry());
-        }
-
-        private string itemname;
-        public string ItemName
-        {
-            get { return itemname; }
-            set
-            {
-                itemname = value;
-               // items = ItemName;
-               // PropertyChanged(this, new PropertyChangedEventArgs("ItemName"));
-            }
-        }
-
-        private string exp;
-        public string ExpirationDate
-        {
-            get { return exp; }
-            set
-            {
-                exp = value;
-                //PropertyChanged(this, new PropertyChangedEventArgs("Calories"));
-            }
-        }
-
-        private string quantity;
-        public string Quantity
-        {
-            get { return quantity; }
-            set
-            {
-                quantity = value;
-               //PropertyChanged(this, new PropertyChangedEventArgs("Quantity"));
-            }
         }
 
         public Command AddPantryCommand
@@ -99,7 +53,7 @@ namespace ZestHealthApp.ViewModel
                 await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Item Name, Calories, and Quantity.", "OK");
             else
             {
-                var user = await FirebaseHelper.AddPantryItem(itemname, quantity, exp);
+                var user = await FirebaseHelper.AddPantryItem(ItemName, Quantity, ExpirationDate);
                 if(user)
                 {
                     await App.Current.MainPage.DisplayAlert("Item Added!", "", "OK");
