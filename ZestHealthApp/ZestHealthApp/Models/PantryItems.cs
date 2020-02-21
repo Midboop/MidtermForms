@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace ZestHealthApp.Models
 {
-    public class PantryItems
+    public class PantryItems : BaseFodyObservable
     {
         public string ItemName { get; set; }
         public string Quantity { get; set; }
