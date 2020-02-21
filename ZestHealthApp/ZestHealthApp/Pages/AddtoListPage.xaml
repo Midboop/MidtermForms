@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZestHealthApp.Pages.AddtoListPage">
+    <ContentPage.Content>
+        <StackLayout                  
+            HorizontalOptions="Center"
+                 VerticalOptions="Center" Margin="12"
+                 Padding="24">
+
+            <Entry x:Name="ItemEntry" Placeholder="Name" Text="{Binding ItemName}"/>
+            <Entry x:Name="Amount" Placeholder="Amount" Text="{Binding Amount}"/>
+
+            <Button x:Name="TaskButton" BackgroundColor="DodgerBlue"
+            FontSize="15"
+            Text="Add Item to Shopping List"
+            TextColor="White"
+            CornerRadius="10"
+            Command="{Binding AddShoppingListCommand}"
+            Clicked="TaskButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

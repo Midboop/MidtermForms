@@ -2207,23 +2207,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tkill\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\dtome\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+      "projectUniqueName": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
       "projectName": "ZestHealthApp",
-      "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
-      "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\obj\\",
+      "projectPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+      "packagesPath": "C:\\Users\\dtome\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dtome\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2232,8 +2234,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {

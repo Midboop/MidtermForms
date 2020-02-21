@@ -94,10 +94,15 @@
             <ShellContent Style="{StaticResource CalculatorStyle}"
             ContentTemplate="{DataTemplate Zest:CalculatorPage}"/>
     </Tab>
+        <Tab Title="Shopping List" Icon="ShoppingBasketIcon.png">
+            <ShellContent Style="{StaticResource PantryStyle}"
+             ContentTemplate="{DataTemplate Zest:ShoppingListPage}"/>
+        </Tab>
     <Tab Title="Profile" Icon="ProfileIcon.png">
             <ShellContent Style="{StaticResource ProfileStyle}"
             ContentTemplate="{DataTemplate Zest:ProfilePage}"/>
     </Tab>
+        
     </TabBar>
 
 

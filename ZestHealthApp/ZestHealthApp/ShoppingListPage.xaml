@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             mc:Ignorable="d"
+             x:Class="ZestHealthApp.ShoppingListPage">
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor"
+                                        Value="LightSkyBlue" />
+                                <Setter Property="BackgroundColor"
+                                        Value="LightGreen"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <!-- Place Content in the same row to stack and overlap-->
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <magic:GradientView Grid.Row="0" Grid.RowSpan ="3">
+                <magic:GradientView.GradientSource>
+                    <magic:CssGradientSource>
+                        <!-- Css Gradient Code-->
+                        <x:String>
+                            <![CDATA[
+                    linear-gradient(246deg, rgba(234, 234, 234, 0.04) 0%, rgba(234, 234, 234, 0.04) 33.3%,
+                    rgba(69, 69, 69, 0.04) 33.3%, rgba(69, 69, 69, 0.04) 66.6%,rgba(189, 189, 189, 0.04) 66.6%, 
+                    rgba(189, 189, 189, 0.04) 99.89999999999999%),linear-gradient(81deg, rgba(126, 126, 126, 0.05) 0%, 
+                    rgba(126, 126, 126, 0.05) 33.3%,rgba(237, 237, 237, 0.05) 33.3%, rgba(237, 237, 237, 0.05) 66.6%,
+                    rgba(74, 74, 74, 0.05) 66.6%, rgba(74, 74, 74, 0.05) 99.89999999999999%),linear-gradient(14deg, rgba(3, 3, 3, 0.08) 0%, 
+                    rgba(3, 3, 3, 0.08) 33.3%,rgba(156, 156, 156, 0.08) 33.3%, rgba(156, 156, 156, 0.08) 66.6%,rgba(199, 199, 199, 0.08) 66.6%, 
+                    rgba(199, 199, 199, 0.08) 99.89999999999999%),linear-gradient(323deg, rgba(82, 82, 82, 0.06) 0%, 
+                    rgba(82, 82, 82, 0.06) 33.3%,rgba(179, 179, 179, 0.06) 33.3%, rgba(179, 179, 179, 0.06) 66.6%,
+                    rgba(212, 212, 212, 0.06) 66.6%, rgba(212, 212, 212, 0.06) 99.89999999999999%), linear-gradient(32deg, rgba(70, 70, 70, 0.02) 0%,
+                    rgba(70, 70, 70, 0.02) 33.3%,rgba(166, 166, 166, 0.02) 33.3%, rgba(166, 166, 166, 0.02) 66.6%,
+                    rgba(53, 53, 53, 0.02) 66.6%, rgba(53, 53, 53, 0.02) 99.89999999999999%),linear-gradient(38deg, rgba(129, 129, 129, 0.09) 0%, 
+                    rgba(129, 129, 129, 0.09) 33.3%,rgba(38, 38, 38, 0.09) 33.3%, rgba(38, 38, 38, 0.09) 66.6%,rgba(153, 153, 153, 0.09) 66.6%, 
+                    rgba(153, 153, 153, 0.09) 99.89999999999999%),linear-gradient(63deg, rgba(51, 51, 51, 0.02) 0%, rgba(51, 51, 51, 0.02) 33.3%,
+                    rgba(12, 12, 12, 0.02) 33.3%, rgba(12, 12, 12, 0.02) 66.6%,rgba(158, 158, 158, 0.02) 66.6%, 
+                    rgba(158, 158, 158, 0.02) 99.89999999999999%),linear-gradient(227deg, rgba(63, 63, 63, 0.03) 0%, 
+                    rgba(63, 63, 63, 0.03) 33.3%,rgba(9, 9, 9, 0.03) 33.3%, rgba(9, 9, 9, 0.03) 66.6%,rgba(85, 85, 85, 0.03) 66.6%,
+                    rgba(85, 85, 85, 0.03) 99.89999999999999%),linear-gradient(103deg, rgba(247, 247, 247, 0.07) 0%, 
+                    rgba(247, 247, 247, 0.07) 33.3%,rgba(93, 93, 93, 0.07) 33.3%, rgba(93, 93, 93, 0.07) 66.6%,rgba(208, 208, 208, 0.07) 66.6%, 
+                    rgba(208, 208, 208, 0.07) 99%),linear-gradient(0deg, #0b91d7,#6efc29)]]>
+                        </x:String>
+                    </magic:CssGradientSource>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+
+            <CollectionView x:Name="ShoppingDisplay" ItemsSource="{Binding ShoppingList}" Margin="15" Grid.Row="1" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                           ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+                        <Frame CornerRadius="10" HasShadow="True" Margin ="10" BorderColor="Gray" Padding="10" HeightRequest="10" BackgroundColor="WhiteSmoke">
+                            <Grid  ColumnSpacing="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label x:Name="Quantity" Grid.Column="0" Grid.Row="0" Text="{Binding Amount}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold"/>
+                                <Label x:Name="itemName" Text="{Binding ItemName}" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="Medium" FontAttributes="Bold"/>
+                                <ImageButton x:Name="DeleteButton" Source="delete.png" BackgroundColor="LightGray" Grid.Column="3" WidthRequest="30" HeightRequest="30" CornerRadius="15" 
+                                                     Command ="{Binding Source={x:Reference ShoppingDisplay}, Path=BindingContext.Delete}" CommandParameter="{Binding .}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+            <Frame Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" CornerRadius="20" HasShadow="False" Margin="5"  Padding="0" HeightRequest="50" BackgroundColor="Transparent">
+                <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand"
+                             Clicked="ImageButton_Clicked"/>
+
+            </Frame>
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -21,12 +21,15 @@ namespace ZestHealthApp.ViewModel
         public string ExpirationDate { get; set; }
         public string Quantity { get; set; }
 
+       
+
         // Constructor 
         public PantryView()
         {  
             GetPantryItems().ContinueWith(t => { PantryList = new ObservableCollection<PantryItems>(t.Result); });
             Delete = new Command<PantryItems>(HandleDelete);
             Popup = new Command(LaunchAddItemPage);
+           
         }
 
         public async Task RefreshPantry()
@@ -62,8 +65,7 @@ namespace ZestHealthApp.ViewModel
 
         private async void AddPantry()
         {
-            GoogleUsers users;
-            users = new GoogleUsers();
+           
             if (string.IsNullOrEmpty(ItemName) || string.IsNullOrEmpty(Quantity) || string.IsNullOrEmpty(ExpirationDate))
                 await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Item Name, Calories, and Quantity.", "OK");
             else
@@ -73,6 +75,8 @@ namespace ZestHealthApp.ViewModel
                 {
                     await App.Current.MainPage.DisplayAlert("Item Added!", "", "OK");
                     await RefreshPantry();
+                   
+                    
                 }
                 else
                     await App.Current.MainPage.DisplayAlert("Couldn't Add Item", "Please Try Again", "OK");

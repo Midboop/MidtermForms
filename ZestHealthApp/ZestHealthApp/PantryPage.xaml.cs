@@ -36,9 +36,9 @@ namespace ZestHealthApp
             await (BindingContext as PantryView).RefreshPantry();
         }
 
-        //private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    selectedItemName = (e.CurrentSelection.FirstOrDefault() as PantryItems)?.ItemName;
-        //}
+        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedItemName = (e.CurrentSelection.FirstOrDefault() as PantryItems)?.ItemName;
+        }
     }
 }

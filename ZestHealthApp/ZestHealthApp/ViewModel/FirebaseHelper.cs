@@ -124,7 +124,24 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
-       
+
+        // Add Shopping items to the Firebase
+        public static async Task<bool> AddShoppingList(string name, string amount)
+        {
+            try
+            {
+                await firebase
+                    .Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List")
+                    .PostAsync(new ShoppingListItems { ItemName = name, Amount = amount });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
         // Read all pantry items
         public static async Task<List<PantryItems>> GetPantry()
         {
@@ -139,6 +156,28 @@ namespace ZestHealthApp.ViewModel
                     ExpirationDate = item.Object.ExpirationDate,
                     Quantity = item.Object.Quantity
                 }).ToList();
+                return userlist;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
+        // Read all Shopping List
+        public static async Task<List<ShoppingListItems>> GetShoppingList()
+        {
+            try
+            {
+                var userlist = (await firebase
+                 .Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List")
+                 .OnceAsync<ShoppingListItems>()).Select(item =>
+                 new ShoppingListItems
+                 {
+                     ItemName = item.Object.ItemName,
+                     Amount = item.Object.Amount
+                 }).ToList();
                 return userlist;
             }
             catch (Exception e)
@@ -227,7 +266,26 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
-        
+        // Delete shopping list item
+        public static async Task<bool> DeleteShoppingList(string name)
+        {
+            try
+            {
+                var toDeleteItem = (await firebase
+                    .Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List")
+                    .OnceAsync<ShoppingListItems>()).Where(a => a.Object.ItemName == name).FirstOrDefault();
+                await firebase.Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List").Child(toDeleteItem.Key).DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+
+
     }
 
  
