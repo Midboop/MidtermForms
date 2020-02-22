@@ -21,6 +21,12 @@
             CornerRadius="10"
             Command="{Binding AddShoppingListCommand}"
             Clicked="TaskButton_Clicked"/>
+            <Button x:Name="CancelButton" BackgroundColor="Red"
+                    FontSize="15"
+                    Text="Cancel"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="CancelButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

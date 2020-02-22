@@ -36,5 +36,10 @@ namespace ZestHealthApp.Pages
         {
             await Navigation.PopModalAsync();
         }
+
+        private async void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }

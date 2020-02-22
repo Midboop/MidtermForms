@@ -18,5 +18,12 @@ namespace ZestHealthApp
         {
             InitializeComponent();
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            var entry = new Entry();
+
+            items.Children.Add(entry);
+        }
     }
 }

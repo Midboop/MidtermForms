@@ -22,12 +22,21 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <Label Grid.Row="0"
+            <StackLayout x:Name="items">
+                <Label Grid.Row="0"
                 Text="Welcome to Your Recipes!"
                 FontSize="Large"
                 TextColor="WhiteSmoke"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+                <Entry x:Name="RecipeName" Placeholder="Recipe Name" WidthRequest="500"/>
+
+                <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"/>
+
+
+            </StackLayout>
+
+
         </Grid>
     </ContentPage.Content>
 
