@@ -26,7 +26,7 @@
                     Text="Cancel"
                     TextColor="White"
                     CornerRadius="10"
-                    Clicked="CancelButton_Clicked"/>
+                   Clicked="CancelButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -126,6 +126,21 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Add recipe to database
+        public static async Task<bool> AddRecipe(List<string> list)
+        {
+            try
+            {
+                await firebase
+                    .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
+                    .PostAsync(new Ingredients { Recipes = list });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
    
 
         // Add Shopping items to the Firebase
@@ -166,6 +181,28 @@ namespace ZestHealthApp.ViewModel
                 Debug.WriteLine($"Error:{e}");
                 return null;
             }
+        }
+
+        // Read all Recipes
+        public static async Task<List<Ingredients>> GetRecipes()
+        {
+            try
+            {
+                var recipeList = (await firebase
+                .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
+                .OnceAsync<Ingredients>()).Select(item =>
+                 new Ingredients
+                 {
+                     Recipes = item.Object.Recipes
+                 }).ToList();
+                return recipeList;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+
         }
 
         // Read all Shopping List

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ZestHealthApp.Pages;
 
 namespace ZestHealthApp
 {
@@ -21,9 +22,9 @@ namespace ZestHealthApp
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            var entry = new Entry();
-
-            items.Children.Add(entry);
+            
+            Navigation.PushModalAsync(new AddRecipeItems());
+            
         }
     }
 }

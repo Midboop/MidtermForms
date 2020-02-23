@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZestHealthApp.Pages.AddRecipeItems">
+    <ContentPage.Content>
+        <Grid>
+
+
+            <StackLayout x:Name="items" Grid.Row="0">
+                <Label Text="Add Items to your Recipe"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+                <Entry x:Name="RecipeName" Placeholder="Recipe Name"/>
+                <Entry x:Name="ingredient" Placeholder="Ingredient" />
+
+
+
+            </StackLayout>
+            <StackLayout Grid.Row="1" VerticalOptions="End">
+                <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50"  Clicked="ImageButton_Clicked"/>
+
+                <Button x:Name="AddButton" BackgroundColor="DodgerBlue"
+                    FontSize="15"
+                    Text="Add Recipe"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="AddButton_Clicked"/>
+
+
+                <Button x:Name="CancelButton" BackgroundColor="Red"
+                    FontSize="15"
+                    Text="Cancel"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="CancelButton_Clicked"/>
+            </StackLayout>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
