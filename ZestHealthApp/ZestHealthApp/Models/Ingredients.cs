@@ -6,6 +6,7 @@ namespace ZestHealthApp.Models
 {
    public class Ingredients
     {
-        public List<string> Recipes = new List<string>();
+        public List<string> ingredients = new List<string>();
+        public string Name { get; set; }
     }
 }

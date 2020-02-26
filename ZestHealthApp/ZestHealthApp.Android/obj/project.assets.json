@@ -6674,24 +6674,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dtome\\.nuget\\packages\\": {},
+    "C:\\Users\\Dylan\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
+      "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
       "projectName": "ZestHealthApp.Android",
-      "projectPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
-      "packagesPath": "C:\\Users\\dtome\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\obj\\",
+      "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
+      "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+      "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\dtome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -6705,8 +6705,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
-              "projectPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
+            "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+              "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
             }
           }
         }

@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj": {}
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj": {
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
+        "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
         "projectName": "ZestHealthApp.Android",
-        "projectPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
-        "packagesPath": "C:\\Users\\dtome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\obj\\",
+        "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
+        "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+        "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\dtome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
-                "projectPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
+              "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+                "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
               }
             }
           }
@@ -106,21 +106,20 @@
         }
       }
     },
-    "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
         "projectName": "ZestHealthApp",
-        "projectPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
-        "packagesPath": "C:\\Users\\dtome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dtome\\OneDrive\\Documents\\GitHub\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\obj\\",
+        "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+        "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\dtome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

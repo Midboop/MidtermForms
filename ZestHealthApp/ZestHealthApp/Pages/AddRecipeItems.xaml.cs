@@ -26,13 +26,19 @@ namespace ZestHealthApp.Pages
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            ingredients.Add(RecipeName.Text);
-            ingredients.Add(ingredient.Text);
-            ingredient = new Entry { VerticalOptions = LayoutOptions.Start };
-            ingredient.Placeholder = "Ingredient";
+
+
+           
+
             
-            items.Children.Add(ingredient);
-            items.Spacing = 10;
+                ingredients.Add(ingredient.Text);
+                ingredient = new Entry { VerticalOptions = LayoutOptions.Start };
+                ingredient.Placeholder = "Ingredient";
+
+                items.Children.Add(ingredient);
+                items.Spacing = 10;
+            
+
             
 
 
@@ -45,14 +51,11 @@ namespace ZestHealthApp.Pages
 
         private async void AddButton_Clicked(object sender, EventArgs e)
         {
-            ingredients.Add(ingredient.Text);
-            for (int i = 0; i < ingredients.Count; i++)
-            {
-               
-                Debug.WriteLine($"Ingredients: {ingredients[i]}");
-            }
-            await FirebaseHelper.AddRecipe(ingredients);
 
+            ingredients.Add(ingredient.Text);
+
+            await FirebaseHelper.AddRecipe(ingredients, RecipeName.Text);
+          
             await Navigation.PopModalAsync();
         }
     }
