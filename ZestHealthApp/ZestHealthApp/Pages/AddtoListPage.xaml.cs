@@ -15,6 +15,7 @@ namespace ZestHealthApp.Pages
         public AddtoListPage()
         {
             InitializeComponent();
+            // Binds the context to the variables stored in ShoppingListView
             BindingContext = new ShoppingListView();
         }
 
@@ -22,7 +23,7 @@ namespace ZestHealthApp.Pages
         {
             if (!string.IsNullOrEmpty(ItemEntry.Text) || !string.IsNullOrEmpty(Amount.Text))
             {
-
+                // If all of the entries have information it them, then it enables the add button
                 TaskButton.IsEnabled = true;
             
 

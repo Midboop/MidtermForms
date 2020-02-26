@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZestHealthApp.Models;
-using ZestHealthApp.ViewModel;
+using ZestHealthApp.Pages;
 
 namespace ZestHealthApp.ViewModel
 {
@@ -18,21 +18,56 @@ namespace ZestHealthApp.ViewModel
     {
         // Connects to the Firebase DataBase
         public static FirebaseClient firebase = new FirebaseClient("https://zesthealth-1f666.firebaseio.com/");
-        
 
-        // Read All
-        public static async Task<List<Users>> GetAllUser()
+        // adds googleusers to firebase
+        public static async Task<bool> AddUser(string email, string picture, string name, string id)
         {
-            
+            try
+            {
+                await firebase
+                    .Child("GoogleUsers")
+                    .PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id});
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+        // Get's specific Google User
+        public static async Task<GoogleUsers> GetUser(string email)
+        {
+            try
+            {
+                var allUsers = await GetAllUser();
+                await firebase
+                    .Child("GoogleUsers")
+                    .OnceAsync<GoogleUsers>();
+                return allUsers.Where(a => a.Email == email).FirstOrDefault();
+            }
+
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
+        // Gets all of the GoogleUsers
+        public static async Task<List<GoogleUsers>> GetAllUser()
+        {
+
             try
             {
                 var userlist = (await firebase
-                .Child("Users")
-                .OnceAsync<Users>()).Select(item =>
-                new Users
+                .Child("GoogleUsers")
+                .OnceAsync<GoogleUsers>()).Select(item =>
+                new GoogleUsers
                 {
                     Email = item.Object.Email,
-                    Password = item.Object.Password,
+                    Picture = item.Object.Picture,
                     Name = item.Object.Name
                 }).ToList();
                 return userlist;
@@ -41,68 +76,6 @@ namespace ZestHealthApp.ViewModel
             {
                 Debug.WriteLine($"Error:{e}");
                 return null;
-            }
-        }
-
-        //Read email
-        public static async Task<Users> GetUser(string email)
-        {
-            try
-            {
-                var allUsers = await GetAllUser();
-                await firebase
-                    .Child("Users")
-                    .OnceAsync<Users>();
-                return allUsers.Where(a => a.Email == email).FirstOrDefault();
-            }
-
-            catch(Exception e)
-            {
-                Debug.WriteLine($"Error:{e}");
-                return null;
-            }
-        }
-
- 
-        // Read name
-        public static async Task<Users> GetName(string name)
-        {
-            try
-            {
-                var allUsers = await GetAllUser();
-                await firebase
-                    .Child("Users")
-                    .OnceAsync<Users>();
-                return allUsers.Where(a => a.Name == name).FirstOrDefault();
-                // This is me trying to make it display the name, but this way seems to only display the first name from the Users list on the database
-                //return allUsers.Where(a => a.Name == a.Name).FirstOrDefault();
-
-               
-                
-            }
-
-            catch (Exception e)
-            {
-                Debug.WriteLine($"Error:{e}");
-                return null;
-            }
-        }
-
-
-        //Add user
-        public static async Task<bool> AddUser(string email, string password, string name)
-        {
-            try
-            {
-                await firebase
-                    .Child("Users")
-                    .PostAsync(new Users() { Email = email, Password = password, Name = name });
-                return true;
-            }
-            catch(Exception e)
-            { 
-                Debug.WriteLine($"Error:{e}");
-                return false;
             }
         }
 
@@ -228,27 +201,7 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
-        // Update user info
-        public static async Task<bool> UpdateUser(string email, string password, string name)
-        {
-            try
-            {
-                var toUpdateUser = (await firebase
-                    .Child("Users")
-                    .OnceAsync<Users>()).Where(a => a.Object.Email == email).FirstOrDefault();
-                await firebase
-                    .Child("Users")
-                    .Child(toUpdateUser.Key)
-                    .PutAsync(new Users() { Email = email, Password = password, Name = name });
-                return true;
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine($"Error:{e}");
-                return false;
-            }
-        }
-
+        // Updates the pantry item info
         public static async Task<bool> UpdateQuantity(string quantity, string name, string exp)
         {
             try
@@ -270,26 +223,8 @@ namespace ZestHealthApp.ViewModel
         }
 
 
-        // Delete user ---- Maybe use at a later time
-        public static async Task<bool> DeleteUser(string email)
-        {
-            try
-            {
-                var toDeletePerson = (await firebase
-                    .Child("Users")
-                    .OnceAsync<Users>()).Where(a => a.Object.Email == email).FirstOrDefault();
-                await firebase.Child("Users").Child(toDeletePerson.Key).DeleteAsync();
-                return true;
-                    
-            }
 
-            catch(Exception e)
-            {
-                Debug.WriteLine($"Error:{e}");
-                return false;
-            }
-        }
-
+        // Deletes the Pantry Items from the database
         public static async Task<bool> DeletePantryItem(string name)
         {
             try

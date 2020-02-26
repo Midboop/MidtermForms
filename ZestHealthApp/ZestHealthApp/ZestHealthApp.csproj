@@ -40,22 +40,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="DashboardPage.xaml.cs">
+    <Compile Update="Pages\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\PopupEditQuantityView.xaml.cs">
       <DependentUpon>PopupEditQuantityView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\PopupDeleteTaskView .xaml.cs">
-      <DependentUpon>PopupDeleteTaskView .xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AppShell.xaml">
+    <EmbeddedResource Update="Pages\AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CalculatorPage.xaml">
+    <EmbeddedResource Update="Pages\CalculatorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LoginPage.xaml">
@@ -73,19 +70,19 @@
     <EmbeddedResource Update="Pages\PopupNewTaskView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="PantryPage.xaml">
+    <EmbeddedResource Update="Pages\PantryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ProfilePage.xaml">
+    <EmbeddedResource Update="Pages\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="DashboardPage.xaml">
+    <EmbeddedResource Update="Pages\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="RegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ShoppingListPage.xaml">
+    <EmbeddedResource Update="Pages\ShoppingListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

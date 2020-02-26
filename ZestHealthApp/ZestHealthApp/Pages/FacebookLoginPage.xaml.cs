@@ -16,19 +16,18 @@ namespace ZestHealthApp.Pages
     {
         GoogleVM vm;
         FacebookVM vm2;
-        FirebaseHelper firebase;
-        GoogleUsers gUsers;
+
         public FacebookLoginPage()
         {
             InitializeComponent();
             vm = new GoogleVM();
             vm2 = new FacebookVM();
-            firebase = new FirebaseHelper();
-            gUsers = new GoogleUsers();
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            // Calls the methods inside the GoogleLogin to create the user
             vm.GoogleLogin();
           
             
@@ -36,6 +35,7 @@ namespace ZestHealthApp.Pages
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
+            // Calls the methods inside the FaceBookLogin to create the user
             vm2.FacebookLogin();
         }
     }

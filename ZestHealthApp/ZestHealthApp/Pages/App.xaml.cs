@@ -19,23 +19,12 @@ namespace ZestHealthApp
             Device.SetFlags(new[] {
                 "SwipeView_Experimental"
             });
-            // Application.Current.Properties.Remove("IsLoggedIn");
-
-
-
-            bool isLoggedIn = Current.Properties.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(Current.Properties["IsLoggedIn"]) : false;
            
-            if (isLoggedIn == false)
-            {
+
                  
                 MainPage = new FacebookLoginPage();
-               // MainPage = new NavigationPage(new FacebookLoginPage());
-            }
-            else
-            {
-                MainPage = new AppShell();
-               // MainPage = new NavigationPage(new AppShell());
-            }
+              
+          
                 
         }
         protected override void OnStart()

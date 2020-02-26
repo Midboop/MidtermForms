@@ -80,7 +80,7 @@ namespace ZestHealthApp.ViewModel
 				authenticator.Completed -= OnAuthCompleted;
 				authenticator.Error -= OnAuthError;
 			}
-			Users users = null;
+	
 			GoogleUsers user = null;
 			if (e.IsAuthenticated)
 			{
@@ -114,7 +114,7 @@ namespace ZestHealthApp.ViewModel
 				bool newuser = false;
 				if (await CheckEmail(user.Email) == false)
 				{
-					await AddUser(user.Email, user.Picture, user.Name, user.Id, user.PantryList);
+					await FirebaseHelper.AddUser(user.Email, user.Picture, user.Name, user.Id);
 					newuser = true;
 				}
 
@@ -125,7 +125,7 @@ namespace ZestHealthApp.ViewModel
 				Application.Current.Properties.Remove("DisplayName");
 				Application.Current.Properties.Remove("EmailAddress");
 				Application.Current.Properties.Remove("ProfilePicture");
-			//	Application.Current.Properties.Remove("IsLoggedIn");
+			
 					
 
 				Application.Current.Properties.Add("Id", user.Id);
@@ -134,8 +134,7 @@ namespace ZestHealthApp.ViewModel
 				Application.Current.Properties.Add("DisplayName", user.Name);
 				Application.Current.Properties.Add("EmailAddress", user.Email);
 				Application.Current.Properties.Add("ProfilePicture", user.Picture);
-				//Application.Current.Properties.Add("IsLoggedIn", user.isLoggedIn);
-				//await GetUser(users.Email);
+
 				
 				if (newuser)
 					await FirebaseHelper.AddPantryItem("Example Item", "5", "12/15");
@@ -143,10 +142,10 @@ namespace ZestHealthApp.ViewModel
 
 
 
-				//await Navigation.PushModalAsync(new AppShell());
+
 				App.Current.MainPage = new AppShell();
-				//await DisplayAlert("Name ", user.GivenName, "OK");
-				Application.Current.Properties["IsLoggedIn"] = Boolean.TrueString;
+
+
 			}
 		}
 
@@ -162,25 +161,11 @@ namespace ZestHealthApp.ViewModel
 			Debug.WriteLine("Authentication error: " + e.Message);
 		}
 
-		public static async Task<bool> AddUser(string email, string picture, string name, string id, List<Object> list)
-		{
-			try
-			{
-				await firebase
-					.Child("GoogleUsers")
-					.PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id, PantryList = list });	
-					return true;
-			}
-			catch (Exception e)
-			{
-				Debug.WriteLine($"Error:{e}");
-				return false;
-			}
-		}
+
 		public static async Task<bool> CheckEmail(string email)
 		{
 			bool accountFound = false;
-			await GetAllUser().ContinueWith(t =>
+			await FirebaseHelper.GetAllUser().ContinueWith(t =>
 			{
 				List<GoogleUsers> userCheck = (t.Result);
 				if (userCheck.Find(x => x.Email.Contains(email)) != null)
@@ -189,53 +174,6 @@ namespace ZestHealthApp.ViewModel
 
 			return accountFound;
 		}
-		public static async Task<GoogleUsers> GetUser(string email)
-		{
-			try
-			{
-				var allUsers = await GetAllUser();
-				await firebase
-					.Child("GoogleUsers")
-					.OnceAsync<GoogleUsers>();
-				return allUsers.Where(a => a.Email == email).FirstOrDefault();
-			}
-
-			catch (Exception e)
-			{
-				Debug.WriteLine($"Error:{e}");
-				return null;
-			}
-		}
-
-		public static async Task<List<GoogleUsers>> GetAllUser()
-		{
-
-			try
-			{
-				var userlist = (await firebase
-				.Child("GoogleUsers")
-				.OnceAsync<GoogleUsers>()).Select(item =>
-				new GoogleUsers
-				{
-					Email = item.Object.Email,
-					Picture = item.Object.Picture,
-					Name = item.Object.Name
-				}).ToList();
-				return userlist;
-			}
-			catch (Exception e)
-			{
-				Debug.WriteLine($"Error:{e}");
-				return null;
-			}
-		}
-
-
-
-
-
-
-
 
 	}
 }
