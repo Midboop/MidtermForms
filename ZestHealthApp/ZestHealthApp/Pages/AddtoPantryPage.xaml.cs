@@ -13,11 +13,11 @@ namespace ZestHealthApp.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddtoPantryPage : ContentPage
     {
-        PantryView pantryView;
+        PantryPage page;
         public AddtoPantryPage()
         {
             InitializeComponent();
-            pantryView = new PantryView();
+            page = new PantryPage();
         }
 
         private void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -38,9 +38,13 @@ namespace ZestHealthApp.Pages
         private async void TaskButton_Clicked(object sender, EventArgs e)
         {
             await FirebaseHelper.AddPantryItem(TaskEntry.Text, TaskEntry1.Text, TaskEntry2.Text);
-            App.Current.MainPage = new AppShell();
+
+            // Sends it back to the main page
+             App.Current.MainPage = new AppShell();
+
             
-           
+          
+            
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

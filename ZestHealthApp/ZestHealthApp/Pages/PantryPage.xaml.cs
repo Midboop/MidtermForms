@@ -23,6 +23,7 @@ namespace ZestHealthApp
 
         public PantryPage()
         {
+            
             helper = new FirebaseHelper();
             items = new PantryItems();
             view = new PantryView();
