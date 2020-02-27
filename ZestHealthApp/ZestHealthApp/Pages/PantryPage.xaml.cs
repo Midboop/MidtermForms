@@ -3,12 +3,13 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
-using ZestHealthApp.newViews;
+
 using ZestHealthApp.Models;
 using ZestHealthApp.ViewModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ZestHealthApp.Pages;
 
 namespace ZestHealthApp
 {
@@ -39,6 +40,11 @@ namespace ZestHealthApp
         private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedItemName = (e.CurrentSelection.FirstOrDefault() as PantryItems)?.ItemName;
+        }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new AddtoPantryPage());
         }
     }
 }

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZestHealthApp.Pages.AddtoPantryPage">
+    <ContentPage.Content>
+        <StackLayout Margin="12"
+                 Padding="24"
+                 BackgroundColor="WhiteSmoke"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+            <Label Text="New Item" FontSize="Subtitle" TextColor="LightGray"/>
+            <Entry x:Name="TaskEntry" Placeholder="Name" Text="{Binding ItemName}"/>
+            <Entry x:Name="TaskEntry1" Placeholder="Expiration Date" Text="{Binding ExpirationDate}"/>
+            <Entry x:Name="TaskEntry2" Placeholder="Quantity" Text="{Binding Quantity}"/>
+            <Button x:Name="TaskButton" BackgroundColor="DodgerBlue"
+            FontSize="15"
+            Text="Add Item to Pantry"
+            TextColor="White"
+            CornerRadius="10"
+            Command="{Binding AddPantryCommand}"
+            Clicked="TaskButton_Clicked"/>
+            <Button Text="Cancel" BackgroundColor="Red" TextColor="White" Clicked="Button_Clicked" CornerRadius="10" FontSize="15"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

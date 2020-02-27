@@ -1,29 +1,26 @@
-﻿using Rg.Plugins.Popup.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZestHealthApp.ViewModel;
-using ZestHealthApp.Models;
-using System.Diagnostics;
 
-namespace ZestHealthApp.newViews
+namespace ZestHealthApp.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PopupNewTaskView
+    public partial class AddtoPantryPage : ContentPage
     {
-     
         PantryView pantryView;
-        
-        public PopupNewTaskView()
+        public AddtoPantryPage()
         {
             InitializeComponent();
             pantryView = new PantryView();
-            BindingContext = pantryView;
-       
         }
 
-        private async void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
+        private void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(TaskEntry.Text) || !string.IsNullOrEmpty(TaskEntry1.Text) || !string.IsNullOrEmpty(TaskEntry2.Text))
             {
@@ -31,19 +28,24 @@ namespace ZestHealthApp.newViews
                 TaskButton.IsEnabled = true;
 
 
-               
-               
+
+
             }
             else if (string.IsNullOrEmpty(TaskEntry.Text) || string.IsNullOrEmpty(TaskEntry1.Text) || string.IsNullOrEmpty(TaskEntry2.Text))
                 TaskButton.IsEnabled = false;
         }
 
+        private async void TaskButton_Clicked(object sender, EventArgs e)
+        {
+            await FirebaseHelper.AddPantryItem(TaskEntry.Text, TaskEntry1.Text, TaskEntry2.Text);
+            App.Current.MainPage = new AppShell();
+            
+           
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            
-            
-            await PopupNavigation.PopAsync();
-            
+            await Navigation.PopModalAsync();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ZestHealthApp.Pages
             BindingContext = new ShoppingListView();
         }
 
-        private async void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
+        private void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(ItemEntry.Text) || !string.IsNullOrEmpty(Amount.Text))
             {

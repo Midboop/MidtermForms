@@ -99,7 +99,7 @@
                 </CollectionView>
             <Frame Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" CornerRadius="20" HasShadow="False" Margin="5"  Padding="0" HeightRequest="50" BackgroundColor="Transparent">
                 <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand"
-                             Command ="{Binding Source={x:Reference PantryDisplay}, Path=BindingContext.Popup}"/>
+                            Clicked ="ImageButton_Clicked"/>
                 
             </Frame>
 
