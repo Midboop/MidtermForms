@@ -34,7 +34,7 @@ namespace ZestHealthApp
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AddtoListPage());
+            await Shell.Current.GoToAsync("ShoppingAddItem");
         }
     }
 }

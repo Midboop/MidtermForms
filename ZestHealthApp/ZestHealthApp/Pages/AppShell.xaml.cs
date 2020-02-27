@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZestHealthApp.Pages;
 
 namespace ZestHealthApp
 {
@@ -14,6 +15,9 @@ namespace ZestHealthApp
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute("PantryAddItem", typeof(AddtoPantryPage));
+            Routing.RegisterRoute("ShoppingAddItem", typeof(AddtoListPage));
+            Routing.RegisterRoute("RecipeAddItem", typeof(AddRecipeItems));
         }
     }
 }

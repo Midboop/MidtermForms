@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using ZestHealthApp.Pages;
 
 namespace ZestHealthApp
-{
+{   
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PantryPage : ContentPage
     {
@@ -43,9 +43,9 @@ namespace ZestHealthApp
             selectedItemName = (e.CurrentSelection.FirstOrDefault() as PantryItems)?.ItemName;
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
+        private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new AddtoPantryPage());
+            await Shell.Current.GoToAsync("PantryAddItem");
         }
     }
 }

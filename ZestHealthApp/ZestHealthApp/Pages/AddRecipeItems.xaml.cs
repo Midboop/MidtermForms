@@ -43,7 +43,7 @@ namespace ZestHealthApp.Pages
         // If the user wishes to not save anything and cancels, it just redirects to the previous page
         private async void CancelButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Shell.Current.Navigation.PopAsync();
         }
         // This adds the final ingredient to the list before pushing it to firebase
         private async void AddButton_Clicked(object sender, EventArgs e)
@@ -52,8 +52,8 @@ namespace ZestHealthApp.Pages
             ingredients.Add(ingredient.Text);
             // this is taking the local list and the RecipeName entry text and stores it in Firebase
             await FirebaseHelper.AddRecipe(ingredients, RecipeName.Text);
-          
-            await Navigation.PopModalAsync();
+
+            await Shell.Current.Navigation.PopAsync();
         }
     }
 }

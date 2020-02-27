@@ -20,11 +20,11 @@ namespace ZestHealthApp
             InitializeComponent();
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
+        private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            
-            Navigation.PushModalAsync(new AddRecipeItems());
-            
+
+            await Shell.Current.GoToAsync("RecipeAddItem");
+
         }
     }
 }

@@ -33,7 +33,7 @@
                 Value="WhiteSmoke" />
         </Style>
 
-        <Style x:Key="CalculatorStyle" 
+        <Style x:Key="ShoppingStyle" 
            TargetType="Element">
             <Setter Property="Shell.TabBarBackgroundColor" 
                 Value="#9c14be" />
@@ -83,24 +83,28 @@
     <TabBar>
         <Tab Title="Recipes" Icon="LemonIcon.png">
         <ShellContent Style="{StaticResource BaseStyle}"
-            ContentTemplate="{DataTemplate Zest:MainPage}"/>
+            ContentTemplate="{DataTemplate Zest:MainPage}"
+                      Route="Recipe"/>
             
     </Tab>
     <Tab Title="Pantry" Icon="ShopingBasketIcon.png">
             <ShellContent Style="{StaticResource PantryStyle}"
-            ContentTemplate="{DataTemplate Zest:PantryPage}"/>
+            ContentTemplate="{DataTemplate Zest:PantryPage}"
+                          Route="Pantry"/>
     </Tab>
-    <Tab Title="Calculator" Icon="CalculatorIcon.png">
+    <!--<Tab Title="Calculator" Icon="CalculatorIcon.png">
             <ShellContent Style="{StaticResource CalculatorStyle}"
             ContentTemplate="{DataTemplate Zest:CalculatorPage}"/>
-    </Tab>
-        <Tab Title="Shopping List" Icon="ShoppingBasketIcon.png">
-            <ShellContent Style="{StaticResource PantryStyle}"
-             ContentTemplate="{DataTemplate Zest:ShoppingListPage}"/>
+    </Tab>-->
+        <Tab Title="Shopping List" Icon="ShoppingCartIcon.png">
+            <ShellContent Style="{StaticResource ShoppingStyle}"
+             ContentTemplate="{DataTemplate Zest:ShoppingListPage}"
+                          Route="Shopping"/>
         </Tab>
     <Tab Title="Profile" Icon="ProfileIcon.png">
             <ShellContent Style="{StaticResource ProfileStyle}"
-            ContentTemplate="{DataTemplate Zest:ProfilePage}"/>
+            ContentTemplate="{DataTemplate Zest:ProfilePage}"
+                          Route="Profile"/>
     </Tab>
         
     </TabBar>

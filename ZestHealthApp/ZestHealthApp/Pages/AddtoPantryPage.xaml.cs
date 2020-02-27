@@ -17,7 +17,7 @@ namespace ZestHealthApp.Pages
         public AddtoPantryPage()
         {
             InitializeComponent();
-            page = new PantryPage();
+           // page = new PantryPage();
         }
 
         private void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -40,16 +40,16 @@ namespace ZestHealthApp.Pages
             await FirebaseHelper.AddPantryItem(TaskEntry.Text, TaskEntry1.Text, TaskEntry2.Text);
 
             // Sends it back to the main page
-             App.Current.MainPage = new AppShell();
+            await Shell.Current.Navigation.PopAsync();
 
-            
-          
-            
+
+
+
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Shell.Current.Navigation.PopAsync();
         }
     }
 }
