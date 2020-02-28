@@ -28,7 +28,7 @@ namespace ZestHealthApp.ViewModel
         {  
             GetPantryItems().ContinueWith(t => { PantryList = new ObservableCollection<PantryItems>(t.Result); });
             Delete = new Command<PantryItems>(HandleDelete);
-         
+
         }
 
         public async Task RefreshPantry()
@@ -40,12 +40,13 @@ namespace ZestHealthApp.ViewModel
             return (await FirebaseHelper.GetPantry());
         }
         public Command<PantryItems> Delete { get; set; }
-
+        
         public async void HandleDelete(PantryItems pantryItem)
         {
             await FirebaseHelper.DeletePantryItem(pantryItem.ItemName);
             await RefreshPantry();
         }
+        
 
         public Command AddPantryCommand
         {

@@ -8,7 +8,7 @@ using Android.Widget;
 using Android.OS;
 
 using Android.Content;
-
+using Lottie.Forms.Droid;
 
 namespace ZestHealthApp.Droid
 {
@@ -26,6 +26,7 @@ namespace ZestHealthApp.Droid
             Rg.Plugins.Popup.Popup.Init(this, bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            AnimationViewRenderer.Init();
             global::Xamarin.Auth.Presenters.XamarinAndroid.AuthenticationConfiguration.Init(this, bundle);
             LoadApplication(new App());
         }

@@ -13,6 +13,7 @@
     <!-- This is the main hub for anything utlizing Shell-->
 
     <Shell.Resources>
+        
         <Style x:Key="BaseStyle" 
            TargetType="Element">
             <Setter Property="Shell.TabBarBackgroundColor" 
