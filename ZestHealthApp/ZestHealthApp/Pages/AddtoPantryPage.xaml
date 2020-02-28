@@ -82,7 +82,7 @@
                                 Margin="1"
                                 HorizontalOptions="FillAndExpand"
                                 DateSelected="DatePicker_DateSelected"/>
-                    <lottie:AnimationView x:Name="SubmitAnim" Grid.Row="4" Grid.ColumnSpan="2" AutoPlay="False" HorizontalOptions="FillAndExpand" Speed="1.5" VerticalOptions="FillAndExpand" Loop ="False" OnFinish="Handle_OnFinish" Animation="submit2lottie.json"/>
+                    <lottie:AnimationView x:Name="SubmitAnim" Grid.Row="4" Grid.ColumnSpan="2" AutoPlay="False" HorizontalOptions="FillAndExpand" Speed="1.7" VerticalOptions="FillAndExpand" Loop ="False" OnFinish="Handle_OnFinish" Animation="submit2lottie.json"/>
                     <Button x:Name="SubmitButton" Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="Transparent" Clicked="SubmitAddItem" />
                     
 

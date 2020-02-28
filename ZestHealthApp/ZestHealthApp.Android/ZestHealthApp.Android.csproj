@@ -121,13 +121,10 @@
     <AndroidAsset Include="Assets\gradientLines.json" />
     <AndroidAsset Include="Assets\signupicon.json" />
     <AndroidAsset Include="Assets\addbuttonlottie.json" />
-    <AndroidAsset Include="Assets\submitlottie.json" />
     <AndroidAsset Include="Assets\submit2lottie.json" />
-    <AndroidAsset Include="Assets\cancel2lottie.json" />
-    <AndroidAsset Include="Assets\submit3lottie.json" />
     <AndroidAsset Include="Assets\cancel3lottie.json" />
     <AndroidAsset Include="Assets\cartcheckoutlottie.json" />
-    <AndroidAsset Include="Assets\pencil.json" />
+    <AndroidAsset Include="Assets\pencillottie.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

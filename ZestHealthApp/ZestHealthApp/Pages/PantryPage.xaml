@@ -33,13 +33,19 @@
     <!-- Place Content in the same row to stack and overlap-->
         <ContentPage.Content>
             
-            <Grid>
+            <Grid ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
-                <magic:GradientView Grid.Row="0" Grid.RowSpan ="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+                <magic:GradientView Grid.Row="0" Grid.RowSpan ="3" Grid.ColumnSpan="3">
                     <magic:GradientView.GradientSource>
                         <magic:CssGradientSource>
                             <!-- Css Gradient Code-->
@@ -69,7 +75,7 @@
                     </magic:GradientView.GradientSource>
                 </magic:GradientView>
 
-                <CollectionView x:Name="PantryDisplay" ItemsSource="{Binding PantryList}" Margin="15" Grid.Row="1" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
+            <CollectionView x:Name="PantryDisplay" ItemsSource="{Binding PantryList}" Margin="15" Grid.Row="1" Grid.ColumnSpan="3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"
                            ItemSpacing="10" />
@@ -99,9 +105,13 @@
                 </CollectionView.ItemTemplate>
                    
                 </CollectionView>
-                <lottie:AnimationView x:Name="AnimButton" Grid.Row="2" AutoPlay="False" Loop ="False" Animation="addbuttonlottie.json" />
-                <Button x:Name="AddButton"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="Button_Clicked"/>
-                
+            <lottie:AnimationView x:Name="CartAnimButton" Scale="0.6" Grid.Row="2" Grid.Column="0" AutoPlay="False" Loop ="False" Animation="cartcheckoutlottie.json" IsVisible="False" OnFinish="CartAnimButton_OnPlay"/>
+            <Button x:Name="CartButton"  Grid.Row="2" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked" IsEnabled="False"/>
+            <lottie:AnimationView x:Name="AnimButton" Grid.Row="2" Grid.Column="1" AutoPlay="False" Loop ="False" Animation="addbuttonlottie.json" />
+            <Button x:Name="AddButton"  Grid.Row="2" Grid.Column="1" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked"/>
+            <lottie:AnimationView x:Name="EditAnimButton" Grid.Row="2" Grid.Column="2" AutoPlay="False" Loop ="False" Animation="pencillottie.json" Speed="1.5" IsVisible="False" OnFinish="EditAnimButton_OnPlay"/>
+            <Button x:Name="EditButton"  Grid.Row="2" Grid.Column="2" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked" IsEnabled="False"/>
+
 
         </Grid>
             
