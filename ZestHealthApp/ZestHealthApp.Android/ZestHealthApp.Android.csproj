@@ -125,6 +125,7 @@
     <AndroidAsset Include="Assets\cancel3lottie.json" />
     <AndroidAsset Include="Assets\cartcheckoutlottie.json" />
     <AndroidAsset Include="Assets\pencillottie.json" />
+    <AndroidAsset Include="Assets\buildinglottie.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

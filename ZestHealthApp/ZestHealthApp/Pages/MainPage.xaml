@@ -4,12 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.MainPage">
 
     <ContentPage.Content>
         <Grid>
-            <magic:GradientView>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <magic:GradientView Grid.RowSpan="3">
                 <magic:GradientView.GradientSource>
                     <magic:CssGradientSource> 
                         <!-- Css Gradient Code -->
@@ -22,18 +28,9 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <StackLayout x:Name="items">
-                <Label Grid.Row="0"
-                Text="Welcome to Your Recipes!"
-                FontSize="Large"
-                TextColor="WhiteSmoke"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-                <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"/>
-
-
-
-            </StackLayout>
+           
+                <lottie:AnimationView Grid.Row="0" Grid.RowSpan="2" Margin="0" AutoPlay="True" Loop ="True" Animation="buildinglottie.json" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+                <Label Grid.Row="1" Text="Under Construction" TextColor="GhostWhite" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center"  VerticalTextAlignment="End"/>
 
 
         </Grid>
