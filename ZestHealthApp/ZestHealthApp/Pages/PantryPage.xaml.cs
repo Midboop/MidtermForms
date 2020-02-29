@@ -119,8 +119,8 @@ namespace ZestHealthApp
             await FirebaseHelper.AddShoppingList(selectedItem.ItemName, NumberEntry.Text);
             NumberFrame.IsVisible = false;
             NumberEntry.IsVisible = false;
-            AnimButton.PlayFrameSegment(45, 160);
-            CartAnimButton.PlayFrameSegment(50, 102); // use frame 160 if item is added to shopping cart
+            AnimButton.PlayFrameSegment(45, 125);
+            CartAnimButton.PlayFrameSegment(50, 160); // use frame 160 if item is added to shopping cart
             CartAnimComplete = true;
             EditAnimButton.PlayFrameSegment(14, 48);
             EditAnimComplete = true;
