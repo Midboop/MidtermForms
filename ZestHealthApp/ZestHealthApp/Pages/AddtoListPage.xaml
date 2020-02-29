@@ -3,30 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.Pages.AddtoListPage">
     <ContentPage.Content>
-        <StackLayout                  
-            HorizontalOptions="Center"
-                 VerticalOptions="Center" Margin="12"
-                 Padding="24">
+        <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <magic:GradientView Grid.Row="0" Grid.RowSpan="7">
+                <magic:GradientView.GradientSource>
+                    <magic:CssGradientSource>
+                        <!-- Css Gradient Code-->
+                        <x:String>
+                            <![CDATA[
+                            linear-gradient(316deg, rgba(234, 234, 234, 0.02) 0%, rgba(234, 234, 234, 0.02) 16.667%,rgba(128, 128, 128, 0.02) 16.667%,
+                            rgba(128, 128, 128, 0.02) 33.334%,rgba(161, 161, 161, 0.02) 33.334%, rgba(161, 161, 161, 0.02) 50.001000000000005%,
+                            rgba(154, 154, 154, 0.02) 50.001%, rgba(154, 154, 154, 0.02) 66.668%,rgba(77, 77, 77, 0.02) 66.668%, 
+                            rgba(77, 77, 77, 0.02) 83.33500000000001%,rgba(10, 10, 10, 0.02) 83.335%, rgba(10, 10, 10, 0.02) 100.002%),linear-gradient(75deg, 
+                            rgba(39, 39, 39, 0.03) 0%, rgba(39, 39, 39, 0.03) 20%,rgba(232, 232, 232, 0.03) 20%, rgba(232, 232, 232, 0.03) 40%,rgba(33, 33, 33, 0.03) 40%, 
+                            rgba(33, 33, 33, 0.03) 60%,rgba(84, 84, 84, 0.03) 60%, rgba(84, 84, 84, 0.03) 80%,rgba(112, 112, 112, 0.03) 80%, rgba(112, 112, 112, 0.03) 100%),
+                            linear-gradient(103deg, rgba(174, 174, 174, 0.03) 0%, rgba(174, 174, 174, 0.03) 12.5%,rgba(190, 190, 190, 0.03) 12.5%, rgba(190, 190, 190, 0.03) 25%,
+                            rgba(191, 191, 191, 0.03) 25%, rgba(191, 191, 191, 0.03) 37.5%,rgba(23, 23, 23, 0.03) 37.5%, rgba(23, 23, 23, 0.03) 50%,
+                            rgba(227, 227, 227, 0.03) 50%, rgba(227, 227, 227, 0.03) 62.5%,rgba(71, 71, 71, 0.03) 62.5%, rgba(71, 71, 71, 0.03) 75%,
+                            rgba(162, 162, 162, 0.03) 75%, rgba(162, 162, 162, 0.03) 87.5%,rgba(85, 85, 85, 0.03) 87.5%, rgba(85, 85, 85, 0.03) 100%),
+                            linear-gradient(355deg, rgba(38, 38, 38, 0.02) 0%, rgba(38, 38, 38, 0.02) 25%,rgba(106, 106, 106, 0.02) 25%, rgba(106, 106, 106, 0.02) 50%,
+                            rgba(28, 28, 28, 0.02) 50%, rgba(28, 28, 28, 0.02) 75%,rgba(66, 66, 66, 0.02) 75%, rgba(66, 66, 66, 0.02) 100%),linear-gradient(137deg, rgba(38, 38, 38, 0.03) 0%, 
+                            rgba(38, 38, 38, 0.03) 25%,rgba(211, 211, 211, 0.03) 25%, rgba(211, 211, 211, 0.03) 50%,rgba(4, 4, 4, 0.03) 50%, rgba(4, 4, 4, 0.03) 75%,rgba(24, 24, 24, 0.03) 75%,
+                            rgba(24, 24, 24, 0.03) 100%),linear-gradient(51deg, rgba(253, 253, 253, 0.03) 0%, rgba(253, 253, 253, 0.03) 14.286%,rgba(103, 103, 103, 0.03) 14.286%, 
+                            rgba(103, 103, 103, 0.03) 28.572%,rgba(46, 46, 46, 0.03) 28.572%, rgba(46, 46, 46, 0.03) 42.858%,rgba(68, 68, 68, 0.03) 42.858%, rgba(68, 68, 68, 0.03) 57.144%,
+                            rgba(116, 116, 116, 0.03) 57.144%, rgba(116, 116, 116, 0.03) 71.42999999999999%,rgba(248, 248, 248, 0.03) 71.43%, rgba(248, 248, 248, 0.03) 85.71600000000001%,
+                            rgba(174, 174, 174, 0.03) 85.716%, rgba(174, 174, 174, 0.03) 100.002%),linear-gradient(283deg, rgba(20, 20, 20, 0.01) 0%, rgba(20, 20, 20, 0.01) 14.286%,
+                            rgba(23, 23, 23, 0.01) 14.286%, rgba(23, 23, 23, 0.01) 28.572%,rgba(19, 19, 19, 0.01) 28.572%, rgba(19, 19, 19, 0.01) 42.858%,rgba(134, 134, 134, 0.01) 42.858%,
+                            rgba(134, 134, 134, 0.01) 57.144%,rgba(4, 4, 4, 0.01) 57.144%, rgba(4, 4, 4, 0.01) 71.42999999999999%,rgba(254, 254, 254, 0.01) 71.43%, 
+                            rgba(254, 254, 254, 0.01) 85.71600000000001%,rgba(87, 87, 87, 0.01) 85.716%, rgba(87, 87, 87, 0.01) 100.002%),linear-gradient(90deg, rgb(168, 1, 206),rgb(20, 120, 203))
+                            ]]>
+                        </x:String>
+                    </magic:CssGradientSource>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+            <Frame Grid.Row="1" Grid.RowSpan="4"
+                 Margin="12"
+                 Padding="30"
+                 BackgroundColor="WhiteSmoke"
+                 HasShadow="True"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 CornerRadius="20">
+                <Grid>
+                   
+                    <Label Grid.Row="0" Text="New Item" FontSize="Subtitle" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="DarkCyan"/>
+                    <Entry Grid.Row="1" x:Name="ItemEntry" Placeholder="Name" Text="{Binding ItemName}"/>
+                    <Entry Grid.Row="2" x:Name="Amount" Placeholder="Quantity                        " Keyboard="Numeric" Text="{Binding Amount}"/>
+                    <lottie:AnimationView x:Name="SubmitAnim" Grid.Row="3" AutoPlay="False" HorizontalOptions="FillAndExpand" Speed="1.7" VerticalOptions="FillAndExpand" Loop ="False" OnFinish="Handle_OnFinish" Animation="submit2lottie.json"/>
+                    <Button Grid.Row="3" x:Name="SubmitButton" HeightRequest="60" BackgroundColor="Transparent" Command="{Binding AddShoppingListCommand}" Clicked="SubmitAddItem"/>
 
-            <Entry x:Name="ItemEntry" Placeholder="Name" Text="{Binding ItemName}"/>
-            <Entry x:Name="Amount" Placeholder="Amount" Text="{Binding Amount}"/>
 
-            <Button x:Name="TaskButton" BackgroundColor="DodgerBlue"
-            FontSize="15"
-            Text="Add Item to Shopping List"
-            TextColor="White"
-            CornerRadius="10"
-            Command="{Binding AddShoppingListCommand}"
-            Clicked="TaskButton_Clicked"/>
-            <Button x:Name="CancelButton" BackgroundColor="Red"
-                    FontSize="15"
-                    Text="Cancel"
-                    TextColor="White"
-                    CornerRadius="10"
-                   Clicked="CancelButton_Clicked"/>
-        </StackLayout>
+                </Grid>
+            </Frame>
+            <lottie:AnimationView x:Name="CancelAnim" Grid.Row="5" AutoPlay="True" Speed="1.5" Loop ="True" Animation="cancel3lottie.json"/>
+            <Button Grid.Row="5" x:Name="CancelButton" BackgroundColor="Transparent" Clicked="CancelButton_Clicked"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

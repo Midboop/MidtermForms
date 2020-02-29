@@ -126,6 +126,8 @@
     <AndroidAsset Include="Assets\cartcheckoutlottie.json" />
     <AndroidAsset Include="Assets\pencillottie.json" />
     <AndroidAsset Include="Assets\buildinglottie.json" />
+    <AndroidAsset Include="Assets\purpleaddlottie.json" />
+    <AndroidAsset Include="Assets\pantrylottie.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

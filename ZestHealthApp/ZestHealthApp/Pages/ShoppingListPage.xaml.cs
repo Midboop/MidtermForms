@@ -15,26 +15,84 @@ namespace ZestHealthApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShoppingListPage : ContentPage
     {
-        string selectedItemName;
+        ShoppingListItems selectedItem;
+        int CurrentFrame;
+        bool CartAnimComplete;
+        bool EditAnimComplete;
         public ShoppingListPage()
         {
             InitializeComponent();
             BindingContext = new ShoppingListView();
+            selectedItem = null;
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            ToggleCartAnimState(false, false);
+            ToggleEditAnimState(false, false);
             await (BindingContext as ShoppingListView).RefreshList();
+            AnimButton.PlayFrameSegment(0, 25);
+            CurrentFrame = 25;
+            selectedItem = null;
         }
 
         private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedItemName = (e.CurrentSelection.FirstOrDefault() as ShoppingListItems)?.ItemName;
+            selectedItem = (e.CurrentSelection.FirstOrDefault() as ShoppingListItems);
+            ToggleCartAnimState(true, false);
+            CartAnimButton.PlayFrameSegment(0, 23);
+
+            ToggleEditAnimState(true, false);
+            EditAnimButton.PlayFrameSegment(0, 14);
+
+
+            if (CurrentFrame == 25)
+            {
+                AnimButton.PlayFrameSegment(25, 45);
+                CurrentFrame = 45;
+            }
         }
 
-        private async void ImageButton_Clicked(object sender, EventArgs e)
+        private async void AddDeleteButton_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("ShoppingAddItem");
+            if (CurrentFrame == 25)
+                await Shell.Current.GoToAsync("ShoppingAddItem");
+            else if (CurrentFrame == 45)
+            {
+                (BindingContext as ShoppingListView).Delete.Execute(selectedItem);
+                AnimButton.PlayFrameSegment(45, 125);
+                CartAnimButton.PlayFrameSegment(98, 120); // use in between frames when adding to pantry <3
+                CartAnimComplete = true;
+                EditAnimButton.PlayFrameSegment(14, 48);
+                EditAnimComplete = true;
+                AnimButton.PlayFrameSegment(0, 25);
+                CurrentFrame = 25;
+                selectedItem = null;
+            }
+        }
+        private void CartAnimButton_OnPlay(object sender, EventArgs e)
+        {
+            if (CartAnimComplete)
+                ToggleCartAnimState(false, false);
+        }
+
+        private void EditAnimButton_OnPlay(object sender, EventArgs e)
+        {
+            if (EditAnimComplete)
+                ToggleEditAnimState(false, false);
+        }
+        private void ToggleCartAnimState(bool buttonstate, bool complete)
+        {
+            CartButton.IsEnabled = buttonstate;
+            CartAnimButton.IsVisible = buttonstate;
+            CartAnimComplete = complete;
+        }
+
+        private void ToggleEditAnimState(bool buttonstate, bool complete)
+        {
+            EditButton.IsEnabled = buttonstate;
+            EditAnimButton.IsVisible = buttonstate;
+            EditAnimComplete = complete;
         }
     }
 }

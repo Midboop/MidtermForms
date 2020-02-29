@@ -28,9 +28,9 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-           
-                <lottie:AnimationView Grid.Row="0" Grid.RowSpan="2" Margin="0" AutoPlay="True" Loop ="True" Animation="buildinglottie.json" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
-                <Label Grid.Row="1" Text="Under Construction" TextColor="GhostWhite" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center"  VerticalTextAlignment="End"/>
+
+            <lottie:AnimationView x:Name="buildingAnim" Grid.Row="0" Grid.RowSpan="2" Margin="0" AutoPlay="True" Loop ="True" Animation="buildinglottie.json" />
+            <Label Grid.Row="1" Text="Under Construction" TextColor="GhostWhite" FontAttributes="Bold" FontSize="Subtitle" HorizontalTextAlignment="Center"  VerticalTextAlignment="End"/>
 
 
         </Grid>

@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.ShoppingListPage">
     <ContentPage.Resources>
@@ -15,9 +16,11 @@
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
                                 <Setter Property="BorderColor"
-                                        Value="LightSkyBlue" />
+                                        Value="WhiteSmoke" />
                                 <Setter Property="BackgroundColor"
-                                        Value="LightGreen"/>
+                                        Value="Orchid"/>
+                                <Setter Property="CornerRadius"
+                                        Value="0"/>
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -34,7 +37,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
-            <magic:GradientView Grid.Row="0" Grid.RowSpan ="3">
+            <magic:GradientView Grid.Row="0" Grid.RowSpan ="3" Grid.ColumnSpan="3">
                 <magic:GradientView.GradientSource>
                     <magic:CssGradientSource>
                         <!-- Css Gradient Code-->
@@ -66,7 +69,7 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <CollectionView x:Name="ShoppingDisplay" ItemsSource="{Binding ShoppingList}" Margin="15" Grid.Row="1" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+            <CollectionView x:Name="ShoppingDisplay" ItemsSource="{Binding ShoppingList}" Margin="15" Grid.Row="1" Grid.ColumnSpan="3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"
                            ItemSpacing="10" />
@@ -87,19 +90,20 @@
 
                                 <Label x:Name="Quantity" Grid.Column="0" Grid.Row="0" Text="{Binding Amount}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold"/>
                                 <Label x:Name="itemName" Text="{Binding ItemName}" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="Medium" FontAttributes="Bold"/>
-                                <ImageButton x:Name="DeleteButton" Source="delete.png" BackgroundColor="LightGray" Grid.Column="3" WidthRequest="30" HeightRequest="30" CornerRadius="15" 
-                                                     Command ="{Binding Source={x:Reference ShoppingDisplay}, Path=BindingContext.Delete}" CommandParameter="{Binding .}" />
                             </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
-            <Frame Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" CornerRadius="20" HasShadow="False" Margin="5"  Padding="0" HeightRequest="50" BackgroundColor="Transparent">
-                <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand"
-                             Clicked="ImageButton_Clicked"/>
+            <lottie:AnimationView x:Name="CartAnimButton" Scale="1.5" Grid.Row="2" Grid.Column="0" AutoPlay="False" Loop ="False" Animation="pantrylottie.json" Speed="1" IsVisible="False" OnFinish="CartAnimButton_OnPlay"/>
+            <Button x:Name="CartButton"  Grid.Row="2" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked" IsEnabled="False"/>
+            <lottie:AnimationView x:Name="AnimButton" Grid.Row="2" Grid.Column="1" Scale="1.3" AutoPlay="False" Loop ="False" Animation="purpleaddlottie.json" />
+            <Button x:Name="AddButton"  Grid.Row="2" Grid.Column="1" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked"/>
+            <lottie:AnimationView x:Name="EditAnimButton" Grid.Row="2" Grid.Column="2" AutoPlay="False" Loop ="False" Animation="pencillottie.json" Speed="1.5" IsVisible="False" OnFinish="EditAnimButton_OnPlay"/>
+            <Button x:Name="EditButton"  Grid.Row="2" Grid.Column="2" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked" IsEnabled="False"/>
 
-            </Frame>
+
 
         </Grid>
     </ContentPage.Content>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ZestHealthApp.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZestHealthApp.Services;
 
 namespace ZestHealthApp.Pages
 {
@@ -15,6 +16,7 @@ namespace ZestHealthApp.Pages
         public AddtoListPage()
         {
             InitializeComponent();
+            Shell.SetTabBarIsVisible(this, false);
             // Binds the context to the variables stored in ShoppingListView
             BindingContext = new ShoppingListView();
         }
@@ -24,18 +26,22 @@ namespace ZestHealthApp.Pages
             if (!string.IsNullOrEmpty(ItemEntry.Text) || !string.IsNullOrEmpty(Amount.Text))
             {
                 // If all of the entries have information it them, then it enables the add button
-                TaskButton.IsEnabled = true;
-            
-
-               
+                SubmitButton.IsEnabled = true;
             }
             else if (string.IsNullOrEmpty(ItemEntry.Text) || string.IsNullOrEmpty(Amount.Text))
-                TaskButton.IsEnabled = false;
+                SubmitButton.IsEnabled = false;
         }
-
-        private async void TaskButton_Clicked(object sender, EventArgs e)
+        private async void Handle_OnFinish(object sender, System.EventArgs e)
         {
             await Shell.Current.Navigation.PopAsync();
+
+        }
+        private void SubmitAddItem(object sender, EventArgs e)
+        {
+            DependencyService.Get<IKeyboardHelper>().HideKeyboard();
+            if (!string.IsNullOrEmpty(ItemEntry.Text) || !string.IsNullOrEmpty(Amount.Text))
+                SubmitAnim.Play();
+            
         }
 
         private async void CancelButton_Clicked(object sender, EventArgs e)

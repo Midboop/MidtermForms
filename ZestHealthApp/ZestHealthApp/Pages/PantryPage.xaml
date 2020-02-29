@@ -19,9 +19,11 @@
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
                                 <Setter Property="BorderColor"
-                                        Value="LightSkyBlue" />
+                                        Value="WhiteSmoke" />
                                 <Setter Property="BackgroundColor"
-                                        Value="LightGreen"/>
+                                        Value="Aquamarine"/>
+                                <Setter Property="CornerRadius"
+                                        Value="0"/>
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -107,7 +109,7 @@
                 </CollectionView>
             <lottie:AnimationView x:Name="CartAnimButton" Scale="0.6" Grid.Row="2" Grid.Column="0" AutoPlay="False" Loop ="False" Animation="cartcheckoutlottie.json" IsVisible="False" OnFinish="CartAnimButton_OnPlay"/>
             <Button x:Name="CartButton"  Grid.Row="2" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked" IsEnabled="False"/>
-            <lottie:AnimationView x:Name="AnimButton" Grid.Row="2" Grid.Column="1" AutoPlay="False" Loop ="False" Animation="addbuttonlottie.json" />
+            <lottie:AnimationView x:Name="AnimButton" Grid.Row="2" Grid.Column="1" Scale="1.3" AutoPlay="False" Loop ="False" Animation="addbuttonlottie.json" />
             <Button x:Name="AddButton"  Grid.Row="2" Grid.Column="1" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked"/>
             <lottie:AnimationView x:Name="EditAnimButton" Grid.Row="2" Grid.Column="2" AutoPlay="False" Loop ="False" Animation="pencillottie.json" Speed="1.5" IsVisible="False" OnFinish="EditAnimButton_OnPlay"/>
             <Button x:Name="EditButton"  Grid.Row="2" Grid.Column="2" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked" IsEnabled="False"/>
@@ -121,28 +123,5 @@
     
 
     </ContentPage>
-    <!--<ContentPage>
-        
-        --><!-- Place Content in the same row to stack and overlap--><!--
-        <ContentPage.Content>
-            <Grid>
-                <magic:GradientView>
-                    <magic:GradientView.GradientSource>
-                        <magic:CssGradientSource>
-                            --><!-- Css Gradient Code--><!--
-                            <x:String>
-                                <![CDATA[
-                                linear-gradient(44deg, rgba(243, 243, 243, 0.05) 0%, rgba(243, 243, 243, 0.05) 33.333%,rgba(79, 79, 79, 0.05) 33.333%, rgba(79, 79, 79, 0.05) 66.666%,rgba(9, 9, 9, 0.05) 66.666%, rgba(9, 9, 9, 0.05) 99.999%),linear-gradient(97deg, rgba(150, 150, 150, 0.05) 0%, rgba(150, 150, 150, 0.05) 33.333%,rgba(34, 34, 34, 0.05) 33.333%, rgba(34, 34, 34, 0.05) 66.666%,rgba(40, 40, 40, 0.05) 66.666%, rgba(40, 40, 40, 0.05) 99.999%),linear-gradient(29deg, rgba(56, 56, 56, 0.05) 0%, rgba(56, 56, 56, 0.05) 33.333%,rgba(226, 226, 226, 0.05) 33.333%, rgba(226, 226, 226, 0.05) 66.666%,rgba(221, 221, 221, 0.05) 66.666%, rgba(221, 221, 221, 0.05) 99.999%),linear-gradient(90deg, rgb(163, 238, 211),rgb(149, 75, 252))
-                                 ]]>
-                            </x:String>
-                        </magic:CssGradientSource>
-                    </magic:GradientView.GradientSource>
-                </magic:GradientView>
 
-               
-            </Grid>
-        </ContentPage.Content>
-
-    </ContentPage>
-</ContentPage>-->
 

@@ -18,9 +18,15 @@ namespace ZestHealthApp
         public MainPage()
         {
             InitializeComponent();
+
         }
 
-        private async void ImageButton_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
+        {
+            buildingAnim.Play();
+        }
+
+            private async void ImageButton_Clicked(object sender, EventArgs e)
         {
 
             await Shell.Current.GoToAsync("RecipeAddItem");

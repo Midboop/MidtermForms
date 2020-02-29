@@ -45,7 +45,7 @@ namespace ZestHealthApp.ViewModel
         public async void LaunchAddItemPage()
         {
             /// Add new shopping list page
-            await Navigation.PushModalAsync(new AddtoListPage());
+            await Shell.Current.GoToAsync("ShoppingAddItem");
         }
 
         public Command AddShoppingListCommand
@@ -62,13 +62,12 @@ namespace ZestHealthApp.ViewModel
         private async void AddShoppingList()
         {
             if (string.IsNullOrEmpty(ItemName) || string.IsNullOrEmpty(Amount.ToString()))
-                await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Item Name and Amount.", "Ok");
+                await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Item Name and Quantity.", "Ok");
             else
             {
                 var shoppingList = await FirebaseHelper.AddShoppingList(ItemName, Amount);
                 if(shoppingList)
                 {
-                    await App.Current.MainPage.DisplayAlert("Item added to the Shopping List!", "","OK");
                     await RefreshList();
                 }
                 else
