@@ -36,6 +36,23 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
+        // add facebook users to firebase
+        public static async Task<bool> AddFacebookUser(string id, string name, string firstname, string lastname, string email,Picture picture)
+        {
+            try
+            {
+                await firebase
+                    .Child("FacebookUsers")
+                    .PostAsync(new FacebookEmail() { Id = id, Name = name, First_Name = firstname, Last_Name = lastname, Email = email, Picture = picture });
+                return true;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
         // Get's specific Google User
         public static async Task<GoogleUsers> GetUser(string email)
         {
@@ -48,6 +65,24 @@ namespace ZestHealthApp.ViewModel
                 return allUsers.Where(a => a.Email == email).FirstOrDefault();
             }
 
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
+        // get specific Facebook user
+        public static async Task<FacebookEmail> GetFacebookUser(string name)
+        {
+            try
+            {
+                var allUsers = await GetAllFacebookUsers();
+                await firebase
+                    .Child("FacebookUsers")
+                    .OnceAsync<FacebookEmail>();
+                return allUsers.Where(a => a.Name == name).FirstOrDefault();
+            }
             catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
@@ -70,6 +105,57 @@ namespace ZestHealthApp.ViewModel
                     Picture = item.Object.Picture,
                     Name = item.Object.Name
                 }).ToList();
+                return userlist;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
+        public static async Task<bool> CheckEmail(string email)
+        {
+            bool accountFound = false;
+            await FirebaseHelper.GetAllUser().ContinueWith(t =>
+            {
+                List<GoogleUsers> userCheck = (t.Result);
+                if (userCheck.Find(x => x.Email.Contains(email)) != null)
+                    accountFound = true;
+            });
+
+            return accountFound;
+        }
+
+        public static async Task<bool> CheckFacebookEmail(string email)
+        {
+            bool accountFound = false;
+            await FirebaseHelper.GetAllFacebookUsers().ContinueWith(t =>
+            {
+                List<FacebookEmail> userCheck = (t.Result);
+                if (userCheck.Find(x => x.Email.Contains(email)) != null)
+                    accountFound = true;
+            });
+
+            return accountFound;
+        }
+
+        public static async Task<List<FacebookEmail>> GetAllFacebookUsers()
+        {
+            try
+            {
+                var userlist = (await firebase
+                    .Child("FacebookUsers")
+                    .OnceAsync<FacebookEmail>()).Select(item =>
+                    new FacebookEmail
+                    {
+                        Email = item.Object.Email,
+                        Id = item.Object.Id,
+                        Name = item.Object.Name,
+                        First_Name = item.Object.First_Name,
+                        Last_Name = item.Object.Last_Name,
+                        Picture = item.Object.Picture
+                    }).ToList();
                 return userlist;
             }
             catch (Exception e)

@@ -87,6 +87,13 @@ namespace ZestHealthApp.ViewModel
                     await store.SaveAsync(account = e.Account, Constants.AppName);
                     Application.Current.Properties["IsLoggedIn"] = Boolean.TrueString;
 
+                    bool newuser = false;
+                    if (await FirebaseHelper.CheckFacebookEmail(facebookEmail.Email) == false)
+                    {
+                        await FirebaseHelper.AddFacebookUser(facebookEmail.Id,facebookEmail.Name, facebookEmail.First_Name, facebookEmail.Last_Name, facebookEmail.Email, facebookEmail.Picture);
+                        newuser = true;
+                    }
+
                     Application.Current.Properties.Remove("Id");
                     Application.Current.Properties.Remove("FirstName");
                     Application.Current.Properties.Remove("LastName");
@@ -100,8 +107,9 @@ namespace ZestHealthApp.ViewModel
                     Application.Current.Properties.Add("DisplayName", facebookEmail.Name);
                     Application.Current.Properties.Add("EmailAddress", facebookEmail.Email);
                     Application.Current.Properties.Add("ProfilePicture", facebookEmail.Picture.Data.Url);
-                    
-                    
+
+                    if (newuser)
+                        await FirebaseHelper.AddPantryItem("Example Item", "5", "12/15");
                     App.Current.MainPage = new AppShell();
                 }
               

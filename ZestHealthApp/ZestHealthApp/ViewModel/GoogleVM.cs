@@ -112,7 +112,7 @@ namespace ZestHealthApp.ViewModel
 
 
 				bool newuser = false;
-				if (await CheckEmail(user.Email) == false)
+				if (await FirebaseHelper.CheckEmail(user.Email) == false)
 				{
 					await FirebaseHelper.AddUser(user.Email, user.Picture, user.Name, user.Id);
 					newuser = true;
@@ -162,18 +162,7 @@ namespace ZestHealthApp.ViewModel
 		}
 
 
-		public static async Task<bool> CheckEmail(string email)
-		{
-			bool accountFound = false;
-			await FirebaseHelper.GetAllUser().ContinueWith(t =>
-			{
-				List<GoogleUsers> userCheck = (t.Result);
-				if (userCheck.Find(x => x.Email.Contains(email)) != null)
-					accountFound = true;
-			});
 
-			return accountFound;
-		}
 
 	}
 }
