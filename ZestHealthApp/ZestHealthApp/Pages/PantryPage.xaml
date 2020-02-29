@@ -107,6 +107,21 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 </CollectionView>
+            <Frame x:Name="DateFrame" Grid.Column="1"  Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="WhiteSmoke" BorderColor="DarkGray" Padding="10" IsVisible="False">
+                <StackLayout>
+                    <Label Text="Add Exp. Date" FontSize="Small" HorizontalTextAlignment="Center"/>
+                    <DatePicker x:Name="DateSelect"
+                                MinimumDate="{Binding Today}"
+                                MaximumDate="12/31/2050"
+                                Date="{Binding Today}" 
+                                Format="d"
+                                HorizontalOptions="CenterAndExpand"
+                                FontSize="Small"
+                              
+                                
+                     />
+                </StackLayout>
+            </Frame>
             <Frame x:Name="NumberFrame" Grid.Row="2" Grid.Column="1" VerticalOptions="Start" IsVisible="False" CornerRadius="20" BackgroundColor="WhiteSmoke" Padding="10" BorderColor="DarkGray">
                 <Entry x:Name="NumberEntry" Placeholder="#" Completed="Handle_Completed" Keyboard="Numeric" IsVisible="False" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
             </Frame>

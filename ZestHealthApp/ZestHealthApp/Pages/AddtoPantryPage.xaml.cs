@@ -19,19 +19,10 @@ namespace ZestHealthApp.Pages
             InitializeComponent();
             Shell.SetTabBarIsVisible(this, false);
             CancelButton.Clicked += (sender, e) => CancelAnim.Play();
-            MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            MaxDate = new DateTime(DateTime.Now.Year + 2, DateTime.Now.Month, DateTime.Now.Day);
             Today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             ExpDate = Today.Date.ToString("MM/dd");
-            DatePicker datePicker = new DatePicker
-            {
-                MinimumDate = MinDate,
-                MaximumDate = MaxDate,
-                Date = Today
-            };
+
         }
-        DateTime MinDate { get; set; }
-        DateTime MaxDate { get; set; }
         DateTime Today { get; set; }
         string ExpDate { get; set; }
         private void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
