@@ -101,8 +101,8 @@
                 <StackLayout>
                     <Label Text="Add Exp. Date" FontSize="Small" HorizontalTextAlignment="Center"/>
                     <DatePicker x:Name="DateSelect"
-                                MinimumDate="{Binding MinDate}"
-                                MaximumDate="{Binding MaxDate}"
+                                MinimumDate="{Binding Today}"
+                                MaximumDate="12/31/2050"
                                 Date="{Binding Today}" 
                                 Format="d"
                                 HorizontalOptions="CenterAndExpand"
