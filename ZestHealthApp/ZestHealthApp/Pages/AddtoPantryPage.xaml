@@ -70,7 +70,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.ColumnSpan="2" Text="New Item" FontSize="Subtitle" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="DarkCyan"/>
                     <Entry x:Name="Item" Grid.ColumnSpan="2" Grid.Row="1" Placeholder="Name" Text="{Binding ItemName}"/>
-                    <Entry x:Name="Amount" Grid.ColumnSpan="2" Grid.Row="2" Placeholder="Quantity                        " Keyboard="Numeric"  Text="{Binding Quantity}" />
+                    <Entry x:Name="Amount" Grid.ColumnSpan="2" Grid.Row="2" Placeholder="Quantity                        " Keyboard="Numeric"  Text="{Binding Quantity}"/>
                     <Label Grid.Row="3" Grid.Column="0" Text=" Exp." TextColor="Gray" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium" />
                     <DatePicker x:Name="DateSelect"
                                 MinimumDate="{Binding MinDate}"

@@ -69,8 +69,23 @@
                     </magic:CssGradientSource>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
+            <Frame x:Name="DateFrame" Grid.Column="1"  Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="WhiteSmoke" Padding="10" IsVisible="False">
+                <StackLayout>
+                    <Label Text="Add Exp. Date" FontSize="Small" HorizontalTextAlignment="Center"/>
+                    <DatePicker x:Name="DateSelect"
+                                MinimumDate="{Binding MinDate}"
+                                MaximumDate="{Binding MaxDate}"
+                                Date="{Binding Today}" 
+                                Format="d"
+                                HorizontalOptions="CenterAndExpand"
+                                FontSize="Small"
+                                DateSelected="DatePicker_DateSelected"
+                                IsVisible="False"
+                     />
+                </StackLayout>
+            </Frame>
 
-            <CollectionView x:Name="ShoppingDisplay" ItemsSource="{Binding ShoppingList}" Margin="15" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+            <CollectionView x:Name="ShoppingDisplay" ItemsSource="{Binding ShoppingList}" Margin="15" Grid.Row="1" Grid.ColumnSpan="3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"
                            ItemSpacing="10" />
@@ -97,21 +112,6 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
-            <Frame x:Name="DateFrame" Grid.Column="1"  Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="WhiteSmoke" BorderColor="DarkGray" Padding="10" IsVisible="False">
-                <StackLayout>
-                    <Label Text="Add Exp. Date" FontSize="Small" HorizontalTextAlignment="Center"/>
-                    <DatePicker x:Name="DateSelect"
-                                MinimumDate="{Binding MinDate}"
-                                MaximumDate="{Binding MaxDate}"
-                                Date="{Binding Today}" 
-                                Format="d"
-                                HorizontalOptions="CenterAndExpand"
-                                FontSize="Small"
-                                DateSelected="DatePicker_DateSelected"
-                                IsVisible="False"
-                     />
-                </StackLayout>
-            </Frame>
             <lottie:AnimationView x:Name="CartAnimButton" Scale="1.5" Grid.Row="3" Grid.Column="0" AutoPlay="False" Loop ="False" Animation="pantrylottie.json" Speed="1" IsVisible="False" OnFinish="CartAnimButton_OnPlay"/>
             <Button x:Name="CartButton"  Grid.Row="3" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="CartButton_Clicked" IsEnabled="False"/>
             <lottie:AnimationView x:Name="AnimButton" Grid.Row="3" Grid.Column="1" Scale="1.3" AutoPlay="False" Loop ="False" Animation="purpleaddlottie.json" />
