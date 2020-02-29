@@ -83,6 +83,10 @@
               "target": "Package",
               "version": "[1.68.2-preview.21, )"
             },
+            "Syncfusion.Xamarin.SfNumericUpDown": {
+              "target": "Package",
+              "version": "[17.4.0.51, )"
+            },
             "Xamarin.Android.Support.v7.CardView": {
               "target": "Package",
               "version": "[28.0.0.3, )"
@@ -191,6 +195,10 @@
             "Spire.PDF": {
               "target": "Package",
               "version": "[6.2.6, )"
+            },
+            "Syncfusion.Xamarin.SfNumericUpDown": {
+              "target": "Package",
+              "version": "[17.4.0.51, )"
             },
             "Xamarin.Auth": {
               "target": "Package",

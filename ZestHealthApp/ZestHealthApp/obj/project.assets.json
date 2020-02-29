@@ -278,6 +278,41 @@
           "lib/netstandard1.1/SQLitePCLRaw.core.dll": {}
         }
       },
+      "Syncfusion.Licensing/17.4.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.Core/17.4.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "17.4.0.51",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syncfusion.Core.XForms.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.Core.XForms.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.SfNumericUpDown/17.4.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "17.4.0.51",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.dll": {}
+        }
+      },
       "System.Buffers/4.5.0": {
         "type": "package",
         "compile": {
@@ -1105,6 +1140,89 @@
         "lib/wpa81/SQLitePCLRaw.core.dll",
         "sqlitepclraw.core.1.1.13.nupkg.sha512",
         "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "Syncfusion.Licensing/17.4.0.51": {
+      "sha512": "OLs+GoVSMhs3vHB3OboJWnpCdb3RrWgHXa6prJaYDNXQwTJ2Cxk+j9WihkLCrMxG98vYAnjKu1BtvE1RIJUQLg==",
+      "type": "package",
+      "path": "syncfusion.licensing/17.4.0.51",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.Licensing.dll",
+        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
+        "lib/net20/Syncfusion.Licensing.dll",
+        "lib/net35/Syncfusion.Licensing.dll",
+        "lib/net40/Syncfusion.Licensing.dll",
+        "lib/net45/Syncfusion.Licensing.dll",
+        "lib/net451/Syncfusion.Licensing.dll",
+        "lib/net46/Syncfusion.Licensing.dll",
+        "lib/netcoreapp3.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.2/Syncfusion.Licensing.dll",
+        "lib/netstandard1.4/Syncfusion.Licensing.dll",
+        "lib/netstandard2.0/Syncfusion.Licensing.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
+        "lib/uap10.0/Syncfusion.Licensing.dll",
+        "syncfusion.licensing.17.4.0.51.nupkg.sha512",
+        "syncfusion.licensing.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.Core/17.4.0.51": {
+      "sha512": "iph44N9WgwGBIqrUTgFN2tHKxf35fMYr1S5DHVN2AW+OzIxvXC1DCXlEc/6E+HM2aJ5HahVLF4/x+pz/6EsVJw==",
+      "type": "package",
+      "path": "syncfusion.xamarin.core/17.4.0.51",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.Core.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.Core.XForms.dll",
+        "lib/MonoAndroid10/Syncfusion.Core.XForms.xml",
+        "lib/Xamarin.Mac/Syncfusion.Core.XForms.dll",
+        "lib/Xamarin.Mac/Syncfusion.Core.XForms.macOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.xml",
+        "lib/netstandard2.0/Syncfusion.Core.XForms.dll",
+        "lib/netstandard2.0/Syncfusion.Core.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.xml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/Syncfusion.Core.XForms.UWP.xr.xml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/DropDownIcon.xaml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/ToggleCollapsedIcon.xaml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/ToggleVisibleIcon.xaml",
+        "lib/uap10.0/Syncfusion.Core.XForms.dll",
+        "lib/uap10.0/Syncfusion.Core.XForms.xml",
+        "syncfusion.xamarin.core.17.4.0.51.nupkg.sha512",
+        "syncfusion.xamarin.core.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.SfNumericUpDown/17.4.0.51": {
+      "sha512": "ExqqZ/uMitzJEY8/bfbu2pb3ckQ3A3KhLCzfcaG4+7C4cJ8mRjl/+gWy7Xvc7X8UUhNP4rhGZ4E+D1nub81HvQ==",
+      "type": "package",
+      "path": "syncfusion.xamarin.sfnumericupdown/17.4.0.51",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.SfNumericUpDown.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.SfNumericUpDown.XForms.dll",
+        "lib/MonoAndroid10/Syncfusion.SfNumericUpDown.XForms.xml",
+        "lib/Xamarin.iOS10/Syncfusion.SfNumericUpDown.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfNumericUpDown.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfNumericUpDown.XForms.xml",
+        "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.dll",
+        "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfNumericUpDown.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfNumericUpDown.XForms.xml",
+        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.xml",
+        "syncfusion.xamarin.sfnumericupdown.17.4.0.51.nupkg.sha512",
+        "syncfusion.xamarin.sfnumericupdown.nuspec"
       ]
     },
     "System.Buffers/4.5.0": {
@@ -2228,6 +2346,7 @@
       "SkiaSharp >= 1.68.2-preview.21",
       "SkiaSharp.Views.Forms >= 1.68.2-preview.21",
       "Spire.PDF >= 6.2.6",
+      "Syncfusion.Xamarin.SfNumericUpDown >= 17.4.0.51",
       "Xamarin.Auth >= 1.7.0",
       "Xamarin.Essentials >= 1.5.0",
       "Xamarin.Forms >= 4.5.0.356",
@@ -2322,6 +2441,10 @@
           "Spire.PDF": {
             "target": "Package",
             "version": "[6.2.6, )"
+          },
+          "Syncfusion.Xamarin.SfNumericUpDown": {
+            "target": "Package",
+            "version": "[17.4.0.51, )"
           },
           "Xamarin.Auth": {
             "target": "Package",

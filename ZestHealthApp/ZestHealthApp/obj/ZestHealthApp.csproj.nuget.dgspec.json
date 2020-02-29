@@ -89,6 +89,10 @@
               "target": "Package",
               "version": "[6.2.6, )"
             },
+            "Syncfusion.Xamarin.SfNumericUpDown": {
+              "target": "Package",
+              "version": "[17.4.0.51, )"
+            },
             "Xamarin.Auth": {
               "target": "Package",
               "version": "[1.7.0, )"

@@ -69,7 +69,7 @@
                     </magic:CssGradientSource>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
-            <Frame x:Name="DateFrame" Grid.Column="1"  Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="WhiteSmoke" IsVisible="False">
+            <Frame x:Name="DateFrame" Grid.Column="1"  Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="WhiteSmoke" Padding="10" IsVisible="False">
                 <StackLayout>
                     <Label Text="Add Exp. Date" FontSize="Small" HorizontalTextAlignment="Center"/>
                     <DatePicker x:Name="DateSelect"

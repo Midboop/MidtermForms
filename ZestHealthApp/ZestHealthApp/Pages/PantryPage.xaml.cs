@@ -74,7 +74,7 @@ namespace ZestHealthApp
             {
                (BindingContext as PantryView).Delete.Execute(selectedItem);
                 AnimButton.PlayFrameSegment(45, 125);
-                CartAnimButton.PlayFrameSegment(50, 102); // use frame 160 if item is added to shopping cart
+                CartAnimButton.PlayFrameSegment(50, 102);
                 CartAnimComplete = true;
                 EditAnimButton.PlayFrameSegment(14,48);
                 EditAnimComplete = true;
@@ -106,6 +106,27 @@ namespace ZestHealthApp
         {
             if (EditAnimComplete)
                 ToggleEditAnimState(false, false);
+        }
+
+        private void CartButton_Clicked(object sender, EventArgs e)
+        {
+            NumberFrame.IsVisible = true;
+            NumberEntry.IsVisible = true;
+        }
+
+        private async void Handle_Completed(object sender, EventArgs e)
+        {
+            await FirebaseHelper.AddShoppingList(selectedItem.ItemName, NumberEntry.Text);
+            NumberFrame.IsVisible = false;
+            NumberEntry.IsVisible = false;
+            AnimButton.PlayFrameSegment(45, 160);
+            CartAnimButton.PlayFrameSegment(50, 102); // use frame 160 if item is added to shopping cart
+            CartAnimComplete = true;
+            EditAnimButton.PlayFrameSegment(14, 48);
+            EditAnimComplete = true;
+            AnimButton.PlayFrameSegment(0, 25);
+            CurrentFrame = 25;
+            selectedItem = null;
         }
     }
 }
