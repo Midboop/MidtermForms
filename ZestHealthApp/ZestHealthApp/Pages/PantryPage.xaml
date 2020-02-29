@@ -35,7 +35,7 @@
     <!-- Place Content in the same row to stack and overlap-->
         <ContentPage.Content>
             
-            <Grid ColumnSpacing="0">
+            <Grid ColumnSpacing="0" RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
@@ -48,12 +48,12 @@
                 <ColumnDefinition Width="75" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-                <magic:GradientView Grid.Row="0" Grid.RowSpan ="4" Grid.ColumnSpan="3">
-                    <magic:GradientView.GradientSource>
-                        <magic:CssGradientSource>
-                            <!-- Css Gradient Code-->
-                            <x:String>
-                                <![CDATA[
+            <magic:GradientView Grid.Row="0" Grid.RowSpan ="4" Grid.ColumnSpan="3">
+                <magic:GradientView.GradientSource>
+                    <magic:CssGradientSource>
+                        <!-- Css Gradient Code-->
+                        <x:String>
+                            <![CDATA[
                     linear-gradient(246deg, rgba(234, 234, 234, 0.04) 0%, rgba(234, 234, 234, 0.04) 33.3%,
                     rgba(69, 69, 69, 0.04) 33.3%, rgba(69, 69, 69, 0.04) 66.6%,rgba(189, 189, 189, 0.04) 66.6%, 
                     rgba(189, 189, 189, 0.04) 99.89999999999999%),linear-gradient(81deg, rgba(126, 126, 126, 0.05) 0%, 
@@ -73,15 +73,12 @@
                     rgba(85, 85, 85, 0.03) 99.89999999999999%),linear-gradient(103deg, rgba(247, 247, 247, 0.07) 0%, 
                     rgba(247, 247, 247, 0.07) 33.3%,rgba(93, 93, 93, 0.07) 33.3%, rgba(93, 93, 93, 0.07) 66.6%,rgba(208, 208, 208, 0.07) 66.6%, 
                     rgba(208, 208, 208, 0.07) 99%),linear-gradient(0deg, #0b91d7,#6efc29)]]>
-                            </x:String>
-                        </magic:CssGradientSource>
-                    </magic:GradientView.GradientSource>
-                </magic:GradientView>
-            <Frame x:Name="NumberFrame" Grid.Row="2" Grid.Column="1" VerticalOptions="Start" IsVisible="False" CornerRadius="20" BackgroundColor="WhiteSmoke" Padding="10">
-                <Entry x:Name="NumberEntry" Placeholder="#" Completed="Handle_Completed" Keyboard="Numeric" IsVisible="False" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
-            </Frame>
+                        </x:String>
+                    </magic:CssGradientSource>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
 
-            <CollectionView x:Name="PantryDisplay" ItemsSource="{Binding PantryList}" Margin="15" Grid.Row="1" Grid.ColumnSpan="3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
+            <CollectionView x:Name="PantryDisplay" ItemsSource="{Binding PantryList}" Margin="15" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"
                            ItemSpacing="10" />
@@ -109,8 +106,11 @@
                         
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-                   
                 </CollectionView>
+            <Frame x:Name="NumberFrame" Grid.Row="2" Grid.Column="1" VerticalOptions="Start" IsVisible="False" CornerRadius="20" BackgroundColor="WhiteSmoke" Padding="10" BorderColor="DarkGray">
+                <Entry x:Name="NumberEntry" Placeholder="#" Completed="Handle_Completed" Keyboard="Numeric" IsVisible="False" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+            </Frame>
+                
             <lottie:AnimationView x:Name="CartAnimButton" Scale="0.6" Grid.Row="3" Grid.Column="0" AutoPlay="False" Loop ="False" Animation="cartcheckoutlottie.json" IsVisible="False" OnFinish="CartAnimButton_OnPlay"/>
             <Button x:Name="CartButton"  Grid.Row="3" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="CartButton_Clicked" IsEnabled="False"/>
             <lottie:AnimationView x:Name="AnimButton" Grid.Row="3" Grid.Column="1" Scale="1.3" AutoPlay="False" Loop ="False" Animation="addbuttonlottie.json" />
