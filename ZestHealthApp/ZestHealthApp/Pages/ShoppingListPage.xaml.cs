@@ -24,7 +24,21 @@ namespace ZestHealthApp
             InitializeComponent();
             BindingContext = new ShoppingListView();
             selectedItem = null;
+            MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            MaxDate = new DateTime(DateTime.Now.Year + 2, DateTime.Now.Month, DateTime.Now.Day);
+            Today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            ExpDate = Today.Date.ToString("MM/dd");
+            DatePicker datePicker = new DatePicker
+            {
+                MinimumDate = MinDate,
+                MaximumDate = MaxDate,
+                Date = Today
+            };
         }
+        DateTime MinDate { get; set; }
+        DateTime MaxDate { get; set; }
+        DateTime Today { get; set; }
+        string ExpDate { get; set; }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -51,6 +65,22 @@ namespace ZestHealthApp
                 AnimButton.PlayFrameSegment(25, 45);
                 CurrentFrame = 45;
             }
+        }
+        private async void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            await FirebaseHelper.AddPantryItem(selectedItem.ItemName, selectedItem.Amount, ExpDate); DateSelect.Date.ToString("MM/dd");
+            (BindingContext as ShoppingListView).Delete.Execute(selectedItem);
+            AnimButton.PlayFrameSegment(45, 125);
+            CartAnimButton.PlayFrameSegment(23, 120); // use in between frames when adding to pantry <3
+            CartAnimComplete = true;
+            EditAnimButton.PlayFrameSegment(14, 48);
+            EditAnimComplete = true;
+            AnimButton.PlayFrameSegment(0, 25);
+            CurrentFrame = 25;
+            selectedItem = null;
+            DateFrame.IsVisible = false;
+            DateSelect.IsVisible = false;
+
         }
 
         private async void AddDeleteButton_Clicked(object sender, EventArgs e)
@@ -93,6 +123,12 @@ namespace ZestHealthApp
             EditButton.IsEnabled = buttonstate;
             EditAnimButton.IsVisible = buttonstate;
             EditAnimComplete = complete;
+        }
+
+        private void CartButton_Clicked(object sender, EventArgs e)
+        {
+            DateFrame.IsVisible = true;
+            DateSelect.IsVisible = true;
         }
     }
 }

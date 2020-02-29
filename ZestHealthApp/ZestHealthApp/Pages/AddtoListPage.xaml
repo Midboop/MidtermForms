@@ -49,6 +49,7 @@
                     </magic:CssGradientSource>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
+
             <Frame Grid.Row="1" Grid.RowSpan="4"
                  Margin="12"
                  Padding="30"
