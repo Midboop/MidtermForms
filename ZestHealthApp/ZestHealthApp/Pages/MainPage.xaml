@@ -34,7 +34,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame HeightRequest="100" WidthRequest="100" BackgroundColor="Red" Padding="10">
+                        <Frame HeightRequest="100" WidthRequest="100" BackgroundColor="Transparent" Padding="10">
                             <Grid>
                                 <Image Source="recipeDefault.png"/>
                                 <Label Grid.Row="1" Text="{Binding RecipeName}" LineBreakMode="TailTruncation"/>
@@ -44,7 +44,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <ImageButton Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"/>
+            <ImageButton Grid.Row="2" Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"/>
 
         </Grid>
     </ContentPage.Content>
