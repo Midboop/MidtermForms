@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZestHealthApp.Pages;
+using ZestHealthApp.ViewModel;
 
 namespace ZestHealthApp
 {
@@ -18,17 +19,18 @@ namespace ZestHealthApp
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new RecipeView();
 
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
-            buildingAnim.Play();
+            base.OnAppearing();
+            await (BindingContext as RecipeView).RefreshRecipes();
         }
 
-            private async void ImageButton_Clicked(object sender, EventArgs e)
+        private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-
             await Shell.Current.GoToAsync("RecipeAddItem");
 
         }

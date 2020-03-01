@@ -191,7 +191,7 @@ namespace ZestHealthApp.ViewModel
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                    .PostAsync(new Ingredients { ingredients = list, Name = name });
+                    .PostAsync(new RecipeItems { IngredientsList = list, RecipeName = name });
                 return true;
             }
             catch (Exception e)
@@ -243,17 +243,17 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Read all Recipes
-        public static async Task<List<Ingredients>> GetRecipes()
+        public static async Task<List<RecipeItems>> GetRecipes()
         {
             try
             {
                 var recipeList = (await firebase
                 .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                .OnceAsync<Ingredients>()).Select(item =>
-                 new Ingredients
+                .OnceAsync<RecipeItems>()).Select(item =>
+                 new RecipeItems
                  {
-                     ingredients = item.Object.ingredients,
-                     Name = item.Object.Name
+                     RecipeName = item.Object.RecipeName,
+                     IngredientsList = item.Object.IngredientsList
                  }).ToList();
                 return recipeList;
             }
@@ -337,6 +337,24 @@ namespace ZestHealthApp.ViewModel
                     .Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List")
                     .OnceAsync<ShoppingListItems>()).Where(a => a.Object.ItemName == name).FirstOrDefault();
                 await firebase.Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List").Child(toDeleteItem.Key).DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+        // Deletes Recipe
+        public static async Task<bool> DeleteRecipe(string name)
+        {
+            try
+            {
+                var toDeleteItem = (await firebase
+                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
+                    .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == name).FirstOrDefault();
+                await firebase.Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child(toDeleteItem.Key).DeleteAsync();
                 return true;
             }
             catch (Exception e)
