@@ -27,11 +27,17 @@ namespace ZestHealthApp
         {
             base.OnAppearing();
             await (BindingContext as RecipeView).RefreshRecipes();
+
         }
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("RecipeAddItem");
+
+        }
+
+        private void RecipeCards_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

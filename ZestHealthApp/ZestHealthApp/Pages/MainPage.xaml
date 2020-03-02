@@ -7,7 +7,25 @@
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.MainPage">
-
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSlateGray" />
+                                <Setter Property="CornerRadius"
+                                        Value="0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -28,16 +46,27 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2">
+            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="15" >
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Horizontal"/>
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="3" HorizontalItemSpacing="3" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame HeightRequest="100" WidthRequest="100" BackgroundColor="Transparent" Padding="10">
+                        <Frame CornerRadius="25" Padding="5" BackgroundColor="WhiteSmoke" HorizontalOptions="Center" >
                             <Grid>
-                                <Image Source="recipeDefault.png"/>
-                                <Label Grid.Row="1" Text="{Binding RecipeName}" LineBreakMode="TailTruncation"/>
+                                <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="10" />
+                                </Grid.RowDefinitions>
+                                <Frame Padding="0" Grid.Row="0" Grid.RowSpan="3" IsClippedToBounds="True" CornerRadius="25" VerticalOptions="CenterAndExpand" HasShadow="True">
+                                    <Image Source="recipeDefault.png"  Aspect="AspectFill"/>
+                                </Frame>
+                                
+                                <Frame BackgroundColor="WhiteSmoke" Grid.Row="2" Grid.RowSpan="2" CornerRadius="10" IsClippedToBounds="True" Margin="5" Padding="5" VerticalOptions="End" >
+                                    <Label Text="{Binding RecipeName}" LineBreakMode="TailTruncation" VerticalOptions="Center" HorizontalTextAlignment="Center" Padding="0"/>
+                                </Frame>
                             </Grid>
                         </Frame>
                     </DataTemplate>

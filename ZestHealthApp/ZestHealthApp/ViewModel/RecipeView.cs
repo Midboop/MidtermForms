@@ -29,6 +29,7 @@ namespace ZestHealthApp.ViewModel
         public async Task RefreshRecipes()
         {
             await GetRecipeItems().ContinueWith(t => { RecipeList = new ObservableCollection<RecipeItems>(t.Result); });
+
         }
 
         private async void HandleDelete(RecipeItems recipe)
