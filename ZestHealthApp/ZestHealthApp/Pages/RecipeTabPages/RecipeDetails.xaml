@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+                                                             <!--Tab 1-->
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:md="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
+             x:Class="ZestHealthApp.Pages.RecipeTabPages.RecipeDetails">
+    <ContentView.Content>
+        <md:MarkdownView x:Name="MarkdownView"
+                         Margin="0,16,0,0"
+                         Padding="0,0,0,0"
+                         Markdown="PlaceHolder" />
+    </ContentView.Content>
+</ContentView>

@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.MainPage">
@@ -46,29 +48,41 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="15" >
+            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="10" >
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="3" HorizontalItemSpacing="3" />
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="5" HorizontalItemSpacing="0"  />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame CornerRadius="25" Padding="5" BackgroundColor="WhiteSmoke" HorizontalOptions="Center" >
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="70"/>
-                                <RowDefinition Height="25" />
-                                <RowDefinition Height="10" />
-                                </Grid.RowDefinitions>
-                                <Frame Padding="0" Grid.Row="0" Grid.RowSpan="3" IsClippedToBounds="True" CornerRadius="25" VerticalOptions="CenterAndExpand" HasShadow="True">
-                                    <Image Source="recipeDefault.png"  Aspect="AspectFill"/>
-                                </Frame>
+                        <rv:MaterialFrame effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" Padding="0" CornerRadius="10" IsClippedToBounds="True" HasShadow="True">
+                                <StackLayout Spacing="0"
+                                         VerticalOptions="Center"
+                                         Orientation="Vertical"
+                                         BackgroundColor="WhiteSmoke">
                                 
-                                <Frame BackgroundColor="WhiteSmoke" Grid.Row="2" Grid.RowSpan="2" CornerRadius="10" IsClippedToBounds="True" Margin="5" Padding="5" VerticalOptions="End" >
-                                    <Label Text="{Binding RecipeName}" LineBreakMode="TailTruncation" VerticalOptions="Center" HorizontalTextAlignment="Center" Padding="0"/>
-                                </Frame>
-                            </Grid>
-                        </Frame>
+                                <Image   Margin="0,0,0,10"
+                                         VerticalOptions="Center"
+                                         Aspect="AspectFill"
+                                         Source="recipeDefault.PNG" />  
+                                <!--Note:Bind This later to user set image-->
+
+                                <Label Style="{StaticResource TextSubheadCenter}"
+                                       TextColor="#3d3d3d"
+                                       Margin="0,0,5,0"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Start"
+                                       MaxLines="1"
+                                       Text="{Binding RecipeName}" />
+                                
+                                <Label Style="{StaticResource TextCaption}"
+                                       TextColor="#4f4f4f"
+                                       Margin="0,0,0,5"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Start"
+                                       Text="Placeholder" />        
+                                    <!--Note:Make something to go here-->
+                            </StackLayout>
+                        </rv:MaterialFrame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

@@ -103,6 +103,23 @@
           "lib/netstandard2.0/MagicGradients.dll": {}
         }
       },
+      "Markdig/0.15.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/netstandard1.1/Markdig.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Markdig.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -274,6 +291,18 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "SkiaSharp.Svg/1.60.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.60.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
         }
       },
       "SkiaSharp.Views/1.68.2-preview.21": {
@@ -935,6 +964,20 @@
         },
         "runtime": {
           "lib/MonoAndroid10/_._": {}
+        }
+      },
+      "Xam.Forms.MarkdownView/0.6.1-pre": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.15.0",
+          "SkiaSharp.Svg": "1.60.0",
+          "Xamarin.Forms": "3.0.0.530893"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
         }
       },
       "Xamarin.Android.Arch.Core.Common/1.1.1.3": {
@@ -1892,7 +1935,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Com.Airbnb.Xamarin.Forms.Lottie": "3.0.4",
+          "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
           "MagicGradients": "1.0.0",
@@ -1902,7 +1945,7 @@
           "SkiaSharp": "1.68.2-preview.21",
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
-          "Syncfusion.Xamarin.SfNumericUpDown": "17.4.0.51",
+          "Xam.Forms.MarkdownView": "0.6.1-pre",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -2073,6 +2116,28 @@
         "lib/netstandard2.0/MagicGradients.dll",
         "magicgradients.1.0.0.nupkg.sha512",
         "magicgradients.nuspec"
+      ]
+    },
+    "Markdig/0.15.0": {
+      "sha512": "0Ly8yfnKXTHx5HGYhpNybnlg6uoLHcf9gqbkWdtZDq4VuA/ouMIpqLgq6UscBwitDqLNYUfYKrRthhVeaHAzkg==",
+      "type": "package",
+      "path": "markdig/0.15.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Markdig.dll",
+        "lib/net35/Markdig.xml",
+        "lib/net40/Markdig.dll",
+        "lib/net40/Markdig.xml",
+        "lib/netstandard1.1/Markdig.dll",
+        "lib/netstandard1.1/Markdig.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/Markdig.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/Markdig.xml",
+        "lib/uap10.0/Markdig.dll",
+        "lib/uap10.0/Markdig.pri",
+        "lib/uap10.0/Markdig.xml",
+        "markdig.0.15.0.nupkg.sha512",
+        "markdig.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -2315,6 +2380,20 @@
         "skiasharp.1.68.2-preview.21.nupkg.sha512",
         "skiasharp.nuspec",
         "xamarin.interactive/SkiaSharp.Workbooks.dll"
+      ]
+    },
+    "SkiaSharp.Svg/1.60.0": {
+      "sha512": "rTneyM6mt0w2xCCampFlkO3mGFIwGEJo7L2X3JOdyeMCZDQkyqv7m9kZfA89kLSErXErFnY72TZsryzqTIiT7g==",
+      "type": "package",
+      "path": "skiasharp.svg/1.60.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.3/SkiaSharp.Extended.Svg.dll",
+        "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll",
+        "lib/portable-net45+win8+wp8+wpa81/SkiaSharp.Extended.Svg.dll",
+        "skiasharp.svg.1.60.0.nupkg.sha512",
+        "skiasharp.svg.nuspec"
       ]
     },
     "SkiaSharp.Views/1.68.2-preview.21": {
@@ -5509,6 +5588,18 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Xam.Forms.MarkdownView/0.6.1-pre": {
+      "sha512": "StztN0Y+XFrBJoCpxeMmAfUP8fvGf8S1KG9lF+OACbvjMsu0MN7DEVKx5ldUiQV/Uvu+/Ppvcnz19s4yy4nQog==",
+      "type": "package",
+      "path": "xam.forms.markdownview/0.6.1-pre",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Xam.Forms.MarkdownView.dll",
+        "xam.forms.markdownview.0.6.1-pre.nupkg.sha512",
+        "xam.forms.markdownview.nuspec"
+      ]
+    },
     "Xamarin.Android.Arch.Core.Common/1.1.1.3": {
       "sha512": "ss+hnEoFeyxLgHk3TrCBqTMkK6ZJqhq382AONzdVGg7cyVibvBMWPX2Xp5byB8tvRJOMRIWZnqyqgpYQIagkZA==",
       "type": "package",
@@ -6872,5 +6963,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Com.Airbnb.Xamarin.Forms.Lottie from 3.1.0 to 3.0.4. Reference the package directly from the project to select a different version. \r\n ZestHealthApp.Android -> ZestHealthApp -> Com.Airbnb.Xamarin.Forms.Lottie (>= 3.1.0) \r\n ZestHealthApp.Android -> Com.Airbnb.Xamarin.Forms.Lottie (>= 3.0.4)",
+      "libraryId": "Com.Airbnb.Xamarin.Forms.Lottie",
+      "targetGraphs": [
+        "MonoAndroid,Version=v9.0"
+      ]
+    }
+  ]
 }

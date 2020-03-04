@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ZestHealthApp.Models;
 using ZestHealthApp.Pages;
+using ZestHealthApp.Pages.RecipeTabPages;
 using ZestHealthApp.ViewModel;
 
 namespace ZestHealthApp
@@ -15,18 +17,16 @@ namespace ZestHealthApp
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new RecipeView();
-
+            BindingContext = new FBRecipeView();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await (BindingContext as RecipeView).RefreshRecipes();
+            await (BindingContext as FBRecipeView).RefreshRecipes();
 
         }
 
@@ -36,9 +36,11 @@ namespace ZestHealthApp
 
         }
 
-        private void RecipeCards_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void RecipeCards_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            RecipeItems selectedItem = (e.CurrentSelection.FirstOrDefault() as RecipeItems);
+            SingleRecipeData selected = new SingleRecipeData(selectedItem);
+            await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));
         }
     }
 }

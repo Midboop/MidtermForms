@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:RecipeContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:views="clr-namespace:ZestHealthApp.Models"
+                         xmlns:firebaseRecipes="clr-namespace:ZestHealthApp.ViewModel"
+                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+                         xmlns:skiaRate="clr-namespace:ZestHealthApp.ViewModel.SkiaRate"
+                         xmlns:details="clr-namespace:ZestHealthApp.Pages.RecipeTabPages"
+                         mc:Ignorable="d"
+                         x:Class="ZestHealthApp.Pages.RecipeTabPages.RecipeTabbedViewPage" >
+    <ContentPage.Resources>
+        
+        <ResourceDictionary>
+            <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="SkyBlue" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="Padding" Value="20, 0" />
+                <Setter Property="UnderlineAllTab" Value="False" />
+                <Setter Property="UnselectedLabelColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        
+        <Grid RowSpacing="0"
+                  ColumnSpacing="0"
+                  Padding="{StaticResource StandardThickness}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  ROW 1  -->
+            <Image x:Name="Image"
+                       Grid.RowSpan="4"
+                       Margin="-16,-16,-16,0"
+                       Aspect="AspectFill"
+                       Source="recipeDefault.PNG" />
+            <!--Note:Bind this Later to user set image-->
+
+            <BoxView Grid.Row="1"
+                         Grid.RowSpan="3"
+                         Margin="-16,0"
+                         BackgroundColor="#99000000" />
+
+            <Label Grid.Row="1"
+                       Style="{StaticResource TextTitle}"
+                       VerticalOptions="End"
+                       TextColor="White"
+                       Text="{Binding RecipeTitle}" />
+
+            <Label Grid.Row="2"
+                       Style="{StaticResource TextSubhead}"
+                       TextColor="White"
+                       Text="PlaceHolder" />
+            <!--Note:Bind this Later to idk something like idk. It goes under the recipe name. We can cut it or use it w/e-->
+
+            <skiaRate:RatingView Grid.Row="3"
+                                     WidthRequest="100"
+                                     HeightRequest="30"
+                                     HorizontalOptions="Start"
+                                     ColorOn="{StaticResource Accent}"
+                                     Count="5"
+                                     OutlineOffColor="Transparent"
+                                     RatingType="Floating"
+                                     Value="4" />
+            <!--Note: Bind this Later to a Recipe property int-->
+
+            <tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="4"
+                                  Margin="-16,0"
+                                  BackgroundColor="{StaticResource DarkElevation4dp}"
+                                  ShowScrollbar="False"
+                                  TabType="Scrollable"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                <tabs:TabHostView.Tabs>
+                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="Ingredients" />
+                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="Instructions" />
+                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="Nutrition" />
+                </tabs:TabHostView.Tabs>
+            </tabs:TabHostView>
+
+            <ScrollView Grid.Row="5">
+                <tabs:ViewSwitcher x:Name="Switcher"
+                                       Animate="True"
+                                       SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                    <details:RecipeDetails BindingContext="{Binding RecipeDetails}" Animate="True" />
+                    <details:RecipeInstructions BindingContext="{Binding RecipeInstructions}" Animate="True" />
+                    <details:RecipeNutrition BindingContext="{Binding RecipeNutrition}" Animate="True" />
+                </tabs:ViewSwitcher>
+
+            </ScrollView>
+        </Grid>
+
+    </AbsoluteLayout>
+</views:RecipeContentPage>

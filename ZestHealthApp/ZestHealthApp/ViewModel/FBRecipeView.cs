@@ -8,14 +8,14 @@ using ZestHealthApp.Models;
 
 namespace ZestHealthApp.ViewModel
 {
-    public class RecipeView : BaseFodyObservable
+    public class FBRecipeView : BaseFodyObservable
     {
         public ObservableCollection<RecipeItems> RecipeList { get; set; }
         public string RecipeName { get; set; }
         public List<string> IngredientsList { get; set; }
         public Command<RecipeItems> Delete { get; set; }
 
-        public RecipeView()
+        public FBRecipeView()
         {
             GetRecipeItems().ContinueWith(t => { RecipeList = new ObservableCollection<RecipeItems>(t.Result); });
             Delete = new Command<RecipeItems>(HandleDelete);

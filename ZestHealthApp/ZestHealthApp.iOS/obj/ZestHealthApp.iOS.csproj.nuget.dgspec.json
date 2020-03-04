@@ -151,7 +151,7 @@
           "dependencies": {
             "Com.Airbnb.Xamarin.Forms.Lottie": {
               "target": "Package",
-              "version": "[3.0.4, )"
+              "version": "[3.1.0, )"
             },
             "FirebaseAuthentication.net": {
               "target": "Package",
@@ -195,9 +195,9 @@
               "target": "Package",
               "version": "[6.2.6, )"
             },
-            "Syncfusion.Xamarin.SfNumericUpDown": {
+            "Xam.Forms.MarkdownView": {
               "target": "Package",
-              "version": "[17.4.0.51, )"
+              "version": "[0.6.1-pre, )"
             },
             "Xamarin.Auth": {
               "target": "Package",
