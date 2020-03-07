@@ -10,16 +10,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using ZestHealthApp.Pages;
-using ZestHealthApp.ViewModel;
+
 
 namespace ZestHealthApp
 {   
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PantryPage : ContentPage
     {
-        FirebaseHelper helper;
-        PantryItems items;
-        PantryView view;
+
         PantryItems selectedItem;
         int CurrentFrame;
         bool CartAnimComplete;
@@ -27,9 +25,7 @@ namespace ZestHealthApp
         public PantryPage()
         {
             
-            helper = new FirebaseHelper();
-            items = new PantryItems();
-            view = new PantryView();
+
             InitializeComponent();
             BindingContext = new PantryView();
             CurrentFrame = 0;
@@ -44,6 +40,7 @@ namespace ZestHealthApp
             ToggleEditAnimState(false, false);
             await (BindingContext as PantryView).RefreshPantry();
             AnimButton.PlayFrameSegment(0, 25);
+            OKAimButton.PlayFrameSegment(0, 25);
             CurrentFrame = 25;
             selectedItem = null;
 
@@ -62,6 +59,7 @@ namespace ZestHealthApp
             if (CurrentFrame == 25)
             {
                 AnimButton.PlayFrameSegment(25, 45);
+               // CancelAimButton.PlayFrameSegment(25, 45);
                 CurrentFrame = 45;
             }
         }
@@ -127,6 +125,49 @@ namespace ZestHealthApp
             AnimButton.PlayFrameSegment(0, 25);
             CurrentFrame = 25;
             selectedItem = null;
+        }
+
+        private void EditButton_Clicked(object sender, EventArgs e)
+        {
+
+            EditNumberFrame.IsVisible = true;
+            EditNumberEntry.IsVisible = true;
+            EditDateFrame.IsVisible = true;
+            OKButton.IsEnabled = true;
+            OKButton.IsVisible = true;
+            CancelButton.IsVisible = true;
+            CancelButton.IsEnabled = true;
+            AddButton.IsEnabled = false;
+            AddButton.IsVisible = false;
+            OKAimButton.IsVisible = true;
+            CancelAimButton.IsVisible = true;
+            ToggleCartAnimState(false, false);
+            ToggleEditAnimState(false, false);
+            AnimButton.IsVisible = false;
+        }
+
+
+
+        private async void OKButton_Clicked(object sender, EventArgs e)
+        {
+            await FirebaseHelper.UpdateQuantity(EditNumberEntry.Text, selectedItem.ItemName, EditDatePicker.Date.ToString("MM/dd"));
+            EditNumberFrame.IsVisible = false;
+            EditNumberEntry.IsVisible = false;
+            EditDateFrame.IsVisible = false;
+            EditDatePicker.IsVisible = false;
+            ToggleEditAnimState(true, true);
+            ToggleCartAnimState(true, true);
+            OKButton.IsEnabled = false;
+            OKButton.IsVisible = false;
+            
+            CancelButton.IsVisible = false;
+            CancelButton.IsEnabled = false;
+            await Shell.Current.GoToAsync("PantryPage");
+        }
+
+        private async void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("PantryPage");
         }
     }
 }

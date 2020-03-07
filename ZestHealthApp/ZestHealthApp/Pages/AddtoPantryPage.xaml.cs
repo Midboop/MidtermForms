@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZestHealthApp.Models;
 using ZestHealthApp.Services;
 using ZestHealthApp.ViewModel;
 
@@ -14,14 +15,16 @@ namespace ZestHealthApp.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddtoPantryPage : ContentPage
     {
+        PantryItems items;
         public AddtoPantryPage()
         {
+            items = new PantryItems();
             InitializeComponent();
             Shell.SetTabBarIsVisible(this, false);
             CancelButton.Clicked += (sender, e) => CancelAnim.Play();
             Today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             ExpDate = Today.Date.ToString("MM/dd");
-
+            items.ItemName = Item.Text;
         }
         DateTime Today { get; set; }
         string ExpDate { get; set; }
