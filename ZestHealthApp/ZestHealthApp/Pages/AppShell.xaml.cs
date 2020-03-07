@@ -20,7 +20,7 @@ namespace ZestHealthApp
             Routing.RegisterRoute("RecipeAddItem", typeof(AddRecipeItems));
             Routing.RegisterRoute("PantryPage", typeof(PantryPage));
             Routing.RegisterRoute("ShoppingPage", typeof(ShoppingListPage));
-            Routing.RegisterRoute("PantryEditItem", typeof(EditPantryPage));
+           
         }
     }
 }
