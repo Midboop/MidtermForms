@@ -126,6 +126,12 @@ namespace ZestHealthApp
         {
             EditNumberFrame.IsVisible = true;
             EditNumberEntry.IsVisible = true;
+            EditAnimButton.IsVisible = false;
+            CancelAimButton.IsVisible = true;
+            CancelButton.IsVisible = true;
+            CancelButton.IsEnabled = true;
+            CartAnimButton.IsVisible = false;
+            EditNumberEntry.Text = selectedItem.Amount;
         }
 
         private async void EditNumberEntry_Completed(object sender, EventArgs e)
@@ -133,10 +139,17 @@ namespace ZestHealthApp
             EditNumberFrame.IsVisible = false;
             EditNumberEntry.IsVisible = false;
             await FirebaseHelper.UpdateShoppingList(selectedItem.ItemName, EditNumberEntry.Text);
-            //await (BindingContext as ShoppingListView).RefreshList();
             OnAppearing();
         }
 
+        private void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            EditNumberFrame.IsVisible = false;
+            EditNumberEntry.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+            CancelButton.IsEnabled = false;
 
+            OnAppearing();
+        }
     }
 }

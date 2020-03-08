@@ -126,6 +126,8 @@
             <Button x:Name="AddButton"  Grid.Row="3" Grid.Column="1" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="AddDeleteButton_Clicked"/>
             <lottie:AnimationView x:Name="EditAnimButton" Grid.Row="3" Grid.Column="2" AutoPlay="False" Loop ="False" Animation="pencillottie.json" Speed="1.5" IsVisible="False" OnFinish="EditAnimButton_OnPlay"/>
             <Button x:Name="EditButton"  Grid.Row="3" Grid.Column="2" VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" Clicked="EditButton_Clicked" IsEnabled="False"/>
+            <lottie:AnimationView x:Name="CancelAimButton" Grid.Row="3" Grid.Column="2" Scale="0.75" AutoPlay="True" Loop ="True" Animation="cancel3lottie.json" IsVisible="False" />
+            <Button x:Name="CancelButton"  BackgroundColor="Transparent" IsEnabled="False" IsVisible="False" Grid.Row="3" Grid.Column="2" Clicked="CancelButton_Clicked"/>
 
 
 

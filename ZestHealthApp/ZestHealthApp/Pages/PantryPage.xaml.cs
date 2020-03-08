@@ -59,7 +59,6 @@ namespace ZestHealthApp
             if (CurrentFrame == 25)
             {
                 AnimButton.PlayFrameSegment(25, 45);
-               // CancelAimButton.PlayFrameSegment(25, 45);
                 CurrentFrame = 45;
             }
         }
@@ -132,6 +131,7 @@ namespace ZestHealthApp
 
             EditNumberFrame.IsVisible = true;
             EditNumberEntry.IsVisible = true;
+            EditNumberEntry.Text = selectedItem.Quantity;
             EditDateFrame.IsVisible = true;
             OKButton.IsEnabled = true;
             OKButton.IsVisible = true;
