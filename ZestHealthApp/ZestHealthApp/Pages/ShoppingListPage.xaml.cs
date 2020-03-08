@@ -138,6 +138,10 @@ namespace ZestHealthApp
         {
             EditNumberFrame.IsVisible = false;
             EditNumberEntry.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+            CancelAimButton.IsEnabled = false;
+            CancelButton.IsEnabled = false;
+            CancelButton.IsVisible = false;
             await FirebaseHelper.UpdateShoppingList(selectedItem.ItemName, EditNumberEntry.Text);
             OnAppearing();
         }
