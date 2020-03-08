@@ -133,7 +133,8 @@ namespace ZestHealthApp
             EditNumberFrame.IsVisible = false;
             EditNumberEntry.IsVisible = false;
             await FirebaseHelper.UpdateShoppingList(selectedItem.ItemName, EditNumberEntry.Text);
-            await Shell.Current.GoToAsync("ShoppingPage");
+            //await (BindingContext as ShoppingListView).RefreshList();
+            OnAppearing();
         }
 
 

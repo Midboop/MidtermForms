@@ -151,23 +151,73 @@ namespace ZestHealthApp
         private async void OKButton_Clicked(object sender, EventArgs e)
         {
             await FirebaseHelper.UpdateQuantity(EditNumberEntry.Text, selectedItem.ItemName, EditDatePicker.Date.ToString("MM/dd"));
+
             EditNumberFrame.IsVisible = false;
             EditNumberEntry.IsVisible = false;
             EditDateFrame.IsVisible = false;
-            EditDatePicker.IsVisible = false;
-            ToggleEditAnimState(true, true);
-            ToggleCartAnimState(true, true);
             OKButton.IsEnabled = false;
             OKButton.IsVisible = false;
-            
             CancelButton.IsVisible = false;
             CancelButton.IsEnabled = false;
-            await Shell.Current.GoToAsync("PantryPage");
+            AddButton.IsEnabled = true;
+            AddButton.IsVisible = true;
+            OKAimButton.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+
+
+          
+            AnimButton.IsVisible = true;
+            AnimButton.IsEnabled = true;
+            OKAimButton.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+            AddButton.IsVisible = true;
+            ToggleEditAnimState(true, true);
+            AnimButton.PlayFrameSegment(45, 125);
+            CartAnimButton.PlayFrameSegment(50, 160); // use frame 160 if item is added to shopping cart
+            CartAnimComplete = true;
+            EditAnimButton.PlayFrameSegment(14, 48);
+            EditAnimComplete = true;
+            AnimButton.PlayFrameSegment(0, 25);
+            CurrentFrame = 25;
+            selectedItem = null;
+
+            await (BindingContext as PantryView).RefreshPantry();
+
+            
         }
 
         private async void CancelButton_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("PantryPage");
+            EditNumberFrame.IsVisible = false;
+            EditNumberEntry.IsVisible = false;
+            EditDateFrame.IsVisible = false;
+            OKButton.IsEnabled = false;
+            OKButton.IsVisible = false;
+            CancelButton.IsVisible = false;
+            CancelButton.IsEnabled = false;
+            AddButton.IsEnabled = true;
+            AddButton.IsVisible = true;
+            OKAimButton.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+
+
+          
+            AnimButton.IsVisible = true;
+            AnimButton.IsEnabled = true;
+            OKAimButton.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+            AddButton.IsVisible = true;
+            ToggleEditAnimState(true, true);
+            AnimButton.PlayFrameSegment(45, 125);
+            CartAnimButton.PlayFrameSegment(50, 160); // use frame 160 if item is added to shopping cart
+            CartAnimComplete = true;
+            EditAnimButton.PlayFrameSegment(14, 48);
+            EditAnimComplete = true;
+            AnimButton.PlayFrameSegment(0, 25);
+            CurrentFrame = 25;
+            selectedItem = null;
+
+            await (BindingContext as PantryView).RefreshPantry();
         }
     }
 }
