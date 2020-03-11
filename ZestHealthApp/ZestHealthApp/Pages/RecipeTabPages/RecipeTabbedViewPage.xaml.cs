@@ -19,7 +19,17 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             Shell.SetTabBarIsVisible(this, false);
             InitializeComponent();
             BindingContext = objectInstance;
-           
+
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            GoToRecipe();
+            return true;
+        }
+
+        private async void GoToRecipe()
+        {
+            await Shell.Current.GoToAsync("//Recipe");
         }
 
       

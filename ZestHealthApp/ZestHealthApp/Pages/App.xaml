@@ -31,8 +31,6 @@
             <On Platform="Android">65</On>
         </OnPlatform>
 
-        <GridLength x:Key="HeaderHeight">40</GridLength>
-
 
         <Color x:Key="DarkSurface">#121212</Color>
 
@@ -42,7 +40,7 @@
         <Color x:Key="DarkElevation12dp">#323232</Color>
         <Color x:Key="DarkElevation16dp">#353535</Color>
         <Color x:Key="DarkElevation24dp">#373737</Color>
-        <Color x:Key="LightElevation2dp">#6E6E6E</Color>
+        <Color x:Key="LightElevation2dp">#83868A</Color>
 
         <Color x:Key="PrimaryColor">#FF0266</Color>
         <Color x:Key="SecondaryColor">#6200EE</Color>

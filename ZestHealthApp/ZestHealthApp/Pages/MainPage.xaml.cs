@@ -32,7 +32,13 @@ namespace ZestHealthApp
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("RecipeAddItem");
+            List<string> ingredients = new List<string>();
+            RecipeItems newRecipe = new RecipeItems();
+            newRecipe.RecipeName = "New Recipe";
+            newRecipe.IngredientsList = ingredients;
+            await FirebaseHelper.AddRecipe(newRecipe);
+            SingleRecipeData selected = new SingleRecipeData(newRecipe);
+            await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));
 
         }
 
@@ -41,6 +47,7 @@ namespace ZestHealthApp
             RecipeItems selectedItem = (e.CurrentSelection.FirstOrDefault() as RecipeItems);
             SingleRecipeData selected = new SingleRecipeData(selectedItem);
             await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));
+            selectedItem = null;
         }
     }
 }
