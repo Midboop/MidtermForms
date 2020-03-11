@@ -28,7 +28,7 @@
                   ColumnSpacing="0"
                   Padding="{StaticResource StandardThickness}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="200" />
+                <RowDefinition Height="100" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
@@ -87,10 +87,8 @@
             </tabs:TabHostView>
 
             <ScrollView Grid.Row="5">
-                <tabs:ViewSwitcher x:Name="Switcher"
-                                       Animate="True"
-                                       SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                    <details:RecipeDetails BindingContext="{Binding RecipeDetails}" Animate="True" />
+                <tabs:ViewSwitcher x:Name="Switcher" Animate="True" SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                    <details:RecipeDetails x:Name="recipeDetails" Animate="True" />
                     <details:RecipeInstructions BindingContext="{Binding RecipeInstructions}" Animate="True" />
                     <details:RecipeNutrition BindingContext="{Binding RecipeNutrition}" Animate="True" />
                 </tabs:ViewSwitcher>

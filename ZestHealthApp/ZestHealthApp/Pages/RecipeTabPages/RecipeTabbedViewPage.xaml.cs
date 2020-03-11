@@ -14,11 +14,14 @@ namespace ZestHealthApp.Pages.RecipeTabPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipeTabbedViewPage : RecipeContentPage, IBindablePage
     {
+        public SingleRecipeData thisRecipe;
         public RecipeTabbedViewPage(SingleRecipeData objectInstance)
         {
             Shell.SetTabBarIsVisible(this, false);
             InitializeComponent();
-            BindingContext = objectInstance;
+            thisRecipe = objectInstance;
+            BindingContext = thisRecipe;
+            recipeDetails.BindingContext = thisRecipe;
 
         }
         protected override bool OnBackButtonPressed()

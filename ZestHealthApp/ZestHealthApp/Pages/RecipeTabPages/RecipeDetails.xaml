@@ -7,10 +7,23 @@
              mc:Ignorable="d"
              xmlns:md="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
              x:Class="ZestHealthApp.Pages.RecipeTabPages.RecipeDetails">
+    
     <ContentView.Content>
-        <md:MarkdownView x:Name="MarkdownView"
-                         Margin="0,16,0,0"
-                         Padding="0,0,0,0"
-                         Markdown="PlaceHolder" />
+
+        <StackLayout>
+            <ScrollView HeightRequest="340">
+                <ListView x:Name="IngredientsList" Margin="0,16,0,0" ItemsSource="{Binding Items}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding}" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextSubhead}" VerticalOptions="Center" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <Entry x:Name="newItemEntry" TextColor="{StaticResource Accent}" Placeholder="New Ingredient" PlaceholderColor="Accent" IsVisible="False" IsSpellCheckEnabled="True" Completed="newItemEntry_Completed" ReturnType="Send"  />
+            <ImageButton Source="newItem.png" BackgroundColor="Transparent"  WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Clicked="ImageButton_Clicked" />
+        </StackLayout>
     </ContentView.Content>
 </ContentView>

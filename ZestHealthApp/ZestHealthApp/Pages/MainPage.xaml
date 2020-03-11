@@ -48,9 +48,9 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="10" >
+            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="0" >
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="5" HorizontalItemSpacing="0"  />
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="0" HorizontalItemSpacing="0"  />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
