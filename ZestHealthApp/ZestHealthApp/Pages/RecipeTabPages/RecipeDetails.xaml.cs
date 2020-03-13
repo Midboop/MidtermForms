@@ -47,18 +47,23 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            newItemEntry.IsVisible = true;
-            newItemEntry.Focus();
+            NewItemEntry.IsVisible = true;
+            NewItemEntry.Focus();
         }
 
         private void newItemEntry_Completed(object sender, EventArgs e)
         {
-            newItemEntry.IsVisible = false;
+            NewItemEntry.IsVisible = false;
             thisRecipe = (BindingContext as SingleRecipeData);
-            if (newItemEntry.Text != "") 
-                thisRecipe.Items.Add(newItemEntry.Text);
-            newItemEntry.Text = "";
+           // if (NewItemEntry.Text != "") 
+                //thisRecipe.Items.Add(newItemEntry.Text);
+           // NewItemEntry.Text = "";
             // DYLAN: this needs a firebase method to push the item to the database.
+        }
+
+        private void IngredientsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
         }
     }
 }

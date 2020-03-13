@@ -6,7 +6,7 @@ namespace ZestHealthApp.Models
 {
    public class RecipeItems : BaseFodyObservable
     {
-        public List<string> IngredientsList = new List<string>();
+        public List<IngredientItem> IngredientsList = new List<IngredientItem>();
         public string RecipeName { get; set; }
     }
 }

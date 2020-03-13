@@ -32,10 +32,22 @@ namespace ZestHealthApp
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            List<string> ingredients = new List<string>();
+            // the following is an example entry until we get everything flushed out 
+            List<IngredientItem> ingredients = new List<IngredientItem>();
+            IngredientItem cornFlakes = new IngredientItem("Corn Flakes", 1, 180, 150, "Cup");
+            IngredientItem powderedSugar = new IngredientItem("Powdered Sugar", 0.5, 220, 150, "Cup");
+            IngredientItem milk = new IngredientItem("Milk", 1, 1200, 200, "Cup");
+            ingredients.Add(cornFlakes);
+            ingredients.Add(powderedSugar);
+            ingredients.Add(milk);
+
             RecipeItems newRecipe = new RecipeItems();
-            newRecipe.RecipeName = "New Recipe";
+            newRecipe.RecipeName = "Frosted Flakes";
+            // newRecipe.RecipeName = "New Recipe";
+
+            // End example entry changes
             newRecipe.IngredientsList = ingredients;
+            //Taylor: add other dictionary items
             await FirebaseHelper.AddRecipe(newRecipe);
             SingleRecipeData selected = new SingleRecipeData(newRecipe);
             await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));

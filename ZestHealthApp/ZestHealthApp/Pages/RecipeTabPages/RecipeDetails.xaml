@@ -11,18 +11,47 @@
     <ContentView.Content>
 
         <StackLayout>
+            <Frame x:Name="NewItemEntry" IsVisible="False" BackgroundColor="Transparent" BorderColor="Accent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="QuantityEntry" Grid.Column="0" TextColor="{StaticResource Accent}" Placeholder="#" PlaceholderColor="Accent" IsSpellCheckEnabled="True"/>
+                    <Entry x:Name="UnitEntry" Grid.Column="1" TextColor="{StaticResource Accent}" Placeholder="Unit" PlaceholderColor="Accent"  IsSpellCheckEnabled="True"/>
+                    <Entry x:Name="WeightEntry" Grid.Column="2" TextColor="{StaticResource Accent}" Placeholder="Grams" PlaceholderColor="Accent" IsSpellCheckEnabled="True"/>
+                    <Entry x:Name="NameEntry" Grid.Column="3" TextColor="{StaticResource Accent}" Placeholder="Name" PlaceholderColor="Accent" IsSpellCheckEnabled="True"/>
+                    <Entry x:Name="CaloriesEntry" Grid.Column="4" TextColor="{StaticResource Accent}" Placeholder="Cal." PlaceholderColor="Accent" IsSpellCheckEnabled="True"/>
+                </Grid>
+            </Frame>
             <ScrollView HeightRequest="340">
-                <ListView x:Name="IngredientsList" Margin="0,16,0,0" ItemsSource="{Binding Items}">
+                <ListView x:Name="IngredientsList" Margin="0,16,0,0" ItemsSource="{Binding Items}" ItemTapped="IngredientsList_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Label Text="{Binding}" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextSubhead}" VerticalOptions="Center" />
+                                <Grid ColumnSpacing="0" Margin="0" Padding="0" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="80"/>
+                                    </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Quantity}" Grid.Column="0" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextSubhead}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                                <Label Text="{Binding Unit}" Grid.Column="1" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextCaption}" VerticalOptions="Center" HorizontalOptions="Center" />
+                                <Label Text="{Binding Weight, StringFormat='({0} g.)'}" Grid.Column="2" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextCaption}" VerticalOptions="Center"  HorizontalOptions="Start"/>
+                                <Label Text="{Binding Name}" Grid.Column="3" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextSubhead}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                                <Label Text="{Binding Calories, StringFormat='{0} cal.'}" Grid.Column="4" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextCaption}" VerticalOptions="Center" HorizontalOptions="Center" />
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-            <Entry x:Name="newItemEntry" TextColor="{StaticResource Accent}" Placeholder="New Ingredient" PlaceholderColor="Accent" IsVisible="False" IsSpellCheckEnabled="True" Completed="newItemEntry_Completed" ReturnType="Send"  />
+           
             <ImageButton Source="newItem.png" BackgroundColor="Transparent"  WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Clicked="ImageButton_Clicked" />
         </StackLayout>
     </ContentView.Content>

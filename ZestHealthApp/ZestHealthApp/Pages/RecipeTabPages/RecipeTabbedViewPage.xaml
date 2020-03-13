@@ -58,7 +58,7 @@
             <Label Grid.Row="2"
                        Style="{StaticResource TextSubhead}"
                        TextColor="White"
-                       Text="PlaceHolder" />
+                       Text="{Binding TotalCalories, StringFormat='{0} Total Calories'}" />
             <!--Note:Bind this Later to idk something like idk. It goes under the recipe name. We can cut it or use it w/e-->
 
             <skiaRate:RatingView Grid.Row="3"
