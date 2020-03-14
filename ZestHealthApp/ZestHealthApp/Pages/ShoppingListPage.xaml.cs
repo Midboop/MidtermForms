@@ -121,5 +121,39 @@ namespace ZestHealthApp
             DateFrame.IsVisible = true;
             DateSelect.IsVisible = true;
         }
+
+        private void EditButton_Clicked(object sender, EventArgs e)
+        {
+            EditNumberFrame.IsVisible = true;
+            EditNumberEntry.IsVisible = true;
+            EditAnimButton.IsVisible = false;
+            CancelAimButton.IsVisible = true;
+            CancelButton.IsVisible = true;
+            CancelButton.IsEnabled = true;
+            CartAnimButton.IsVisible = false;
+            EditNumberEntry.Text = selectedItem.Amount;
+        }
+
+        private async void EditNumberEntry_Completed(object sender, EventArgs e)
+        {
+            EditNumberFrame.IsVisible = false;
+            EditNumberEntry.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+            CancelAimButton.IsEnabled = false;
+            CancelButton.IsEnabled = false;
+            CancelButton.IsVisible = false;
+            await FirebaseHelper.UpdateShoppingList(selectedItem.ItemName, EditNumberEntry.Text);
+            OnAppearing();
+        }
+
+        private void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            EditNumberFrame.IsVisible = false;
+            EditNumberEntry.IsVisible = false;
+            CancelAimButton.IsVisible = false;
+            CancelButton.IsEnabled = false;
+
+            OnAppearing();
+        }
     }
 }

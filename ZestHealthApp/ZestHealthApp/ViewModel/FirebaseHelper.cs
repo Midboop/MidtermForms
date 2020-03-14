@@ -308,6 +308,27 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
+        public static async Task<bool> UpdateShoppingList(string name, string amount)
+        {
+            try
+            {
+                var toUpdateShoppingList = (await firebase.
+                    Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List")
+                    .OnceAsync<ShoppingListItems>()).Where(a => a.Object.ItemName == name).FirstOrDefault();
+                await firebase
+                    .Child(Application.Current.Properties["Id"].ToString())
+                    .Child("Shopping List")
+                    .Child(toUpdateShoppingList.Key)
+                    .PutAsync(new ShoppingListItems() { ItemName = name, Amount = amount });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
 
 
         // Deletes the Pantry Items from the database
