@@ -1,10 +1,11 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
-
+using Firebase.Storage;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace ZestHealthApp.ViewModel
     {
         // Connects to the Firebase DataBase
         public static FirebaseClient firebase = new FirebaseClient("https://zesthealth-1f666.firebaseio.com/");
+        private static string storage = "zesthealth-1f666.appspot.com";
 
         // adds googleusers to firebase
         public static async Task<bool> AddUser(string email, string picture, string name, string id)
@@ -217,6 +219,34 @@ namespace ZestHealthApp.ViewModel
                 Debug.WriteLine($"Error:{e}");
                 return false;
             }
+        }
+
+        // Add picture to firebase
+        public static async Task<string> RecipeImage(Stream imageStream, string name)
+        {
+
+            var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").PutAsync(imageStream);
+            string imgurl = storageImage;
+            return imgurl;
+
+        }
+
+        // Get image from Firebase Storage
+
+        public static async Task<ImageSource> GetImage(string name)
+        {
+            try
+            {
+                return await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").GetDownloadUrlAsync();
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+
+
         }
 
         // Read all pantry items

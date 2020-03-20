@@ -50,6 +50,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "Fody/6.1.0": {
         "type": "package",
         "build": {
@@ -173,6 +186,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -950,6 +972,18 @@
           "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1105,6 +1139,7 @@
           "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -1113,6 +1148,7 @@
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
           "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -1173,6 +1209,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/Firebase.dll": {}
+        }
+      },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
         }
       },
       "Fody/6.1.0": {
@@ -1298,6 +1347,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -1983,6 +2041,18 @@
           "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2138,6 +2208,7 @@
           "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -2146,6 +2217,7 @@
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
           "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -2206,6 +2278,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/Firebase.dll": {}
+        }
+      },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
         }
       },
       "Fody/6.1.0": {
@@ -2331,6 +2416,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -3019,6 +3113,18 @@
           "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -3174,6 +3280,7 @@
           "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -3182,6 +3289,7 @@
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
           "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -3242,6 +3350,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/Firebase.dll": {}
+        }
+      },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
         }
       },
       "Fody/6.1.0": {
@@ -3367,6 +3488,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -4055,6 +4185,18 @@
           "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -4210,6 +4352,7 @@
           "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -4218,6 +4361,7 @@
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
           "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -4316,6 +4460,18 @@
         "firebasedatabase.net.nuspec",
         "lib/netstandard2.0/Firebase.dll",
         "lib/netstandard2.0/Firebase.xml"
+      ]
+    },
+    "FirebaseStorage.net/1.0.3": {
+      "sha512": "SupDHNUwNqcVwEo/HdFEWAXveQe3fU16q4wrrCxUVwP0a77zaddKp7vo2sHIW56DAsJn/gUfjDK3w0MuBhvzjQ==",
+      "type": "package",
+      "path": "firebasestorage.net/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebasestorage.net.1.0.3.nupkg.sha512",
+        "firebasestorage.net.nuspec",
+        "lib/netstandard1.1/Firebase.Storage.dll"
       ]
     },
     "Fody/6.1.0": {
@@ -4499,6 +4655,29 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "Plugin.Permissions/3.0.0.12": {
+      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "type": "package",
+      "path": "plugin.permissions/3.0.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Permissions.dll",
+        "lib/monoandroid71/Plugin.Permissions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.xml",
+        "lib/uap10.0.10240/Plugin.Permissions.dll",
+        "lib/uap10.0.10240/Plugin.Permissions.pri",
+        "lib/uap10.0.10240/Plugin.Permissions.xml",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.xml",
+        "plugin.permissions.3.0.0.12.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
       ]
     },
     "PropertyChanged.Fody/3.2.6": {
@@ -7853,6 +8032,31 @@
         "xam.forms.markdownview.nuspec"
       ]
     },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
+        "xam.plugin.media.nuspec"
+      ]
+    },
     "Xamarin.Auth/1.7.0": {
       "sha512": "F5yMDdHmcBRochGOeeyIRJ2fangsCEodSbOwg4TQT5kJnsT/CjP6ieXbFfFF9ccni66EgbQ7NTTjvajUlD3IGQ==",
       "type": "package",
@@ -8232,24 +8436,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tkill\\.nuget\\packages\\": {},
+    "C:\\Users\\Dylan\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
+      "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
       "projectName": "ZestHealthApp.iOS",
-      "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
-      "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\obj\\",
+      "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
+      "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+      "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -8258,14 +8462,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
-              "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
+            "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+              "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
             }
           }
         }
