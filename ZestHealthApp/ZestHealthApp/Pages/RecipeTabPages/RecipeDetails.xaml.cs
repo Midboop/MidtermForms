@@ -19,10 +19,14 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         IngredientItem singleItem;
         IngredientItem previousItem;
         IngredientItem selectedItem;
+        RecipeItems items;
+        List<IngredientItem> ingredients;
         int CurrentFrame;
         public RecipeDetails()
         {
+            items = new RecipeItems();
             InitializeComponent();
+            ingredients = new List<IngredientItem>();
             CurrentFrame = 0;
             AddButton.Speed = 4.0f;
             selectedItem = null;
@@ -35,8 +39,12 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             // Add item
             if(CurrentFrame == 25)
             {
+
+                OKButton.IsVisible = true;
+                OKButton.IsEnabled = true;
                 NewItemEntry.IsVisible = true;
                 IngredientsList.IsEnabled = false;
+               
                 QuantityEntry.Focus();
                 singleItem = new IngredientItem();
                 AddButton.PlayFrameSegment(25, 45);
@@ -54,15 +62,19 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             }
         }
 
-        private void newItemEntry_Completed()
+        private async void newItemEntry_Completed()
         {
             if (AddButton.IsVisible)
-            { 
+            {
+                ingredients.Add(singleItem);
+                items.IngredientsList = ingredients;
+                
                 NewItemEntry.IsVisible = false;
                 thisRecipe = (BindingContext as SingleRecipeData);
                 thisRecipe.Items.Add(singleItem);
                 thisRecipe.UpdateCalories();
                 ResetNewItemFrame();
+                
                 // DYLAN: this needs a firebase method to push the item to the database.
             }
             else
@@ -245,6 +257,21 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 }
                     
             }
+        }
+
+
+
+        private void TitleEntry_Completed(object sender, EventArgs e)
+        {
+            items.RecipeTitle = TitleEntry.Text;
+        }
+
+        private async void OKButton_Clicked(object sender, EventArgs e)
+        {
+            await FirebaseHelper.AddRecipe(items, items.RecipeTitle);
+            OKButton.IsVisible = false;
+            OKButton.IsEnabled = false;
+            App.Current.MainPage = new AppShell();
         }
     }
 }

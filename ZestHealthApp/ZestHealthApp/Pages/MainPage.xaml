@@ -88,6 +88,7 @@
             </CollectionView>
 
             <ImageButton Grid.Row="2" Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"/>
+            
 
         </Grid>
     </ContentPage.Content>
