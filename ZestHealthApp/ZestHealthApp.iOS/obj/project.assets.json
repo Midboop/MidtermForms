@@ -8422,6 +8422,7 @@
       "Com.Airbnb.Xamarin.Forms.Lottie >= 3.0.4",
       "FirebaseAuthentication.net >= 4.0.0-alpha.1",
       "FirebaseDatabase.net >= 4.0.4",
+      "FirebaseStorage.net >= 1.0.3",
       "MagicGradients >= 1.0.0",
       "PropertyChanged.Fody >= 3.2.6",
       "Rg.Plugins.Popup >= 1.2.0.223",
@@ -8429,6 +8430,7 @@
       "SkiaSharp >= 1.68.2-preview.21",
       "SkiaSharp.Views.Forms >= 1.68.2-preview.21",
       "Syncfusion.Xamarin.SfNumericUpDown >= 17.4.0.51",
+      "Xam.Plugin.Media >= 4.0.1.5",
       "Xamarin.Essentials >= 1.5.0",
       "Xamarin.Forms >= 4.5.0.356",
       "ZestHealthApp >= 1.0.0",
@@ -8489,6 +8491,10 @@
             "target": "Package",
             "version": "[4.0.4, )"
           },
+          "FirebaseStorage.net": {
+            "target": "Package",
+            "version": "[1.0.3, )"
+          },
           "MagicGradients": {
             "target": "Package",
             "version": "[1.0.0, )"
@@ -8516,6 +8522,10 @@
           "Syncfusion.Xamarin.SfNumericUpDown": {
             "target": "Package",
             "version": "[17.4.0.51, )"
+          },
+          "Xam.Plugin.Media": {
+            "target": "Package",
+            "version": "[4.0.1.5, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

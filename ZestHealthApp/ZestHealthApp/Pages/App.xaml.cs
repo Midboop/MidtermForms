@@ -5,6 +5,7 @@ using SkiaSharp.Views.Forms;
 using ZestHealthApp.Services;
 using ZestHealthApp.Pages;
 using ZestHealthApp.Models;
+using ZestHealthApp.Pages.RecipeTabPages;
 
 namespace ZestHealthApp
 {
@@ -19,10 +20,11 @@ namespace ZestHealthApp
             Device.SetFlags(new[] {
                 "SwipeView_Experimental"
             });
-           
 
-                 
-                MainPage = new FacebookLoginPage();
+
+
+            MainPage = new FacebookLoginPage();
+            
               
           
                 

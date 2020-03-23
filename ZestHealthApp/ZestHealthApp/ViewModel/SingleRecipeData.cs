@@ -14,7 +14,8 @@ namespace ZestHealthApp.ViewModel
         {
             if (recipe != null)
             {
-                RecipeTitle = recipe.RecipeTitle;
+                RecipeTitle = recipe.RecipeName;
+                
                 Items = new ObservableCollection<IngredientItem>(recipe.IngredientsList);
 
             }
@@ -23,6 +24,8 @@ namespace ZestHealthApp.ViewModel
         public int TotalCalories { get; private set; }
 
         public string RecipeTitle { get; }
+
+    
 
         public ObservableCollection<IngredientItem> Items { get; set; }
 

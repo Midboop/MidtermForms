@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[4.0.4, )"
             },
+            "FirebaseStorage.net": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
             "MagicGradients": {
               "target": "Package",
               "version": "[1.0.0, )"
@@ -86,6 +90,10 @@
               "target": "Package",
               "version": "[17.4.0.51, )"
             },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[4.0.1.5, )"
+            },
             "Xamarin.Android.Support.v7.CardView": {
               "target": "Package",
               "version": "[28.0.0.3, )"
@@ -97,6 +105,10 @@
             "Xamarin.Facebook.Android": {
               "target": "Package",
               "version": "[5.11.2, )"
+            },
+            "Xamarin.Firebase.Storage": {
+              "target": "Package",
+              "version": "[71.1602.0, )"
             },
             "Xamarin.Forms": {
               "target": "Package",

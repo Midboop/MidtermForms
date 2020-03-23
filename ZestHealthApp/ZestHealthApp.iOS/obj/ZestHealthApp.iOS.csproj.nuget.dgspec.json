@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[4.0.4, )"
             },
+            "FirebaseStorage.net": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
             "MagicGradients": {
               "target": "Package",
               "version": "[1.0.0, )"
@@ -81,6 +85,10 @@
             "Syncfusion.Xamarin.SfNumericUpDown": {
               "target": "Package",
               "version": "[17.4.0.51, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[4.0.1.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

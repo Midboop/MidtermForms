@@ -9,24 +9,24 @@ using Android.OS;
 
 using Android.Content;
 using Lottie.Forms.Droid;
+using Plugin.CurrentActivity;
 using System.Threading.Tasks;
 using System.IO;
+
 
 namespace ZestHealthApp.Droid
 {
     [Activity(Label = "ZestHealthApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-
-
         internal static MainActivity Instance { get; private set; }
-
+        
         protected override void OnCreate(Bundle bundle)
         {
             Instance = this;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            // CrossCurrentActivity.Current.Init(this, bundle);
+           // CrossCurrentActivity.Current.Init(this, bundle);
 
             base.OnCreate(bundle);
             Rg.Plugins.Popup.Popup.Init(this, bundle);

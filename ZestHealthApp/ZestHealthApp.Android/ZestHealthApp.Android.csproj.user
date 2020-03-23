@@ -5,6 +5,5 @@
     <DefaultDevice>pixel_2_pie_9_0_-_api_28</DefaultDevice>
     <AndroidDesignerPreferredTheme>Theme.AppCompat.Light.NoActionBar</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>pixel_2</AndroidDesignerPreferredDevice>
-    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 </Project>

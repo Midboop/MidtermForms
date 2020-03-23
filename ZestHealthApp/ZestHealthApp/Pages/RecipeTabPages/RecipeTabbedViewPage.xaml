@@ -35,6 +35,7 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            
 
             <!--  ROW 1  -->
             <Image x:Name="Image"

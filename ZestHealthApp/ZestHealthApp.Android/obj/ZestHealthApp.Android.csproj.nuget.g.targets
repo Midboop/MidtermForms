@@ -43,5 +43,10 @@
     <Import Project="C:\Microsoft\Xamarin\NuGet\xamarin.android.support.customtabs\28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CustomTabs.targets" Condition="Exists('C:\Microsoft\Xamarin\NuGet\xamarin.android.support.customtabs\28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CustomTabs.targets')" />
     <Import Project="$(NuGetPackageRoot)xamarin.forms\4.5.0.356\build\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\4.5.0.356\build\Xamarin.Forms.targets')" />
     <Import Project="$(NuGetPackageRoot)fody\6.1.0\build\Fody.targets" Condition="Exists('$(NuGetPackageRoot)fody\6.1.0\build\Fody.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.googleplayservices.basement\71.1620.0\build\MonoAndroid90\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.googleplayservices.basement\71.1620.0\build\MonoAndroid90\Xamarin.GooglePlayServices.Basement.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.googleplayservices.tasks\71.1601.0\build\MonoAndroid90\Xamarin.GooglePlayServices.Tasks.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.googleplayservices.tasks\71.1601.0\build\MonoAndroid90\Xamarin.GooglePlayServices.Tasks.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.googleplayservices.base\71.1610.0\build\MonoAndroid90\Xamarin.GooglePlayServices.Base.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.googleplayservices.base\71.1610.0\build\MonoAndroid90\Xamarin.GooglePlayServices.Base.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.firebase.common\71.1610.0\build\MonoAndroid90\Xamarin.Firebase.Common.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.common\71.1610.0\build\MonoAndroid90\Xamarin.Firebase.Common.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.firebase.storage\71.1602.0\build\MonoAndroid90\Xamarin.Firebase.Storage.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.storage\71.1602.0\build\MonoAndroid90\Xamarin.Firebase.Storage.targets')" />
   </ImportGroup>
 </Project>
