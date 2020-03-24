@@ -17,11 +17,9 @@
                 <RowDefinition Height="330"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-
-           
-           
+            
+            
             <StackLayout Grid.Row="0" HeightRequest="330">
-                <Entry x:Name="TitleEntry" Grid.Row="1" TextColor="{StaticResource Accent}" Placeholder="Recipe Title" PlaceholderColor="Accent"  IsSpellCheckEnabled="True" IsVisible="True" Completed="TitleEntry_Completed" />
                 <Frame x:Name="NewItemEntry" IsVisible="False" BackgroundColor="Transparent" BorderColor="Accent" Padding="2" HeightRequest="150">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -31,16 +29,14 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="80"/>
                     </Grid.ColumnDefinitions>
-                       
-                        <Entry x:Name="QuantityEntry"  Grid.Column="0" TextColor="{StaticResource Accent}" Placeholder="#" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="True" Completed="QuantityEntry_Completed" Keyboard="Numeric"/>
+                    <Entry x:Name="QuantityEntry" Grid.Column="0" TextColor="{StaticResource Accent}" Placeholder="#" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="True" Completed="QuantityEntry_Completed"/>
                         <Label x:Name="QuantityLabel" Grid.Column="1" Grid.ColumnSpan="4" TextColor="Accent" Text="Quantity" Style="{StaticResource TextSubhead}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="True" />
                     <Entry x:Name="UnitEntry" Grid.Column="1" TextColor="{StaticResource Accent}" Placeholder="Unit" PlaceholderColor="Accent"  IsSpellCheckEnabled="True" IsVisible="False" Completed="UnitEntry_Completed"/>
                         <Label x:Name="UnitLabel" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Accent" Text="(Cups, Tsp, Grams(Raw Meat)" Style="{StaticResource TextSubhead}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="False" />
-                    <Entry x:Name="WeightEntry" Grid.Column="2" TextColor="{StaticResource Accent}" Placeholder="Grams" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="WeightEntry_Completed" Keyboard="Numeric"/>
+                    <Entry x:Name="WeightEntry" Grid.Column="2" TextColor="{StaticResource Accent}" Placeholder="Grams" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="WeightEntry_Completed"/>
                     <Entry x:Name="NameEntry" Grid.Column="3" TextColor="{StaticResource Accent}" Placeholder="Name" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="NameEntry_Completed"/>
-                    <Entry x:Name="CaloriesEntry" Grid.Column="4" TextColor="{StaticResource Accent}" Placeholder="Cal." PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="CaloriesEntry_Completed" Keyboard="Numeric" />
-                        
-                    </Grid>
+                    <Entry x:Name="CaloriesEntry" Grid.Column="4" TextColor="{StaticResource Accent}" Placeholder="Cal." PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="CaloriesEntry_Completed"/>
+                </Grid>
             </Frame>
             <ScrollView>
                 <ListView x:Name="IngredientsList" Margin="0" ItemsSource="{Binding Items}" ItemTapped="IngredientsList_ItemTapped">
@@ -60,24 +56,19 @@
                                 <Label Text="{Binding Weight, StringFormat='({0} g.)'}" Grid.Column="2" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextCaption}" VerticalOptions="Center"  HorizontalOptions="Start"/>
                                 <Label Text="{Binding Name}" Grid.Column="3" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextSubhead}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
                                 <Label Text="{Binding Calories, StringFormat='{0} cal.'}" Grid.Column="4" TextColor="{StaticResource TextPrimaryColor}" Style="{StaticResource TextCaption}" VerticalOptions="Center" HorizontalOptions="Center" />
-                                       
-                                    </Grid>
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-                <Button x:Name="OKButton" Text="OK" BackgroundColor="{StaticResource Accent}" IsEnabled="False" IsVisible="False"  Grid.Row="1" Grid.Column="1"  Clicked="OKButton_Clicked"  CornerRadius="100"  WidthRequest="20" HeightRequest="50" Scale="0.5"/>
             </StackLayout>
 
             <lottie:AnimationView x:Name="AddButton" Grid.Row="1" Scale="1.5" IsPlaying="True" Loop ="False" Animation="RecipeAdd2.json"  OnFinish="AddButton_HaltPlay" OnClick="Button_Clicked"/>
-            
-            <Frame x:Name="EditButtonFrame" BackgroundColor="{StaticResource Accent}" Grid.Row="1"  HeightRequest="50" WidthRequest="50" CornerRadius="25" IsVisible="False" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center">
-                
+            <Frame x:Name="EditButtonFrame" BackgroundColor="{StaticResource Accent}" Grid.Row="1" HeightRequest="50" WidthRequest="50" CornerRadius="25" IsVisible="False" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center">
                 <lottie:AnimationView x:Name="EditButton" Scale="0.8" IsPlaying="False" Loop ="False" Animation="RecipeEdit.json"  OnClick="EditButton_OnClick"/>
             </Frame>
             
-
 
         </Grid>
     </ContentView.Content>

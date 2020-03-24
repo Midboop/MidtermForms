@@ -33,22 +33,22 @@ namespace ZestHealthApp
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
             // the following is an example entry until we get everything flushed out 
-            //List<IngredientItem> ingredients = new List<IngredientItem>();
-            //IngredientItem cornFlakes = new IngredientItem("Corn Flakes", 1, 180, 150, "Cup");
-            //IngredientItem powderedSugar = new IngredientItem("Powdered Sugar", 0.5, 220, 150, "Cup");
-            //IngredientItem milk = new IngredientItem("Milk", 1, 1200, 200, "Cup");
-            //ingredients.Add(cornFlakes);
-            //ingredients.Add(powderedSugar);
-            //ingredients.Add(milk);
+            List<IngredientItem> ingredients = new List<IngredientItem>();
+            IngredientItem cornFlakes = new IngredientItem("Corn Flakes", 1, 180, 150, "Cup");
+            IngredientItem powderedSugar = new IngredientItem("Powdered Sugar", 0.5, 220, 150, "Cup");
+            IngredientItem milk = new IngredientItem("Milk", 1, 1200, 200, "Cup");
+            ingredients.Add(cornFlakes);
+            ingredients.Add(powderedSugar);
+            ingredients.Add(milk);
 
             RecipeItems newRecipe = new RecipeItems();
-            // newRecipe.RecipeName = "Frosted Flakes";
+            newRecipe.RecipeName = "Frosted Flakes";
             // newRecipe.RecipeName = "New Recipe";
 
             // End example entry changes
-           // newRecipe.IngredientsList = ingredients;
+            newRecipe.IngredientsList = ingredients;
             //Taylor: add other dictionary items
-           // await FirebaseHelper.AddRecipe(newRecipe);
+            await FirebaseHelper.AddRecipe(newRecipe);
             SingleRecipeData selected = new SingleRecipeData(newRecipe);
             await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));
 
@@ -60,11 +60,6 @@ namespace ZestHealthApp
             SingleRecipeData selected = new SingleRecipeData(selectedItem);
             await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));
             selectedItem = null;
-        }
-
-        private void OKButton_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ZestHealthApp.ViewModel
         {
             if (recipe != null)
             {
-                RecipeTitle = recipe.RecipeTitle;
+                RecipeTitle = recipe.RecipeName;
                 Items = new ObservableCollection<IngredientItem>(recipe.IngredientsList);
 
             }

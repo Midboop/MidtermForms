@@ -14,7 +14,7 @@ namespace ZestHealthApp.Models
             Weight = 99;
             Unit = "UNIT NOT SET";
         }
-        public IngredientItem( string name, double quantity, int calories, int weight, string unit)
+        public IngredientItem( string name, double quantity, int calories, int weight, string unit )
         {
             Name = name;
             Quantity = quantity;

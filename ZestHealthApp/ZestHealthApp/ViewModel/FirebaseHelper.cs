@@ -187,13 +187,13 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Add recipe to database
-        public static async Task<bool> AddRecipe(RecipeItems NewRecipe, string recipeTitle)
+        public static async Task<bool> AddRecipe(RecipeItems NewRecipe)
         {
             try
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeTitle = recipeTitle });
+                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName });
                 return true;
             }
             catch (Exception e)
@@ -283,8 +283,7 @@ namespace ZestHealthApp.ViewModel
                  new RecipeItems
                  {
                      RecipeName = item.Object.RecipeName,
-                     IngredientsList = item.Object.IngredientsList,
-                     RecipeTitle = item.Object.RecipeTitle
+                     IngredientsList = item.Object.IngredientsList
                  }).ToList();
                 return recipeList;
             }
