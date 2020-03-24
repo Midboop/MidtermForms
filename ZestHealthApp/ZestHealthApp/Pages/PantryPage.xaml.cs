@@ -200,7 +200,7 @@ namespace ZestHealthApp
             OKAimButton.IsVisible = false;
             CancelAimButton.IsVisible = false;
 
-            
+
           
             AnimButton.IsVisible = true;
             AnimButton.IsEnabled = true;

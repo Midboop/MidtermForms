@@ -84,7 +84,7 @@
                     </OnPlatform>
                 </Setter.Value>
             </Setter>
-            <Setter Property="BackgroundColor" Value="{StaticResource DarkSurface}" />  
+            <Setter Property="BackgroundColor" Value="{StaticResource DarkSurface}" />
         </Style>
 
         <!--<Style ApplyToDerivedTypes="True" TargetType="NavigationPage">

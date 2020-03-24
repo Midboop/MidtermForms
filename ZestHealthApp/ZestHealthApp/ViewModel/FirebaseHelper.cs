@@ -1,10 +1,7 @@
-﻿
-using Firebase.Auth;
+﻿using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Storage;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,13 +19,7 @@ namespace ZestHealthApp.ViewModel
     {
         // Connects to the Firebase DataBase
         public static FirebaseClient firebase = new FirebaseClient("https://zesthealth-1f666.firebaseio.com/");
-
         private static string storage = "zesthealth-1f666.appspot.com";
-
-
-
-        
-
 
         // adds googleusers to firebase
         public static async Task<bool> AddUser(string email, string picture, string name, string id)
@@ -196,13 +187,13 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Add recipe to database
-        public static async Task<bool> AddRecipe(RecipeItems NewRecipe)
+        public static async Task<bool> AddRecipe(RecipeItems NewRecipe, string recipeTitle)
         {
             try
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName });
+                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeTitle = recipeTitle });
                 return true;
             }
             catch (Exception e)
@@ -240,9 +231,26 @@ namespace ZestHealthApp.ViewModel
 
         }
 
+        // Get image from Firebase Storage
 
-    // Read all pantry items
-    public static async Task<List<PantryItems>> GetPantry()
+        public static async Task<ImageSource> GetImage(string name)
+        {
+            try
+            {
+                return await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").GetDownloadUrlAsync();
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+
+
+        }
+
+        // Read all pantry items
+        public static async Task<List<PantryItems>> GetPantry()
         {
             try
             {
@@ -264,24 +272,6 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
-        // Get image from Firebase Storage
-
-        public static async Task<ImageSource> GetImage(string name)
-        {
-            try
-            {
-                return await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").GetDownloadUrlAsync();
-               
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine($"Error:{e}");
-                return null;
-            }
-
-
-        }
-
         // Read all Recipes
         public static async Task<List<RecipeItems>> GetRecipes()
         {
@@ -293,7 +283,8 @@ namespace ZestHealthApp.ViewModel
                  new RecipeItems
                  {
                      RecipeName = item.Object.RecipeName,
-                     IngredientsList = item.Object.IngredientsList
+                     IngredientsList = item.Object.IngredientsList,
+                     RecipeTitle = item.Object.RecipeTitle
                  }).ToList();
                 return recipeList;
             }
@@ -424,8 +415,6 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
-
-
 
 
 
