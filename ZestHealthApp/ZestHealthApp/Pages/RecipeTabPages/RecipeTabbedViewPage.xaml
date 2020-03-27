@@ -60,13 +60,14 @@
                        TextColor="White"
                        Text="{Binding RecipeTitle}" />
 
-            <Label Grid.Row="2"
+            <Label x:Name="CalorieLabel" Grid.Row="2"
                        Style="{StaticResource TextSubhead}"
                        TextColor="White"
                        Text="{Binding TotalCalories, StringFormat='{0} Total Calories'}" />
             <!--Note:Bind this Later to idk something like idk. It goes under the recipe name. We can cut it or use it w/e-->
 
-            <skiaRate:RatingView Grid.Row="3"
+            <skiaRate:RatingView    x:Name="RatingStars"
+                                     Grid.Row="3"
                                      WidthRequest="100"
                                      HeightRequest="30"
                                      HorizontalOptions="Start"
@@ -74,7 +75,7 @@
                                      Count="5"
                                      OutlineOffColor="Transparent"
                                      RatingType="Floating"
-                                     Value="4.3" />
+                                     Value="{Binding RatingStars}" />
             <!--Note: Bind this Later to a Recipe property int-->
 
             <tabs:TabHostView x:Name="TabHost"

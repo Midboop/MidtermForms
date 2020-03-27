@@ -27,7 +27,9 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             thisRecipe = objectInstance;
             BindingContext = thisRecipe;
             recipeDetails.BindingContext = thisRecipe;
-            recipeNutrition.BindingContext = thisRecipe.NutritionValues;
+            recipeDetails.thisNutrition = recipeNutrition;
+            recipeNutrition.BindingContext = thisRecipe;
+            recipeNutrition.thisTabbedPage = this;
 
         }
         protected override bool OnBackButtonPressed()
@@ -39,6 +41,11 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         private async void GoToRecipe()
         {
             await Shell.Current.GoToAsync("//Recipe");
+        }
+        public void UpdateViews()
+        {
+            CalorieLabel.Text = thisRecipe.TotalCalories.ToString() + " Total Calories";
+            RatingStars.Value = thisRecipe.RatingStars;
         }
 
         private async void ChangePicture_Clicked(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace ZestHealthApp.ViewModel
             {
                 await firebase
                     .Child("GoogleUsers")
-                    .PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id});
+                    .PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id });
                 return true;
             }
             catch (Exception e)
@@ -39,7 +39,7 @@ namespace ZestHealthApp.ViewModel
         }
 
         // add facebook users to firebase
-        public static async Task<bool> AddFacebookUser(string id, string name, string firstname, string lastname, string email,Picture picture)
+        public static async Task<bool> AddFacebookUser(string id, string name, string firstname, string lastname, string email, Picture picture)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace ZestHealthApp.ViewModel
                     .PostAsync(new FacebookEmail() { Id = id, Name = name, First_Name = firstname, Last_Name = lastname, Email = email, Picture = picture });
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
                 return false;
@@ -168,18 +168,22 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Add pantry items to the database
-        public static async Task<bool> AddPantryItem(string name, string amount, string exp )
+        public static async Task<bool> AddPantryItem(string name, string amount, string exp)
         {
             try
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("PantryItems")
-                    .PostAsync(new PantryItems { ItemName = name, ExpirationDate = exp, Quantity = amount
-            });
-                
+                    .PostAsync(new PantryItems
+                    {
+                        ItemName = name,
+                        ExpirationDate = exp,
+                        Quantity = amount
+                    });
+
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
                 return false;
@@ -193,7 +197,7 @@ namespace ZestHealthApp.ViewModel
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName });
+                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeRating = NewRecipe.RecipeRating, NutritionValues = NewRecipe.NutritionValues });
                 return true;
             }
             catch (Exception e)
@@ -202,7 +206,75 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
-   
+        // Add ingredient item
+        public static async void UpdateRecipeAdd(RecipeItems selectedRecipe, IngredientItem newIngredient)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                  (await firebase
+                    .Child(Application.Current.Properties["Id"].ToString())
+                    .Child("Recipes")
+                    .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeName).Where(a => a.Object.IngredientsList.Count == selectedRecipe.IngredientsList.Count).FirstOrDefault(); ;
+
+
+                await firebase
+                   .Child(Application.Current.Properties["Id"].ToString())
+                   .Child("Recipes")
+                   .Child(SingleRecipeObject.Key)
+                   .Child("IngredientsList")
+                   .Child(SingleRecipeObject.Object.IngredientsList.Count.ToString())
+                   .PutAsync(new IngredientItem(newIngredient));
+                //update nutrition facts here
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+            }
+
+        }
+
+        public static async void UpdateRecipeEdit(SingleRecipeData selectedRecipe, IngredientItem unEditedIngredient, IngredientItem editedIngredient)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                (await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeTitle)
+                  .Where(a => a.Object.IngredientsList.Count == selectedRecipe.Items.Count).FirstOrDefault(); ;
+
+                int editIndex = -1;
+                for (int i = 0; i < selectedRecipe.Items.Count; i++)
+                {
+                    if (selectedRecipe.Items.ElementAt(i) == unEditedIngredient)
+                        editIndex = i;
+                }
+
+                // if index was not found(it should)
+                if (editIndex == -1)
+                {
+                    Debug.WriteLine("UpdateRecipeEdit failed to match index of item to be edited");
+                    return;
+                }
+
+                await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .Child(SingleRecipeObject.Key)
+                  .Child("IngredientsList")
+                  .Child(editIndex.ToString())
+                  .PutAsync(new IngredientItem(editedIngredient));
+                //update nutriton values here
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+            }
+
+        }
+
 
         // Add Shopping items to the Firebase
         public static async Task<bool> AddShoppingList(string name, string amount)
@@ -284,7 +356,8 @@ namespace ZestHealthApp.ViewModel
                  {
                      RecipeName = item.Object.RecipeName,
                      IngredientsList = item.Object.IngredientsList,
-                     NutritionValues = item.Object.NutritionValues
+                     NutritionValues = item.Object.NutritionValues,
+                     RecipeRating = item.Object.RecipeRating
                  }).ToList();
                 return recipeList;
             }
@@ -329,10 +402,10 @@ namespace ZestHealthApp.ViewModel
                 await firebase
                     .Child("PantryItems")
                     .Child(toUpdateQuantity.Key)
-                    .PutAsync(new PantryItems() { ItemName = name, Quantity = quantity, ExpirationDate = exp});
+                    .PutAsync(new PantryItems() { ItemName = name, Quantity = quantity, ExpirationDate = exp });
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
                 return false;
@@ -420,6 +493,6 @@ namespace ZestHealthApp.ViewModel
 
     }
 
- 
-    
+
+
 }

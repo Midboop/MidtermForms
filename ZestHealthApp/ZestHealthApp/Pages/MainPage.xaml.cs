@@ -43,6 +43,11 @@ namespace ZestHealthApp
 
             RecipeItems newRecipe = new RecipeItems();
             newRecipe.RecipeName = "Frosted Flakes";
+            newRecipe.RecipeRating = 3;
+            newRecipe.NutritionValues.TotalCalories = 1600;
+            newRecipe.NutritionValues.TotalWeight = 500;
+            newRecipe.NutritionValues.CaloriesPerServing = 1600;
+            newRecipe.NutritionValues.WeightPerServing = 500;
             // newRecipe.RecipeName = "New Recipe";
 
             // End example entry changes

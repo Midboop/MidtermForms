@@ -18,6 +18,7 @@ namespace ZestHealthApp.ViewModel
                 Items = new ObservableCollection<IngredientItem>(recipe.IngredientsList);
                 NutritionValues = new NutritionFacts(recipe.NutritionValues);
                 TotalCalories = NutritionValues.TotalCalories;
+                RatingStars = recipe.RecipeRating;
             }
             
         }
@@ -25,6 +26,7 @@ namespace ZestHealthApp.ViewModel
         public int TotalCalories { get; private set; }
 
         public string RecipeTitle { get; }
+        public double RatingStars { get; set; }
 
         public ObservableCollection<IngredientItem> Items { get; set; }
 
@@ -45,7 +47,8 @@ namespace ZestHealthApp.ViewModel
                 totalCalories += Items[i].Calories;
                 totalWeight += Items[i].Weight;
                
-            } 
+            }
+           TotalCalories = totalCalories;
            NutritionValues.TotalCalories = totalCalories;
            NutritionValues.TotalWeight = totalWeight;
 

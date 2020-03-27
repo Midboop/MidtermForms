@@ -10,11 +10,12 @@ using Xamarin.Forms.Xaml;
 using ZestHealthApp.Models;
 using ZestHealthApp.ViewModel;
 
-namespace ZestHealthApp.Pages.RecipeTabPages 
+namespace ZestHealthApp.Pages.RecipeTabPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipeDetails : ContentView, IAnimatableReveal // Tab 1
     {
+        public RecipeNutrition thisNutrition { get; set; }
         SingleRecipeData thisRecipe;
         IngredientItem singleItem;
         IngredientItem previousItem;
@@ -33,7 +34,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         private void Button_Clicked(object sender, EventArgs e)
         {
             // Add item
-            if(CurrentFrame == 25)
+            if (CurrentFrame == 25)
             {
                 NewItemEntry.IsVisible = true;
                 IngredientsList.IsEnabled = false;
@@ -56,14 +57,18 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void newItemEntry_Completed()
         {
+
             if (AddButton.IsVisible)
-            { 
+            {
                 NewItemEntry.IsVisible = false;
                 thisRecipe = (BindingContext as SingleRecipeData);
+                RecipeItems currentRecipe = new RecipeItems();
+                currentRecipe.RecipeName = thisRecipe.RecipeTitle;
+                currentRecipe.IngredientsList = thisRecipe.Items.ToList();
                 thisRecipe.Items.Add(singleItem);
-                thisRecipe.UpdateNutrition();
+                thisNutrition.UpdateValues();
+                FirebaseHelper.UpdateRecipeAdd(currentRecipe, singleItem);
                 ResetNewItemFrame();
-                // DYLAN: this needs a firebase method to push the item to the database.
             }
             else
             {
@@ -103,12 +108,12 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 UnitEntry.Focus();
                 UnitLabel.IsVisible = true;
             }
-            
+
         }
 
         private void UnitEntry_Completed(object sender, EventArgs e)
         {
-            if(UnitEntry.Text.ToString() != string.Empty)
+            if (UnitEntry.Text.ToString() != string.Empty)
             {
                 // Go to Weight
                 singleItem.Unit = UnitEntry.Text.ToString();
@@ -121,7 +126,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void WeightEntry_Completed(object sender, EventArgs e)
         {
-            if(WeightEntry.Text.ToString() != string.Empty)
+            if (WeightEntry.Text.ToString() != string.Empty)
             {
                 // Go to Name
                 singleItem.Weight = Convert.ToInt32(WeightEntry.Text.ToString());
@@ -133,7 +138,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void NameEntry_Completed(object sender, EventArgs e)
         {
-            if(NameEntry.Text.ToString() != string.Empty)
+            if (NameEntry.Text.ToString() != string.Empty)
             {
                 // Go to Calories
                 singleItem.Name = NameEntry.Text.ToString();
@@ -145,10 +150,10 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void CaloriesEntry_Completed(object sender, EventArgs e)
         {
-            if(CaloriesEntry.Text.ToString() != string.Empty)
+            if (CaloriesEntry.Text.ToString() != string.Empty)
             {
                 // Completed Item
-                singleItem.Calories =Convert.ToInt32 (CaloriesEntry.Text.ToString());
+                singleItem.Calories = Convert.ToInt32(CaloriesEntry.Text.ToString());
                 newItemEntry_Completed();
             }
         }
@@ -225,13 +230,14 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         }
 
         private void SaveEdit()
-        {
+        { //todo Edit in firebase
             thisRecipe = (BindingContext as SingleRecipeData);
             for (int i = 0; i < thisRecipe.Items.Count; i++)
             {
                 if (selectedItem == thisRecipe.Items.ElementAt(i))
                 {
                     thisRecipe.Items.ElementAt(i).Equals(singleItem);
+                    FirebaseHelper.UpdateRecipeEdit(thisRecipe, selectedItem, singleItem);
                     IngredientsList.SelectedItem = null;
                     previousItem = null;
                     selectedItem = null;
@@ -242,8 +248,9 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                     AddButton.IsVisible = true;
                     AddButton.PlayFrameSegment(0, 25);
                     CurrentFrame = 25;
+                    thisNutrition.UpdateValues();
                 }
-                    
+
             }
         }
     }

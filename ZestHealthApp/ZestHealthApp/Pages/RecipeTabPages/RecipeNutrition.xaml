@@ -7,11 +7,11 @@
              mc:Ignorable="d"
              x:Class="ZestHealthApp.Pages.RecipeTabPages.RecipeNutrition">
     <ContentView.Content>
-        <StackLayout>
+        <StackLayout BindingContext="{Binding NutritionValues}">
             <Label Text="Nutrition Facts" Style="{StaticResource TextTitle}" TextColor="White" TextDecorations="Underline"/>
-            <Label Text="{Binding Servings, StringFormat = '{0} Servings per Recipe'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
-            <Label Text="{Binding CaloriesPerServing, StringFormat='Calories per Serving : {0}'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
-            <Label Text ="{Binding WeightPerServing, StringFormat='Approx. Weight per Serving : {0} grams'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
+            <Label x:Name="ServingView" Text="{Binding Servings, StringFormat = '{0} Servings per Recipe'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
+            <Label x:Name="CaloriesView" Text="{Binding CaloriesPerServing, StringFormat='Calories per Serving : {0}'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
+            <Label x:Name="WeightView" Text ="{Binding WeightPerServing, StringFormat='Approx. Weight per Serving : {0} grams'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -25,19 +25,21 @@
                     <RowDefinition Height="150"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Frame x:Name="ServingFrame" Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" IsVisible="True" CornerRadius="20" BackgroundColor="Transparent" Padding="10" BorderColor="Accent" HeightRequest="80" WidthRequest="40">
-                    <Entry x:Name="NumberEntry" Placeholder="#" Keyboard="Numeric" TextColor="Accent" PlaceholderColor="Accent" IsVisible="True" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
-
+                <!--Serving Button-->
+                <Frame x:Name="ServingFrame" Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" IsVisible="False" CornerRadius="20" BackgroundColor="Transparent" Padding="10" BorderColor="Accent" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center">
+                    <Entry x:Name="ServingEntry" Placeholder="{Binding Servings}" Keyboard="Numeric" TextColor="Accent" PlaceholderColor="Accent" IsVisible="True" VerticalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource TextSubhead}" Completed="ServingSizeButton_Clicked"/>
                 </Frame>
                 <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
-                    <ImageButton Source="nameIcon.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3"/>
+                    <ImageButton Source="nameIcon.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3" Clicked="ServingSizeButton_Clicked"/>
+                </Frame>
+                <!--Rating Star Button-->
+                <Frame x:Name="RatingFrame" Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" IsVisible="False" CornerRadius="20" BackgroundColor="Transparent" Padding="10" BorderColor="Accent" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center">
+                    <Entry x:Name="RatingEntry" Placeholder="#" Keyboard="Numeric" TextColor="Accent" PlaceholderColor="Accent" IsVisible="True" VerticalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource TextSubhead}" Completed="RatingStarButton_Clicked"/>
                 </Frame>
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
-                    <ImageButton Source="nameIcon.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3"/>
+                    <ImageButton Source="ratingStar.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3" Clicked="RatingStarButton_Clicked"/>
                 </Frame>
-                <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
-                    <ImageButton Source="nameIcon.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3"/>
-                </Frame>
+                
 
             </Grid>
             

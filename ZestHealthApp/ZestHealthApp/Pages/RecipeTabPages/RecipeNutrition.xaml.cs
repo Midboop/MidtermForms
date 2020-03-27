@@ -15,7 +15,8 @@ namespace ZestHealthApp.Pages.RecipeTabPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipeNutrition : ContentView, IAnimatableReveal // Tab 3
     {
-        NutritionFacts thisRecipe;
+        SingleRecipeData thisRecipe;
+        public RecipeTabbedViewPage thisTabbedPage { get; set; }
         public RecipeNutrition()
         {
             InitializeComponent();
@@ -32,8 +33,8 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             }
             if (calorieEntry.Text != string.Empty)
             {
-                thisRecipe = (BindingContext as NutritionFacts);
-                double caloriesPerGram = (thisRecipe.TotalCalories / thisRecipe.TotalWeight);
+                thisRecipe = (BindingContext as SingleRecipeData);
+                double caloriesPerGram = (thisRecipe.NutritionValues.TotalCalories / thisRecipe.NutritionValues.TotalWeight);
                 calorieCalculator.Text = (caloriesPerGram * Convert.ToDouble(calorieEntry.Text)).ToString() + " cal.";
 
             }
@@ -51,9 +52,45 @@ namespace ZestHealthApp.Pages.RecipeTabPages
            
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
+        private void ServingSizeButton_Clicked(object sender, EventArgs e)
         {
-
+            if (ServingFrame.IsVisible == true && ServingEntry.Text != string.Empty && Convert.ToInt32(ServingEntry.Text) != 0)
+            {
+                thisRecipe = (BindingContext as SingleRecipeData);
+                thisRecipe.NutritionValues.Servings = Convert.ToInt32(ServingEntry.Text);
+                //TODO: save to firebase here
+                ServingEntry.Placeholder = ServingEntry.Text;
+                ServingEntry.Text = string.Empty;
+                UpdateValues();
+            }
+            ServingFrame.IsVisible = !ServingFrame.IsVisible;
+           
         }
+
+        public void UpdateValues()
+        {
+            thisRecipe = (BindingContext as SingleRecipeData);
+            thisRecipe.UpdateNutrition();
+            // Update Views
+            thisTabbedPage.UpdateViews();
+            ServingView.Text = thisRecipe.NutritionValues.Servings.ToString() + " Servings per Recipe";
+            CaloriesView.Text = "Calories per Serving : " + thisRecipe.NutritionValues.CaloriesPerServing.ToString();
+            WeightView.Text = "Approx. Weight per Serving : " + thisRecipe.NutritionValues.WeightPerServing.ToString() + " grams";
+        }
+
+        private void RatingStarButton_Clicked(object sender, EventArgs e)
+        {
+            if(RatingFrame.IsVisible == true && RatingEntry.Text != string.Empty)
+            {
+                thisRecipe = (BindingContext as SingleRecipeData);
+                thisRecipe.RatingStars = Convert.ToDouble(RatingEntry.Text);
+                // todo: save to firebase here
+                RatingEntry.Placeholder = RatingEntry.Text;
+                RatingEntry.Text = string.Empty;
+                thisTabbedPage.UpdateViews();
+            }
+            RatingFrame.IsVisible = !RatingFrame.IsVisible;
+        }
+      
     }
 }
