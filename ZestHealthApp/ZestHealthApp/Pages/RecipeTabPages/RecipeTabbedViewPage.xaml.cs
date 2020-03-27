@@ -38,7 +38,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             return true;
         }
 
-        private async void GoToRecipe()
+        public async void GoToRecipe()
         {
             await Shell.Current.GoToAsync("//Recipe");
         }

@@ -1,6 +1,7 @@
 ﻿using Sharpnado.Presentation.Forms.CustomViews;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,15 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             }
             RatingFrame.IsVisible = !RatingFrame.IsVisible;
         }
-      
+
+        private async void DeleteButton_Clicked(object sender, EventArgs e)
+        {
+            // TODO: Add ARE YOU SURE?????
+            thisRecipe = (BindingContext as SingleRecipeData);
+            if (await FirebaseHelper.DeleteRecipe(thisRecipe))
+                thisTabbedPage.GoToRecipe();
+            else
+                Debug.WriteLine("Delete Failed");
+        }
     }
 }

@@ -23,7 +23,7 @@
             </Grid>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="130"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!--Serving Button-->
@@ -35,7 +35,7 @@
                 </Frame>
                 <!--Delete Button-->
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
-                    <ImageButton Source="delete.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3"/>
+                    <ImageButton Source="delete.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3" Clicked="DeleteButton_Clicked"/>
                 </Frame>
                 <!--Rating Star Button-->
                 <Frame x:Name="RatingFrame" Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" IsVisible="False" CornerRadius="20" BackgroundColor="Transparent" Padding="10" BorderColor="Accent" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center">

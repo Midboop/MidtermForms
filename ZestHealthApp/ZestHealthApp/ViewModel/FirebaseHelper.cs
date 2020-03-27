@@ -206,6 +206,33 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
+        // Delete Recipe from Database
+        public static async Task<bool> DeleteRecipe(SingleRecipeData toDelete)
+        {
+            try
+            {
+                var SingleRecipeObject =
+               (await firebase
+                 .Child(Application.Current.Properties["Id"].ToString())
+                 .Child("Recipes")
+                 .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == toDelete.RecipeTitle)
+                 .Where(a => a.Object.IngredientsList.Count == toDelete.Items.Count).FirstOrDefault(); ;
+
+                await firebase
+               .Child(Application.Current.Properties["Id"].ToString())
+               .Child("Recipes")
+               .Child(SingleRecipeObject.Key)
+               .DeleteAsync();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
         // Add ingredient item
         public static async void UpdateRecipeAdd(RecipeItems selectedRecipe, IngredientItem newIngredient)
         {
