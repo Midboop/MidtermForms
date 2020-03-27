@@ -237,6 +237,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 if (selectedItem == thisRecipe.Items.ElementAt(i))
                 {
                     thisRecipe.Items.ElementAt(i).Equals(singleItem);
+                    thisNutrition.UpdateValues();
                     FirebaseHelper.UpdateRecipeEdit(thisRecipe, selectedItem, singleItem);
                     IngredientsList.SelectedItem = null;
                     previousItem = null;
@@ -248,7 +249,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                     AddButton.IsVisible = true;
                     AddButton.PlayFrameSegment(0, 25);
                     CurrentFrame = 25;
-                    thisNutrition.UpdateValues();
+                    
                 }
 
             }

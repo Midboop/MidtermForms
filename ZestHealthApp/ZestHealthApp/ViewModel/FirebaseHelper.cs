@@ -266,7 +266,13 @@ namespace ZestHealthApp.ViewModel
                   .Child("IngredientsList")
                   .Child(editIndex.ToString())
                   .PutAsync(new IngredientItem(editedIngredient));
-                //update nutriton values here
+
+                await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .Child(SingleRecipeObject.Key)
+                .Child("NutritionValues")
+                .PutAsync(new NutritionFacts(selectedRecipe.NutritionValues));
             }
             catch (Exception e)
             {
@@ -274,6 +280,58 @@ namespace ZestHealthApp.ViewModel
             }
 
         }
+        public static async void UpdateRating(SingleRecipeData selectedRecipe)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                (await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeTitle)
+                  .Where(a => a.Object.IngredientsList.Count == selectedRecipe.Items.Count).FirstOrDefault(); ;
+                await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .Child(SingleRecipeObject.Key)
+                .Child("RecipeRating")
+                .PutAsync(selectedRecipe.RatingStars);
+                return;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return;
+            }
+
+        }
+
+        public static async void UpdateNutrition(SingleRecipeData selectedRecipe)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                (await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeTitle)
+                  .Where(a => a.Object.IngredientsList.Count == selectedRecipe.Items.Count).FirstOrDefault(); ;
+
+                await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .Child(SingleRecipeObject.Key)
+                .Child("NutritionValues")
+                .PutAsync(new NutritionFacts(selectedRecipe.NutritionValues));
+                return;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+            }
+
+        }
+
 
 
         // Add Shopping items to the Firebase
@@ -492,7 +550,6 @@ namespace ZestHealthApp.ViewModel
 
 
     }
-
-
-
 }
+
+

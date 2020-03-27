@@ -12,6 +12,7 @@
             <Label x:Name="ServingView" Text="{Binding Servings, StringFormat = '{0} Servings per Recipe'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
             <Label x:Name="CaloriesView" Text="{Binding CaloriesPerServing, StringFormat='Calories per Serving : {0}'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
             <Label x:Name="WeightView" Text ="{Binding WeightPerServing, StringFormat='Approx. Weight per Serving : {0} grams'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
+            <Label x:Name="TotalWeightView" Text="{Binding TotalWeight, StringFormat='Approx. Total Weight of Recipe : {0} grams'}" TextColor="White" Style="{StaticResource TextSubhead}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -32,11 +33,15 @@
                 <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
                     <ImageButton Source="nameIcon.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3" Clicked="ServingSizeButton_Clicked"/>
                 </Frame>
+                <!--Delete Button-->
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
+                    <ImageButton Source="delete.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3"/>
+                </Frame>
                 <!--Rating Star Button-->
-                <Frame x:Name="RatingFrame" Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" IsVisible="False" CornerRadius="20" BackgroundColor="Transparent" Padding="10" BorderColor="Accent" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center">
+                <Frame x:Name="RatingFrame" Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" IsVisible="False" CornerRadius="20" BackgroundColor="Transparent" Padding="10" BorderColor="Accent" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center">
                     <Entry x:Name="RatingEntry" Placeholder="#" Keyboard="Numeric" TextColor="Accent" PlaceholderColor="Accent" IsVisible="True" VerticalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource TextSubhead}" Completed="RatingStarButton_Clicked"/>
                 </Frame>
-                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
+                <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="Accent" BorderColor="Black" HeightRequest="10" WidthRequest="10" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Center">
                     <ImageButton Source="ratingStar.png" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Scale="3" Clicked="RatingStarButton_Clicked"/>
                 </Frame>
                 

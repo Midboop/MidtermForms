@@ -38,7 +38,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 calorieCalculator.Text = (caloriesPerGram * Convert.ToDouble(calorieEntry.Text)).ToString() + " cal.";
 
             }
-            else if (calorieCalculator.TextColor != Color.White) 
+            if (calorieCalculator.TextColor != Color.White) 
                      calorieCalculator.Text = "0 cal.";
                
         }
@@ -58,7 +58,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             {
                 thisRecipe = (BindingContext as SingleRecipeData);
                 thisRecipe.NutritionValues.Servings = Convert.ToInt32(ServingEntry.Text);
-                //TODO: save to firebase here
+                FirebaseHelper.UpdateNutrition(thisRecipe);
                 ServingEntry.Placeholder = ServingEntry.Text;
                 ServingEntry.Text = string.Empty;
                 UpdateValues();
@@ -76,6 +76,8 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             ServingView.Text = thisRecipe.NutritionValues.Servings.ToString() + " Servings per Recipe";
             CaloriesView.Text = "Calories per Serving : " + thisRecipe.NutritionValues.CaloriesPerServing.ToString();
             WeightView.Text = "Approx. Weight per Serving : " + thisRecipe.NutritionValues.WeightPerServing.ToString() + " grams";
+            TotalWeightView.Text = "Approx. Total Weight of Recipe : " + thisRecipe.NutritionValues.TotalWeight.ToString() + " grams";
+
         }
 
         private void RatingStarButton_Clicked(object sender, EventArgs e)
@@ -84,7 +86,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             {
                 thisRecipe = (BindingContext as SingleRecipeData);
                 thisRecipe.RatingStars = Convert.ToDouble(RatingEntry.Text);
-                // todo: save to firebase here
+                FirebaseHelper.UpdateRating(thisRecipe);
                 RatingEntry.Placeholder = RatingEntry.Text;
                 RatingEntry.Text = string.Empty;
                 thisTabbedPage.UpdateViews();
