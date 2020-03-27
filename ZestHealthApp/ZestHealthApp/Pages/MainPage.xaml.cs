@@ -63,6 +63,7 @@ namespace ZestHealthApp
         {
             RecipeItems selectedItem = (e.CurrentSelection.FirstOrDefault() as RecipeItems);
             SingleRecipeData selected = new SingleRecipeData(selectedItem);
+            selected.RecipeImage = await FirebaseHelper.GetImage(selectedItem.RecipeName);
             await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));
             selectedItem = null;
         }

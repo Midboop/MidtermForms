@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Forms;
 using ZestHealthApp.Models;
 
 namespace ZestHealthApp.ViewModel
@@ -19,6 +20,7 @@ namespace ZestHealthApp.ViewModel
                 NutritionValues = new NutritionFacts(recipe.NutritionValues);
                 TotalCalories = NutritionValues.TotalCalories;
                 RatingStars = recipe.RecipeRating;
+                RecipeImage = recipe.RecipeImage;
             }
             
         }
@@ -29,6 +31,8 @@ namespace ZestHealthApp.ViewModel
         public double RatingStars { get; set; }
 
         public ObservableCollection<IngredientItem> Items { get; set; }
+
+        public ImageSource RecipeImage { get; set; }
 
         private int _selectedViewModelIndex = 0;
 

@@ -392,15 +392,17 @@ namespace ZestHealthApp.ViewModel
 
         public static async Task<ImageSource> GetImage(string name)
         {
+            // Changed
             try
             {
+                Debug.WriteLine($"Recipe:{name}");
                 return await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").GetDownloadUrlAsync();
 
             }
             catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
-                return null;
+                return await new FirebaseStorage(storage).Child("Default Picture").Child("recipeDefault.PNG").GetDownloadUrlAsync();
             }
 
 

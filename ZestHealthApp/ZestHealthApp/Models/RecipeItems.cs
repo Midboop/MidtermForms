@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace ZestHealthApp.Models
 {
@@ -10,5 +11,6 @@ namespace ZestHealthApp.Models
         public string RecipeName { get; set; }
         public NutritionFacts NutritionValues = new NutritionFacts();
         public double RecipeRating { get; set; }
+        public ImageSource RecipeImage { get; set; }
     }
 }

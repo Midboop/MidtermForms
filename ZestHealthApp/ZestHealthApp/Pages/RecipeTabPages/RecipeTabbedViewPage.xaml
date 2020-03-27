@@ -41,7 +41,7 @@
                        Grid.RowSpan="4"
                        Margin="-16,-16,-16,0"
                        Aspect="AspectFill"
-                       Source="recipeDefault.PNG" />
+                       Source="{Binding RecipeImage}" />
             <Button x:Name="ChangePicture"
                     Grid.RowSpan="4"
                     Margin="-16,-16,-16,0"
