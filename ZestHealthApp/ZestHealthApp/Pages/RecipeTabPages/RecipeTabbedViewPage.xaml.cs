@@ -27,6 +27,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             thisRecipe = objectInstance;
             BindingContext = thisRecipe;
             recipeDetails.BindingContext = thisRecipe;
+            recipeNutrition.BindingContext = thisRecipe.NutritionValues;
 
         }
         protected override bool OnBackButtonPressed()

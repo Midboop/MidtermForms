@@ -94,8 +94,8 @@
             <ScrollView Grid.Row="5">
                 <tabs:ViewSwitcher x:Name="Switcher" Animate="True" SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
                     <details:RecipeDetails x:Name="recipeDetails" Animate="True" />
-                    <details:RecipeInstructions BindingContext="{Binding RecipeInstructions}" Animate="True" />
-                    <details:RecipeNutrition BindingContext="{Binding RecipeNutrition}" Animate="True" />
+                    <details:RecipeInstructions x:Name="recipeInstructions" Animate="True" />
+                    <details:RecipeNutrition x:Name="recipeNutrition" Animate="True" />
                 </tabs:ViewSwitcher>
 
             </ScrollView>

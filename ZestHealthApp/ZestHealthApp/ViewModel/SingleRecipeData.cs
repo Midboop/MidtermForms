@@ -16,10 +16,12 @@ namespace ZestHealthApp.ViewModel
             {
                 RecipeTitle = recipe.RecipeName;
                 Items = new ObservableCollection<IngredientItem>(recipe.IngredientsList);
-
+                NutritionValues = new NutritionFacts(recipe.NutritionValues);
+                TotalCalories = NutritionValues.TotalCalories;
             }
-            UpdateCalories();
+            
         }
+        public NutritionFacts NutritionValues { get; set; }
         public int TotalCalories { get; private set; }
 
         public string RecipeTitle { get; }
@@ -34,15 +36,22 @@ namespace ZestHealthApp.ViewModel
             set => SetAndRaise(ref _selectedViewModelIndex, value);
         }
 
-        public void UpdateCalories()
-        {
-            int calories = 0; 
+        public void UpdateNutrition()
+        { 
+            int totalCalories = 0;
+            int totalWeight = 0;
             for (int i = 0; i < Items.Count; i++)
             {
-                calories += Items.ElementAt(i).Calories;
-            }
+                totalCalories += Items[i].Calories;
+                totalWeight += Items[i].Weight;
+               
+            } 
+           NutritionValues.TotalCalories = totalCalories;
+           NutritionValues.TotalWeight = totalWeight;
 
-            TotalCalories = calories;
+           NutritionValues.CaloriesPerServing = totalCalories / NutritionValues.Servings;
+           NutritionValues.WeightPerServing = totalWeight / NutritionValues.Servings;
+
         }
     }
 

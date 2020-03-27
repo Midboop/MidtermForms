@@ -61,7 +61,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 NewItemEntry.IsVisible = false;
                 thisRecipe = (BindingContext as SingleRecipeData);
                 thisRecipe.Items.Add(singleItem);
-                thisRecipe.UpdateCalories();
+                thisRecipe.UpdateNutrition();
                 ResetNewItemFrame();
                 // DYLAN: this needs a firebase method to push the item to the database.
             }

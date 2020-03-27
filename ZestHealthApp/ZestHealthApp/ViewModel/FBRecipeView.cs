@@ -31,6 +31,27 @@ namespace ZestHealthApp.ViewModel
             await GetRecipeItems().ContinueWith(t => { RecipeList = new ObservableCollection<RecipeItems>(t.Result); });
 
         }
+        public void UpdateNutrition()
+        {
+           
+            for(int i = 0; i < RecipeList.Count; i++)
+            {
+                int totalCalories = 0;
+                int totalWeight = 0;
+
+                for(int j = 0; i < RecipeList[i].IngredientsList.Count; i++)
+                {
+                    totalCalories += RecipeList[i].IngredientsList[j].Calories;
+                    totalWeight += RecipeList[i].IngredientsList[j].Weight;
+                }
+                RecipeList[i].NutritionValues.TotalCalories = totalCalories;
+                RecipeList[i].NutritionValues.TotalWeight = totalWeight;
+
+                RecipeList[i].NutritionValues.CaloriesPerServing = totalCalories / RecipeList[i].NutritionValues.Servings;
+                RecipeList[i].NutritionValues.WeightPerServing = totalWeight / RecipeList[i].NutritionValues.Servings;
+            }
+            
+        }
 
         private async void HandleDelete(RecipeItems recipe)
         {

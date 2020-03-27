@@ -8,5 +8,6 @@ namespace ZestHealthApp.Models
     {
         public List<IngredientItem> IngredientsList = new List<IngredientItem>();
         public string RecipeName { get; set; }
+        public NutritionFacts NutritionValues = new NutritionFacts();
     }
 }

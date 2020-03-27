@@ -283,7 +283,8 @@ namespace ZestHealthApp.ViewModel
                  new RecipeItems
                  {
                      RecipeName = item.Object.RecipeName,
-                     IngredientsList = item.Object.IngredientsList
+                     IngredientsList = item.Object.IngredientsList,
+                     NutritionValues = item.Object.NutritionValues
                  }).ToList();
                 return recipeList;
             }
