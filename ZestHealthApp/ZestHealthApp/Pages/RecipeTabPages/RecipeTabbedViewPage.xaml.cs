@@ -50,26 +50,36 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             RatingStars.Value = thisRecipe.RatingStars;
         }
 
+        private async void AddPicture()
+        {
+            await CrossMedia.Current.Initialize();
+            try
+            {
+                file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                {
+                    PhotoSize = PhotoSize.Medium
+                });
+                if (file == null)
+                    return;
+                Image.Source = ImageSource.FromStream(() =>
+                {
+                    var imageStram = file.GetStream();
+                    return imageStram;
+                });
+
+                await FirebaseHelper.RecipeImage(file.GetStream(), thisRecipe.RecipeTitle);
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+        }
+
         private async void ChangePicture_Clicked(object sender, EventArgs e)
         {
-            // Maybe I can make this way to add pictures work, it can use downloads, drive, etc
-            //(sender as Button).IsEnabled = false;
 
-            //Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
-
-            //if (stream != null)
-            //{
-            //    Image.Source = ImageSource.FromStream(() => stream);
-
-
-
-
-            //}
-
-            //await FirebaseHelper.RecipeImage(stream);
-
-            //(sender as Button).IsEnabled = true;
-            //////////
             int commandParameter = Convert.ToInt32(((Button)sender).CommandParameter);
 
             Permission permission = (Permission)commandParameter;
@@ -78,58 +88,52 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             {
                 var response = await CrossPermissions.Current.RequestPermissionsAsync(permission);
                 var userRespone = response[permission];
-                if (userRespone == PermissionStatus.Granted) //TODO: this should probably be a method
+                if (userRespone == PermissionStatus.Granted)
                 {
-                    await CrossMedia.Current.Initialize();
-                    try
-                    {
-                        file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
-                        {
-                            PhotoSize = PhotoSize.Medium
-                        });
-                        if (file == null)
-                            return;
-                        Image.Source = ImageSource.FromStream(() =>
-                        {
-                            var imageStram = file.GetStream();
-                            return imageStram;
-                        });
-
-                        await FirebaseHelper.RecipeImage(file.GetStream(), thisRecipe.RecipeTitle);
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine(ex.Message);
-                    }
+                    AddPicture();
                 }
                 Debug.WriteLine($"Permission {permission}, {userRespone}");
             }
             else
             {
-                await CrossMedia.Current.Initialize();
-                try
-                {
-                    file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
-                    {
-                        PhotoSize = PhotoSize.Medium
-                    });
-                    if (file == null)
-                        return;
-                    Image.Source = ImageSource.FromStream(() =>
-                    {
-                        var imageStram = file.GetStream();
-                        return imageStram;
-                    });
-
-                    await FirebaseHelper.RecipeImage(file.GetStream(), thisRecipe.RecipeTitle);
-
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                }
+                AddPicture();
             }
+        }
+
+        private async void TitleEntry_Completed(object sender, EventArgs e)
+        {
+
+            var recipeNames = await FirebaseHelper.GetRecipeNames();
+            if (recipeNames.Contains(TitleEntry.Text))
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "This name already exists, please enter a different name.", "Cancel");
+                RecipeTitleLabel.Text = null;
+            }
+            else
+            {
+                await FirebaseHelper.UpdateRecipeTitle(TitleEntry.Text, thisRecipe);
+                thisRecipe = (BindingContext as SingleRecipeData);
+                RecipeTitleLabel.Text = TitleEntry.Text;
+                TitleEntry.IsEnabled = false;
+                TitleEntry.IsVisible = false;
+                UpdateTitleButton.IsEnabled = true;
+                thisRecipe.RecipeTitle = TitleEntry.Text;
+                
+            }
+
+            
+        }
+
+        private void UpdateTitleButton_Clicked(object sender, EventArgs e)
+        {
+            RecipeTitleLabel.Text = null;
+            TitleEntry.IsEnabled = true;
+            TitleEntry.IsVisible = true;
+            UpdateTitleButton.IsEnabled = false;
         }
     }
 }
+
+
+
+
