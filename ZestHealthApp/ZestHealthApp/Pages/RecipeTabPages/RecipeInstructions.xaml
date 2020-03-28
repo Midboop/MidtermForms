@@ -15,10 +15,10 @@
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     <Label Text="Step 1" Grid.Column="0" TextColor="White" Style="{StaticResource TextSubhead}" VerticalOptions="End"/>
-                    <lottie:AnimationView Grid.Column="1" x:Name="SaveAnim" AutoPlay="True" Loop ="True" Animation="savewiggle.json" HorizontalOptions="End" />
+                    <lottie:AnimationView Grid.Column="1" x:Name="SaveAnim" AutoPlay="True" Loop ="True" IsVisible="False" Animation="savewiggle.json" HorizontalOptions="End" OnClick="SaveAnim_OnClick" />
                 </Grid>
 
-                <Editor x:Name="step1" Placeholder="Enter First Step Here" PlaceholderColor="Accent" TextColor="White" AutoSize="TextChanges" BackgroundColor="Transparent" Style="{StaticResource TextBody}"/>
+                <Editor x:Name="step1" Placeholder="Enter First Step Here" PlaceholderColor="Accent" TextColor="White" AutoSize="TextChanges" BackgroundColor="Transparent" Style="{StaticResource TextBody}" TextChanged="Editor_TextChanged"/>
                 <ImageButton Source="addButtonStatic2.jpg" HorizontalOptions="Center" Clicked="AddButton_OnClick" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40"/>
             </StackLayout>
         </ScrollView>

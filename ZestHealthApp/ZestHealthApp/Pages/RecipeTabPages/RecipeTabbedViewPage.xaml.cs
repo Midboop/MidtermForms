@@ -37,10 +37,20 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         protected override bool OnBackButtonPressed()
         {
             //TODO: if unsaved on instructions page show dialog
+            if(!recipeInstructions.isSaved)
+            {
+                NotifyUnsaved();
+            }
             GoToRecipe();
             return true;
         }
 
+        public async void NotifyUnsaved()
+        {
+            bool answer = await App.Current.MainPage.DisplayAlert("Whoops!", "You had unsaved recipe instructions!", "Save", "Discard Changes");
+            if (answer)
+                recipeInstructions.SavePage();
+        }
         public async void GoToRecipe()
         {
             await Shell.Current.GoToAsync("//Recipe");

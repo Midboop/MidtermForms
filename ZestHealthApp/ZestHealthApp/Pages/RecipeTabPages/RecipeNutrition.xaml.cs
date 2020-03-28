@@ -97,7 +97,6 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            // TODO: Add ARE YOU SURE?????
             bool answer = await App.Current.MainPage.DisplayAlert("Notification", "Are you sure you wish to delete this recipe?", "Delete", "Cancel");
             thisRecipe = (BindingContext as SingleRecipeData);
             if (answer == true)
