@@ -62,8 +62,10 @@
                                 
                                 <Image   Margin="0,0,0,10"
                                          VerticalOptions="Center"
+                                         HeightRequest="100"
+                                         WidthRequest="80"
                                          Aspect="AspectFill"
-                                         Source="recipeDefault.PNG" />  
+                                         Source="{Binding RecipeImage}" />  
                                 <!--Note:Bind This later to user set image-->
 
                                 <Label Style="{StaticResource TextSubheadCenter}"

@@ -408,6 +408,12 @@ namespace ZestHealthApp.ViewModel
 
         }
 
+        public static async Task<bool> DeleteImage(string name)
+        {
+            await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
+            return true;
+        }
+
         // Read all pantry items
         public static async Task<List<PantryItems>> GetPantry()
         {
@@ -446,6 +452,10 @@ namespace ZestHealthApp.ViewModel
                      NutritionValues = item.Object.NutritionValues,
                      RecipeRating = item.Object.RecipeRating
                  }).ToList();
+                for(int i = 0; i < recipeList.Count; i++)
+                {
+                    recipeList[i].RecipeImage = await GetImage(recipeList[i].RecipeName);
+                }
                 return recipeList;
             }
             catch (Exception e)
@@ -453,7 +463,7 @@ namespace ZestHealthApp.ViewModel
                 Debug.WriteLine($"Error:{e}");
                 return null;
             }
-
+            
         }
 
         // Read all Shopping List

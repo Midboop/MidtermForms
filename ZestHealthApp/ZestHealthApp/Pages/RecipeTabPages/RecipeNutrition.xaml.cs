@@ -98,11 +98,20 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             // TODO: Add ARE YOU SURE?????
+            bool answer = await App.Current.MainPage.DisplayAlert("Notification", "Are you sure you wish to delete this recipe?", "Delete", "Cancel");
             thisRecipe = (BindingContext as SingleRecipeData);
-            if (await FirebaseHelper.DeleteRecipe(thisRecipe))
-                thisTabbedPage.GoToRecipe();
-            else
-                Debug.WriteLine("Delete Failed");
+            if (answer == true)
+            {
+                if (await FirebaseHelper.DeleteRecipe(thisRecipe) && await FirebaseHelper.DeleteImage(thisRecipe.RecipeTitle))
+                    thisTabbedPage.GoToRecipe();
+                else
+                    Debug.WriteLine("Delete Failed");
+            }
+            else if (answer == false)
+                return;
+
+
+
         }
     }
 }

@@ -46,7 +46,8 @@
                     Grid.RowSpan="4"
                     Margin="-16,-16,-16,0"
                     BackgroundColor="Transparent"
-                    Clicked="ChangePicture_Clicked"/>
+                    Clicked="ChangePicture_Clicked"
+                    CommandParameter="11" />
             <!--Note:Bind this Later to user set image-->
 
             <BoxView Grid.Row="1"

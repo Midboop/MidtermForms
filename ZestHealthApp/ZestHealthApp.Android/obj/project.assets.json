@@ -1998,6 +1998,7 @@
           "FirebaseDatabase.net": "4.0.4",
           "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
+          "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
           "Sharpnado.Presentation.Forms": "1.4.0",
@@ -6973,6 +6974,7 @@
       "FirebaseAuthentication.net >= 4.0.0-alpha.1",
       "FirebaseDatabase.net >= 4.0.4",
       "MagicGradients >= 1.0.0",
+      "Plugin.Permissions >= 3.0.0.12",
       "PropertyChanged.Fody >= 3.2.6",
       "Rg.Plugins.Popup >= 1.2.0.223",
       "Sharpnado.Presentation.Forms >= 1.4.0",
@@ -6988,24 +6990,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dylan\\.nuget\\packages\\": {},
+    "C:\\Users\\tkill\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
+      "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
       "projectName": "ZestHealthApp.Android",
-      "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
-      "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
-      "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.Android\\obj\\",
+      "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.Android\\ZestHealthApp.Android.csproj",
+      "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -7014,13 +7016,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/nuget": {}
       },
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
-              "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
+            "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+              "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
             }
           }
         }
@@ -7048,6 +7051,10 @@
           "MagicGradients": {
             "target": "Package",
             "version": "[1.0.0, )"
+          },
+          "Plugin.Permissions": {
+            "target": "Package",
+            "version": "[3.0.0.12, )"
           },
           "PropertyChanged.Fody": {
             "target": "Package",

@@ -1,5 +1,7 @@
 ﻿using Plugin.Media;
 using Plugin.Media.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -68,33 +70,65 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
             //(sender as Button).IsEnabled = true;
             //////////
-            await CrossMedia.Current.Initialize();
-            try
+            int commandParameter = Convert.ToInt32(((Button)sender).CommandParameter);
+
+            Permission permission = (Permission)commandParameter;
+            var permissionStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(permission);
+            if (permissionStatus != PermissionStatus.Granted)
             {
-                file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                var response = await CrossPermissions.Current.RequestPermissionsAsync(permission);
+                var userRespone = response[permission];
+                if (userRespone == PermissionStatus.Granted) //TODO: this should probably be a method
                 {
-                    PhotoSize = PhotoSize.Medium
-                });
-                if (file == null)
-                    return;
-                Image.Source = ImageSource.FromStream(() =>
-                {
-                    var imageStram = file.GetStream();
-                    return imageStram;
-                });
+                    await CrossMedia.Current.Initialize();
+                    try
+                    {
+                        file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                        {
+                            PhotoSize = PhotoSize.Medium
+                        });
+                        if (file == null)
+                            return;
+                        Image.Source = ImageSource.FromStream(() =>
+                        {
+                            var imageStram = file.GetStream();
+                            return imageStram;
+                        });
 
+                        await FirebaseHelper.RecipeImage(file.GetStream(), thisRecipe.RecipeTitle);
 
-
-
-
-                await FirebaseHelper.RecipeImage(file.GetStream(), thisRecipe.RecipeTitle);
-
-
-
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+                }
+                Debug.WriteLine($"Permission {permission}, {userRespone}");
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine(ex.Message);
+                await CrossMedia.Current.Initialize();
+                try
+                {
+                    file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                    {
+                        PhotoSize = PhotoSize.Medium
+                    });
+                    if (file == null)
+                        return;
+                    Image.Source = ImageSource.FromStream(() =>
+                    {
+                        var imageStram = file.GetStream();
+                        return imageStram;
+                    });
+
+                    await FirebaseHelper.RecipeImage(file.GetStream(), thisRecipe.RecipeTitle);
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
         }
     }
