@@ -4,14 +4,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.Pages.RecipeTabPages.RecipeInstructions">
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                   TextColor="Wheat"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView HeightRequest="380">
+            <StackLayout x:Name="stackLayout">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Step 1" Grid.Column="0" TextColor="White" Style="{StaticResource TextSubhead}" VerticalOptions="End"/>
+                    <lottie:AnimationView Grid.Column="1" x:Name="SaveAnim" AutoPlay="True" Loop ="True" Animation="savewiggle.json" HorizontalOptions="End" />
+                </Grid>
+
+                <Editor x:Name="step1" Placeholder="Enter First Step Here" PlaceholderColor="Accent" TextColor="White" AutoSize="TextChanges" BackgroundColor="Transparent" Style="{StaticResource TextBody}"/>
+                <ImageButton Source="addButtonStatic2.jpg" HorizontalOptions="Center" Clicked="AddButton_OnClick" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40"/>
+            </StackLayout>
+        </ScrollView>
+        
     </ContentView.Content>
 </ContentView>
