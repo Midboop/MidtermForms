@@ -9,6 +9,9 @@ using Android.OS;
 
 using Android.Content;
 using Lottie.Forms.Droid;
+using System.Threading.Tasks;
+using System.IO;
+using Plugin.Permissions;
 
 namespace ZestHealthApp.Droid
 {
@@ -17,10 +20,14 @@ namespace ZestHealthApp.Droid
     {
 
 
+        internal static MainActivity Instance { get; private set; }
+
         protected override void OnCreate(Bundle bundle)
         {
+            Instance = this;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+            // CrossCurrentActivity.Current.Init(this, bundle);
 
             base.OnCreate(bundle);
             Rg.Plugins.Popup.Popup.Init(this, bundle);
@@ -31,11 +38,37 @@ namespace ZestHealthApp.Droid
             LoadApplication(new App());
         }
 
+        public static readonly int PickImageId = 1000;
+
+        public TaskCompletionSource<Stream> PickImageTaskCompletionSource { get; set; }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
+        {
+            base.OnActivityResult(requestCode, resultCode, intent);
+
+            if (requestCode == PickImageId)
+            {
+                if ((resultCode == Result.Ok) && (intent != null))
+                {
+                    Android.Net.Uri uri = intent.Data;
+                    Stream stream = ContentResolver.OpenInputStream(uri);
+
+                    // Set the Stream as the completion of the Task
+                    PickImageTaskCompletionSource.SetResult(stream);
+                }
+                else
+                {
+                    PickImageTaskCompletionSource.SetResult(null);
+                }
+            }
+        }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
         }
     }
 }

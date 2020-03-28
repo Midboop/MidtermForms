@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {}
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+    "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
         "projectName": "ZestHealthApp",
-        "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
-        "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\obj\\",
+        "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+        "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+        "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -26,8 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
@@ -45,7 +44,7 @@
           "dependencies": {
             "Com.Airbnb.Xamarin.Forms.Lottie": {
               "target": "Package",
-              "version": "[3.0.4, )"
+              "version": "[3.1.0, )"
             },
             "FirebaseAuthentication.net": {
               "target": "Package",
@@ -54,6 +53,10 @@
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.0.4, )"
+            },
+            "FirebaseStorage.net": {
+              "target": "Package",
+              "version": "[1.0.3, )"
             },
             "MagicGradients": {
               "target": "Package",
@@ -64,6 +67,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "Plugin.Permissions": {
+              "target": "Package",
+              "version": "[3.0.0.12, )"
             },
             "PropertyChanged.Fody": {
               "target": "Package",
@@ -89,9 +96,13 @@
               "target": "Package",
               "version": "[6.2.6, )"
             },
-            "Syncfusion.Xamarin.SfNumericUpDown": {
+            "Xam.Forms.MarkdownView": {
               "target": "Package",
-              "version": "[17.4.0.51, )"
+              "version": "[0.6.1-pre, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[4.0.1.5, )"
             },
             "Xamarin.Auth": {
               "target": "Package",
@@ -120,7 +131,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,10 +1,11 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
-
+using Firebase.Storage;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace ZestHealthApp.ViewModel
     {
         // Connects to the Firebase DataBase
         public static FirebaseClient firebase = new FirebaseClient("https://zesthealth-1f666.firebaseio.com/");
+        private static string storage = "zesthealth-1f666.appspot.com";
 
         // adds googleusers to firebase
         public static async Task<bool> AddUser(string email, string picture, string name, string id)
@@ -26,7 +28,7 @@ namespace ZestHealthApp.ViewModel
             {
                 await firebase
                     .Child("GoogleUsers")
-                    .PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id});
+                    .PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id });
                 return true;
             }
             catch (Exception e)
@@ -37,7 +39,7 @@ namespace ZestHealthApp.ViewModel
         }
 
         // add facebook users to firebase
-        public static async Task<bool> AddFacebookUser(string id, string name, string firstname, string lastname, string email,Picture picture)
+        public static async Task<bool> AddFacebookUser(string id, string name, string firstname, string lastname, string email, Picture picture)
         {
             try
             {
@@ -46,7 +48,7 @@ namespace ZestHealthApp.ViewModel
                     .PostAsync(new FacebookEmail() { Id = id, Name = name, First_Name = firstname, Last_Name = lastname, Email = email, Picture = picture });
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
                 return false;
@@ -166,32 +168,19 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Add pantry items to the database
-        public static async Task<bool> AddPantryItem(string name, string amount, string exp )
+        public static async Task<bool> AddPantryItem(string name, string amount, string exp)
         {
             try
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("PantryItems")
-                    .PostAsync(new PantryItems { ItemName = name, ExpirationDate = exp, Quantity = amount
-            });
-                
-                return true;
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine($"Error:{e}");
-                return false;
-            }
-        }
+                    .PostAsync(new PantryItems
+                    {
+                        ItemName = name,
+                        ExpirationDate = exp,
+                        Quantity = amount
+                    });
 
-        // Add recipe to database
-        public static async Task<bool> AddRecipe(List<string> list, string name)
-        {
-            try
-            {
-                await firebase
-                    .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                    .PostAsync(new Ingredients { ingredients = list, Name = name });
                 return true;
             }
             catch (Exception e)
@@ -200,7 +189,177 @@ namespace ZestHealthApp.ViewModel
                 return false;
             }
         }
-   
+
+        // Add recipe to database
+        public static async Task<bool> AddRecipe(RecipeItems NewRecipe)
+        {
+            try
+            {
+                await firebase
+                    .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
+                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeRating = NewRecipe.RecipeRating, NutritionValues = NewRecipe.NutritionValues });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+        // Delete Recipe from Database
+        public static async Task<bool> DeleteRecipe(SingleRecipeData toDelete)
+        {
+            try
+            {
+                var SingleRecipeObject =
+               (await firebase
+                 .Child(Application.Current.Properties["Id"].ToString())
+                 .Child("Recipes")
+                 .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == toDelete.RecipeTitle)
+                 .Where(a => a.Object.IngredientsList.Count == toDelete.Items.Count).FirstOrDefault(); ;
+
+                await firebase
+               .Child(Application.Current.Properties["Id"].ToString())
+               .Child("Recipes")
+               .Child(SingleRecipeObject.Key)
+               .DeleteAsync();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+        // Add ingredient item
+        public static async void UpdateRecipeAdd(RecipeItems selectedRecipe, IngredientItem newIngredient)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                  (await firebase
+                    .Child(Application.Current.Properties["Id"].ToString())
+                    .Child("Recipes")
+                    .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeName).Where(a => a.Object.IngredientsList.Count == selectedRecipe.IngredientsList.Count).FirstOrDefault(); ;
+
+
+                await firebase
+                   .Child(Application.Current.Properties["Id"].ToString())
+                   .Child("Recipes")
+                   .Child(SingleRecipeObject.Key)
+                   .Child("IngredientsList")
+                   .Child(SingleRecipeObject.Object.IngredientsList.Count.ToString())
+                   .PutAsync(new IngredientItem(newIngredient));
+                //update nutrition facts here
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+            }
+
+        }
+
+        public static async void UpdateRecipeEdit(SingleRecipeData selectedRecipe, IngredientItem unEditedIngredient, IngredientItem editedIngredient)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                (await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeTitle)
+                  .Where(a => a.Object.IngredientsList.Count == selectedRecipe.Items.Count).FirstOrDefault(); ;
+
+                int editIndex = -1;
+                for (int i = 0; i < selectedRecipe.Items.Count; i++)
+                {
+                    if (selectedRecipe.Items.ElementAt(i) == unEditedIngredient)
+                        editIndex = i;
+                }
+
+                // if index was not found(it should)
+                if (editIndex == -1)
+                {
+                    Debug.WriteLine("UpdateRecipeEdit failed to match index of item to be edited");
+                    return;
+                }
+
+                await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .Child(SingleRecipeObject.Key)
+                  .Child("IngredientsList")
+                  .Child(editIndex.ToString())
+                  .PutAsync(new IngredientItem(editedIngredient));
+
+                await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .Child(SingleRecipeObject.Key)
+                .Child("NutritionValues")
+                .PutAsync(new NutritionFacts(selectedRecipe.NutritionValues));
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+            }
+
+        }
+        public static async void UpdateRating(SingleRecipeData selectedRecipe)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                (await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeTitle)
+                  .Where(a => a.Object.IngredientsList.Count == selectedRecipe.Items.Count).FirstOrDefault(); ;
+                await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .Child(SingleRecipeObject.Key)
+                .Child("RecipeRating")
+                .PutAsync(selectedRecipe.RatingStars);
+                return;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return;
+            }
+
+        }
+
+        public static async void UpdateNutrition(SingleRecipeData selectedRecipe)
+        {
+            try
+            {
+                var SingleRecipeObject =
+                (await firebase
+                  .Child(Application.Current.Properties["Id"].ToString())
+                  .Child("Recipes")
+                  .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == selectedRecipe.RecipeTitle)
+                  .Where(a => a.Object.IngredientsList.Count == selectedRecipe.Items.Count).FirstOrDefault(); ;
+
+                await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .Child(SingleRecipeObject.Key)
+                .Child("NutritionValues")
+                .PutAsync(new NutritionFacts(selectedRecipe.NutritionValues));
+                return;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+            }
+
+        }
+
+
 
         // Add Shopping items to the Firebase
         public static async Task<bool> AddShoppingList(string name, string amount)
@@ -217,6 +376,42 @@ namespace ZestHealthApp.ViewModel
                 Debug.WriteLine($"Error:{e}");
                 return false;
             }
+        }
+
+        // Add picture to firebase
+        public static async Task<string> RecipeImage(Stream imageStream, string name)
+        {
+
+            var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").PutAsync(imageStream);
+            string imgurl = storageImage;
+            return imgurl;
+
+        }
+
+        // Get image from Firebase Storage
+
+        public static async Task<ImageSource> GetImage(string name)
+        {
+            // Changed
+            try
+            {
+                Debug.WriteLine($"Recipe:{name}");
+                return await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").GetDownloadUrlAsync();
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return await new FirebaseStorage(storage).Child("Default Picture").Child("recipeDefault.PNG").GetDownloadUrlAsync();
+            }
+
+
+        }
+
+        public static async Task<bool> DeleteImage(string name)
+        {
+            await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
+            return true;
         }
 
         // Read all pantry items
@@ -243,18 +438,24 @@ namespace ZestHealthApp.ViewModel
         }
 
         // Read all Recipes
-        public static async Task<List<Ingredients>> GetRecipes()
+        public static async Task<List<RecipeItems>> GetRecipes()
         {
             try
             {
                 var recipeList = (await firebase
                 .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                .OnceAsync<Ingredients>()).Select(item =>
-                 new Ingredients
+                .OnceAsync<RecipeItems>()).Select(item =>
+                 new RecipeItems
                  {
-                     ingredients = item.Object.ingredients,
-                     Name = item.Object.Name
+                     RecipeName = item.Object.RecipeName,
+                     IngredientsList = item.Object.IngredientsList,
+                     NutritionValues = item.Object.NutritionValues,
+                     RecipeRating = item.Object.RecipeRating
                  }).ToList();
+                for(int i = 0; i < recipeList.Count; i++)
+                {
+                    recipeList[i].RecipeImage = await GetImage(recipeList[i].RecipeName);
+                }
                 return recipeList;
             }
             catch (Exception e)
@@ -262,7 +463,7 @@ namespace ZestHealthApp.ViewModel
                 Debug.WriteLine($"Error:{e}");
                 return null;
             }
-
+            
         }
 
         // Read all Shopping List
@@ -298,10 +499,31 @@ namespace ZestHealthApp.ViewModel
                 await firebase
                     .Child("PantryItems")
                     .Child(toUpdateQuantity.Key)
-                    .PutAsync(new PantryItems() { ItemName = name, Quantity = quantity, ExpirationDate = exp});
+                    .PutAsync(new PantryItems() { ItemName = name, Quantity = quantity, ExpirationDate = exp });
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+        public static async Task<bool> UpdateShoppingList(string name, string amount)
+        {
+            try
+            {
+                var toUpdateShoppingList = (await firebase.
+                    Child(Application.Current.Properties["Id"].ToString()).Child("Shopping List")
+                    .OnceAsync<ShoppingListItems>()).Where(a => a.Object.ItemName == name).FirstOrDefault();
+                await firebase
+                    .Child(Application.Current.Properties["Id"].ToString())
+                    .Child("Shopping List")
+                    .Child(toUpdateShoppingList.Key)
+                    .PutAsync(new ShoppingListItems() { ItemName = name, Amount = amount });
+                return true;
+            }
+            catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
                 return false;
@@ -346,10 +568,27 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
+        // Deletes Recipe
+        public static async Task<bool> DeleteRecipe(string name)
+        {
+            try
+            {
+                var toDeleteItem = (await firebase
+                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
+                    .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == name).FirstOrDefault();
+                await firebase.Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child(toDeleteItem.Key).DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
 
 
     }
-
- 
-    
 }
+
+

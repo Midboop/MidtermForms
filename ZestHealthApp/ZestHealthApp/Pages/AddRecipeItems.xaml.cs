@@ -51,7 +51,7 @@ namespace ZestHealthApp.Pages
 
             ingredients.Add(ingredient.Text);
             // this is taking the local list and the RecipeName entry text and stores it in Firebase
-            await FirebaseHelper.AddRecipe(ingredients, RecipeName.Text);
+           // await FirebaseHelper.AddRecipe(ingredients, RecipeName.Text);
 
             await Shell.Current.Navigation.PopAsync();
         }

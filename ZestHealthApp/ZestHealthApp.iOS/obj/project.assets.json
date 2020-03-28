@@ -50,6 +50,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "Fody/6.1.0": {
         "type": "package",
         "build": {
@@ -80,6 +93,23 @@
         },
         "runtime": {
           "lib/netstandard2.0/MagicGradients.dll": {}
+        }
+      },
+      "Markdig/0.15.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/netstandard1.1/Markdig.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Markdig.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -156,6 +186,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -253,6 +292,18 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "SkiaSharp.Svg/1.60.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.60.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
         }
       },
       "SkiaSharp.Views/1.68.2-preview.21": {
@@ -907,6 +958,32 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xam.Forms.MarkdownView/0.6.1-pre": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.15.0",
+          "SkiaSharp.Svg": "1.60.0",
+          "Xamarin.Forms": "3.0.0.530893"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1059,17 +1136,20 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Com.Airbnb.Xamarin.Forms.Lottie": "3.0.4",
+          "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
+          "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
           "Sharpnado.Presentation.Forms": "1.4.0",
           "SkiaSharp": "1.68.2-preview.21",
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
-          "Syncfusion.Xamarin.SfNumericUpDown": "17.4.0.51",
+          "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -1132,6 +1212,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "Fody/6.1.0": {
         "type": "package",
         "build": {
@@ -1162,6 +1255,23 @@
         },
         "runtime": {
           "lib/netstandard2.0/MagicGradients.dll": {}
+        }
+      },
+      "Markdig/0.15.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/netstandard1.1/Markdig.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Markdig.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -1240,6 +1350,15 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        }
+      },
       "PropertyChanged.Fody/3.2.6": {
         "type": "package",
         "dependencies": {
@@ -1313,6 +1432,18 @@
         },
         "runtime": {
           "lib/xamarinios1.0/SkiaSharp.dll": {}
+        }
+      },
+      "SkiaSharp.Svg/1.60.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.60.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
         }
       },
       "SkiaSharp.Views/1.68.2-preview.21": {
@@ -1897,6 +2028,32 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xam.Forms.MarkdownView/0.6.1-pre": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.15.0",
+          "SkiaSharp.Svg": "1.60.0",
+          "Xamarin.Forms": "3.0.0.530893"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2049,17 +2206,20 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Com.Airbnb.Xamarin.Forms.Lottie": "3.0.4",
+          "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
+          "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
           "Sharpnado.Presentation.Forms": "1.4.0",
           "SkiaSharp": "1.68.2-preview.21",
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
-          "Syncfusion.Xamarin.SfNumericUpDown": "17.4.0.51",
+          "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -2122,6 +2282,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "Fody/6.1.0": {
         "type": "package",
         "build": {
@@ -2152,6 +2325,23 @@
         },
         "runtime": {
           "lib/netstandard2.0/MagicGradients.dll": {}
+        }
+      },
+      "Markdig/0.15.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/netstandard1.1/Markdig.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Markdig.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -2228,6 +2418,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -2308,6 +2507,18 @@
           "runtimes/win-x64/native/libSkiaSharp.dll": {}
         }
       },
+      "SkiaSharp.Svg/1.60.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.60.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        }
+      },
       "SkiaSharp.Views/1.68.2-preview.21": {
         "type": "package",
         "dependencies": {
@@ -2890,6 +3101,32 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xam.Forms.MarkdownView/0.6.1-pre": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.15.0",
+          "SkiaSharp.Svg": "1.60.0",
+          "Xamarin.Forms": "3.0.0.530893"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -3042,17 +3279,20 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Com.Airbnb.Xamarin.Forms.Lottie": "3.0.4",
+          "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
+          "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
           "Sharpnado.Presentation.Forms": "1.4.0",
           "SkiaSharp": "1.68.2-preview.21",
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
-          "Syncfusion.Xamarin.SfNumericUpDown": "17.4.0.51",
+          "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -3115,6 +3355,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "Fody/6.1.0": {
         "type": "package",
         "build": {
@@ -3145,6 +3398,23 @@
         },
         "runtime": {
           "lib/netstandard2.0/MagicGradients.dll": {}
+        }
+      },
+      "Markdig/0.15.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/netstandard1.1/Markdig.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Markdig.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -3221,6 +3491,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -3301,6 +3580,18 @@
           "runtimes/win-x86/native/libSkiaSharp.dll": {}
         }
       },
+      "SkiaSharp.Svg/1.60.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.60.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        }
+      },
       "SkiaSharp.Views/1.68.2-preview.21": {
         "type": "package",
         "dependencies": {
@@ -3883,6 +4174,32 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xam.Forms.MarkdownView/0.6.1-pre": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.15.0",
+          "SkiaSharp.Svg": "1.60.0",
+          "Xamarin.Forms": "3.0.0.530893"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -4035,17 +4352,20 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Com.Airbnb.Xamarin.Forms.Lottie": "3.0.4",
+          "Com.Airbnb.Xamarin.Forms.Lottie": "3.1.0",
           "FirebaseAuthentication.net": "4.0.0-alpha.1",
           "FirebaseDatabase.net": "4.0.4",
+          "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
+          "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
           "Sharpnado.Presentation.Forms": "1.4.0",
           "SkiaSharp": "1.68.2-preview.21",
           "SkiaSharp.Views.Forms": "1.68.2-preview.21",
           "Spire.PDF": "6.2.6",
-          "Syncfusion.Xamarin.SfNumericUpDown": "17.4.0.51",
+          "Xam.Forms.MarkdownView": "0.6.1-pre",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Essentials": "1.5.0",
           "Xamarin.Forms": "4.5.0.356",
@@ -4146,6 +4466,18 @@
         "lib/netstandard2.0/Firebase.xml"
       ]
     },
+    "FirebaseStorage.net/1.0.3": {
+      "sha512": "SupDHNUwNqcVwEo/HdFEWAXveQe3fU16q4wrrCxUVwP0a77zaddKp7vo2sHIW56DAsJn/gUfjDK3w0MuBhvzjQ==",
+      "type": "package",
+      "path": "firebasestorage.net/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebasestorage.net.1.0.3.nupkg.sha512",
+        "firebasestorage.net.nuspec",
+        "lib/netstandard1.1/Firebase.Storage.dll"
+      ]
+    },
     "Fody/6.1.0": {
       "sha512": "64W16axa5vtBF3J5UqR5cNNGcJ+tRKa7owYNbzIWWx2mjXbmCqfpjWLEGTAL0YEe8YE4QMde+WN7w6IY3tspYQ==",
       "type": "package",
@@ -4209,6 +4541,28 @@
         "lib/netstandard2.0/MagicGradients.dll",
         "magicgradients.1.0.0.nupkg.sha512",
         "magicgradients.nuspec"
+      ]
+    },
+    "Markdig/0.15.0": {
+      "sha512": "0Ly8yfnKXTHx5HGYhpNybnlg6uoLHcf9gqbkWdtZDq4VuA/ouMIpqLgq6UscBwitDqLNYUfYKrRthhVeaHAzkg==",
+      "type": "package",
+      "path": "markdig/0.15.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Markdig.dll",
+        "lib/net35/Markdig.xml",
+        "lib/net40/Markdig.dll",
+        "lib/net40/Markdig.xml",
+        "lib/netstandard1.1/Markdig.dll",
+        "lib/netstandard1.1/Markdig.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/Markdig.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/Markdig.xml",
+        "lib/uap10.0/Markdig.dll",
+        "lib/uap10.0/Markdig.pri",
+        "lib/uap10.0/Markdig.xml",
+        "markdig.0.15.0.nupkg.sha512",
+        "markdig.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -4305,6 +4659,29 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "Plugin.Permissions/3.0.0.12": {
+      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "type": "package",
+      "path": "plugin.permissions/3.0.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Permissions.dll",
+        "lib/monoandroid71/Plugin.Permissions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.xml",
+        "lib/uap10.0.10240/Plugin.Permissions.dll",
+        "lib/uap10.0.10240/Plugin.Permissions.pri",
+        "lib/uap10.0.10240/Plugin.Permissions.xml",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.xml",
+        "plugin.permissions.3.0.0.12.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
       ]
     },
     "PropertyChanged.Fody/3.2.6": {
@@ -4451,6 +4828,20 @@
         "skiasharp.1.68.2-preview.21.nupkg.sha512",
         "skiasharp.nuspec",
         "xamarin.interactive/SkiaSharp.Workbooks.dll"
+      ]
+    },
+    "SkiaSharp.Svg/1.60.0": {
+      "sha512": "rTneyM6mt0w2xCCampFlkO3mGFIwGEJo7L2X3JOdyeMCZDQkyqv7m9kZfA89kLSErXErFnY72TZsryzqTIiT7g==",
+      "type": "package",
+      "path": "skiasharp.svg/1.60.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.3/SkiaSharp.Extended.Svg.dll",
+        "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll",
+        "lib/portable-net45+win8+wp8+wpa81/SkiaSharp.Extended.Svg.dll",
+        "skiasharp.svg.1.60.0.nupkg.sha512",
+        "skiasharp.svg.nuspec"
       ]
     },
     "SkiaSharp.Views/1.68.2-preview.21": {
@@ -7633,6 +8024,43 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Xam.Forms.MarkdownView/0.6.1-pre": {
+      "sha512": "StztN0Y+XFrBJoCpxeMmAfUP8fvGf8S1KG9lF+OACbvjMsu0MN7DEVKx5ldUiQV/Uvu+/Ppvcnz19s4yy4nQog==",
+      "type": "package",
+      "path": "xam.forms.markdownview/0.6.1-pre",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Xam.Forms.MarkdownView.dll",
+        "xam.forms.markdownview.0.6.1-pre.nupkg.sha512",
+        "xam.forms.markdownview.nuspec"
+      ]
+    },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
+        "xam.plugin.media.nuspec"
+      ]
+    },
     "Xamarin.Auth/1.7.0": {
       "sha512": "F5yMDdHmcBRochGOeeyIRJ2fangsCEodSbOwg4TQT5kJnsT/CjP6ieXbFfFF9ccni66EgbQ7NTTjvajUlD3IGQ==",
       "type": "package",
@@ -8012,24 +8440,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tkill\\.nuget\\packages\\": {},
+    "C:\\Users\\Dylan\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
+      "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
       "projectName": "ZestHealthApp.iOS",
-      "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
-      "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp.iOS\\obj\\",
+      "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\ZestHealthApp.iOS.csproj",
+      "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+      "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -8038,14 +8466,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
-              "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
+            "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj": {
+              "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj"
             }
           }
         }
@@ -8120,5 +8547,20 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Com.Airbnb.Xamarin.Forms.Lottie from 3.1.0 to 3.0.4. Reference the package directly from the project to select a different version. \r\n ZestHealthApp.iOS -> ZestHealthApp -> Com.Airbnb.Xamarin.Forms.Lottie (>= 3.1.0) \r\n ZestHealthApp.iOS -> Com.Airbnb.Xamarin.Forms.Lottie (>= 3.0.4)",
+      "libraryId": "Com.Airbnb.Xamarin.Forms.Lottie",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

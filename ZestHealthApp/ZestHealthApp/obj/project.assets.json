@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
-      "Com.Airbnb.Xamarin.Forms.Lottie/3.0.4": {
+      "Com.Airbnb.Xamarin.Forms.Lottie/3.1.0": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "4.2.0.815419"
+          "Xamarin.Forms": "4.5.0.356"
         },
         "compile": {
           "lib/netstandard2.0/Lottie.Forms.dll": {}
@@ -40,6 +40,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "Fody/6.1.0": {
         "type": "package",
         "build": {
@@ -70,6 +83,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/MagicGradients.dll": {}
+        }
+      },
+      "Markdig/0.15.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Markdig.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Markdig.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -112,6 +137,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
         }
       },
       "PropertyChanged.Fody/3.2.6": {
@@ -210,6 +244,18 @@
           }
         }
       },
+      "SkiaSharp.Svg/1.60.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.60.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {}
+        }
+      },
       "SkiaSharp.Views.Forms/1.68.2-preview.21": {
         "type": "package",
         "dependencies": {
@@ -276,41 +322,6 @@
         },
         "runtime": {
           "lib/netstandard1.1/SQLitePCLRaw.core.dll": {}
-        }
-      },
-      "Syncfusion.Licensing/17.4.0.51": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
-        }
-      },
-      "Syncfusion.Xamarin.Core/17.4.0.51": {
-        "type": "package",
-        "dependencies": {
-          "Syncfusion.Licensing": "17.4.0.51",
-          "Xamarin.Forms": "3.6.0.344457"
-        },
-        "compile": {
-          "lib/netstandard2.0/Syncfusion.Core.XForms.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Syncfusion.Core.XForms.dll": {}
-        }
-      },
-      "Syncfusion.Xamarin.SfNumericUpDown/17.4.0.51": {
-        "type": "package",
-        "dependencies": {
-          "Syncfusion.Xamarin.Core": "17.4.0.51",
-          "Xamarin.Forms": "3.6.0.344457"
-        },
-        "compile": {
-          "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.dll": {}
         }
       },
       "System.Buffers/4.5.0": {
@@ -478,6 +489,32 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "Xam.Forms.MarkdownView/0.6.1-pre": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.15.0",
+          "SkiaSharp.Svg": "1.60.0",
+          "Xamarin.Forms": "3.0.0.530893"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Forms.MarkdownView.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/netstandard2.0/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Auth/1.7.0": {
         "type": "package",
         "compile": {
@@ -519,20 +556,20 @@
     }
   },
   "libraries": {
-    "Com.Airbnb.Xamarin.Forms.Lottie/3.0.4": {
-      "sha512": "uwLymybcQDdobg//kyeqH6zEuPuVGBDULVYC7Cv9OQGLfCdqsmcYNEprs7z02ptx6NgolFeAT1J/Imr2P097qA==",
+    "Com.Airbnb.Xamarin.Forms.Lottie/3.1.0": {
+      "sha512": "aOO+qvfD/czfT49S/RCBZUoCc4nGDMDMD9sBDdqDoQ/5RZR5eqs45W4ohlaQnY1w3te4CAw/IN2EesmZEMyiUA==",
       "type": "package",
-      "path": "com.airbnb.xamarin.forms.lottie/3.0.4",
+      "path": "com.airbnb.xamarin.forms.lottie/3.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
-        "com.airbnb.xamarin.forms.lottie.3.0.4.nupkg.sha512",
+        "com.airbnb.xamarin.forms.lottie.3.1.0.nupkg.sha512",
         "com.airbnb.xamarin.forms.lottie.nuspec",
         "icon.png",
-        "lib/monoandroid90/Lottie.Forms.dll",
-        "lib/monoandroid90/Lottie.Forms.pdb",
-        "lib/monoandroid90/Lottie.Forms.xml",
+        "lib/monoandroid10.0/Lottie.Forms.dll",
+        "lib/monoandroid10.0/Lottie.Forms.pdb",
+        "lib/monoandroid10.0/Lottie.Forms.xml",
         "lib/netstandard2.0/Lottie.Forms.dll",
         "lib/netstandard2.0/Lottie.Forms.pdb",
         "lib/netstandard2.0/Lottie.Forms.xml",
@@ -579,6 +616,18 @@
         "firebasedatabase.net.nuspec",
         "lib/netstandard2.0/Firebase.dll",
         "lib/netstandard2.0/Firebase.xml"
+      ]
+    },
+    "FirebaseStorage.net/1.0.3": {
+      "sha512": "SupDHNUwNqcVwEo/HdFEWAXveQe3fU16q4wrrCxUVwP0a77zaddKp7vo2sHIW56DAsJn/gUfjDK3w0MuBhvzjQ==",
+      "type": "package",
+      "path": "firebasestorage.net/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebasestorage.net.1.0.3.nupkg.sha512",
+        "firebasestorage.net.nuspec",
+        "lib/netstandard1.1/Firebase.Storage.dll"
       ]
     },
     "Fody/6.1.0": {
@@ -644,6 +693,28 @@
         "lib/netstandard2.0/MagicGradients.dll",
         "magicgradients.1.0.0.nupkg.sha512",
         "magicgradients.nuspec"
+      ]
+    },
+    "Markdig/0.15.0": {
+      "sha512": "0Ly8yfnKXTHx5HGYhpNybnlg6uoLHcf9gqbkWdtZDq4VuA/ouMIpqLgq6UscBwitDqLNYUfYKrRthhVeaHAzkg==",
+      "type": "package",
+      "path": "markdig/0.15.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Markdig.dll",
+        "lib/net35/Markdig.xml",
+        "lib/net40/Markdig.dll",
+        "lib/net40/Markdig.xml",
+        "lib/netstandard1.1/Markdig.dll",
+        "lib/netstandard1.1/Markdig.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/Markdig.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/Markdig.xml",
+        "lib/uap10.0/Markdig.dll",
+        "lib/uap10.0/Markdig.pri",
+        "lib/uap10.0/Markdig.xml",
+        "markdig.0.15.0.nupkg.sha512",
+        "markdig.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -835,6 +906,29 @@
         "newtonsoft.json.nuspec"
       ]
     },
+    "Plugin.Permissions/3.0.0.12": {
+      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "type": "package",
+      "path": "plugin.permissions/3.0.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Permissions.dll",
+        "lib/monoandroid71/Plugin.Permissions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.xml",
+        "lib/uap10.0.10240/Plugin.Permissions.dll",
+        "lib/uap10.0.10240/Plugin.Permissions.pri",
+        "lib/uap10.0.10240/Plugin.Permissions.xml",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.xml",
+        "plugin.permissions.3.0.0.12.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
+      ]
+    },
     "PropertyChanged.Fody/3.2.6": {
       "sha512": "LpeV66T+AcWB9NTuGjGE7dm4ykudqZEByQdYvzK0PS0uwKUgU/vOqUSaTueSq6ZY0Mbg0mDdoQbKUDZKwpuj0g==",
       "type": "package",
@@ -979,6 +1073,20 @@
         "skiasharp.1.68.2-preview.21.nupkg.sha512",
         "skiasharp.nuspec",
         "xamarin.interactive/SkiaSharp.Workbooks.dll"
+      ]
+    },
+    "SkiaSharp.Svg/1.60.0": {
+      "sha512": "rTneyM6mt0w2xCCampFlkO3mGFIwGEJo7L2X3JOdyeMCZDQkyqv7m9kZfA89kLSErXErFnY72TZsryzqTIiT7g==",
+      "type": "package",
+      "path": "skiasharp.svg/1.60.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.3/SkiaSharp.Extended.Svg.dll",
+        "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll",
+        "lib/portable-net45+win8+wp8+wpa81/SkiaSharp.Extended.Svg.dll",
+        "skiasharp.svg.1.60.0.nupkg.sha512",
+        "skiasharp.svg.nuspec"
       ]
     },
     "SkiaSharp.Views.Forms/1.68.2-preview.21": {
@@ -1140,89 +1248,6 @@
         "lib/wpa81/SQLitePCLRaw.core.dll",
         "sqlitepclraw.core.1.1.13.nupkg.sha512",
         "sqlitepclraw.core.nuspec"
-      ]
-    },
-    "Syncfusion.Licensing/17.4.0.51": {
-      "sha512": "OLs+GoVSMhs3vHB3OboJWnpCdb3RrWgHXa6prJaYDNXQwTJ2Cxk+j9WihkLCrMxG98vYAnjKu1BtvE1RIJUQLg==",
-      "type": "package",
-      "path": "syncfusion.licensing/17.4.0.51",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Syncfusion.Licensing.dll",
-        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
-        "lib/net20/Syncfusion.Licensing.dll",
-        "lib/net35/Syncfusion.Licensing.dll",
-        "lib/net40/Syncfusion.Licensing.dll",
-        "lib/net45/Syncfusion.Licensing.dll",
-        "lib/net451/Syncfusion.Licensing.dll",
-        "lib/net46/Syncfusion.Licensing.dll",
-        "lib/netcoreapp3.0/Syncfusion.Licensing.dll",
-        "lib/netstandard1.0/Syncfusion.Licensing.dll",
-        "lib/netstandard1.2/Syncfusion.Licensing.dll",
-        "lib/netstandard1.4/Syncfusion.Licensing.dll",
-        "lib/netstandard2.0/Syncfusion.Licensing.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
-        "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.17.4.0.51.nupkg.sha512",
-        "syncfusion.licensing.nuspec"
-      ]
-    },
-    "Syncfusion.Xamarin.Core/17.4.0.51": {
-      "sha512": "iph44N9WgwGBIqrUTgFN2tHKxf35fMYr1S5DHVN2AW+OzIxvXC1DCXlEc/6E+HM2aJ5HahVLF4/x+pz/6EsVJw==",
-      "type": "package",
-      "path": "syncfusion.xamarin.core/17.4.0.51",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Syncfusion.Core.XForms.Android.dll",
-        "lib/MonoAndroid10/Syncfusion.Core.XForms.dll",
-        "lib/MonoAndroid10/Syncfusion.Core.XForms.xml",
-        "lib/Xamarin.Mac/Syncfusion.Core.XForms.dll",
-        "lib/Xamarin.Mac/Syncfusion.Core.XForms.macOS.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.iOS.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.xml",
-        "lib/netstandard2.0/Syncfusion.Core.XForms.dll",
-        "lib/netstandard2.0/Syncfusion.Core.XForms.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.xml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP.dll",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP.pri",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/Syncfusion.Core.XForms.UWP.xr.xml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/DropDownIcon.xaml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/ToggleCollapsedIcon.xaml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/ToggleVisibleIcon.xaml",
-        "lib/uap10.0/Syncfusion.Core.XForms.dll",
-        "lib/uap10.0/Syncfusion.Core.XForms.xml",
-        "syncfusion.xamarin.core.17.4.0.51.nupkg.sha512",
-        "syncfusion.xamarin.core.nuspec"
-      ]
-    },
-    "Syncfusion.Xamarin.SfNumericUpDown/17.4.0.51": {
-      "sha512": "ExqqZ/uMitzJEY8/bfbu2pb3ckQ3A3KhLCzfcaG4+7C4cJ8mRjl/+gWy7Xvc7X8UUhNP4rhGZ4E+D1nub81HvQ==",
-      "type": "package",
-      "path": "syncfusion.xamarin.sfnumericupdown/17.4.0.51",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Syncfusion.SfNumericUpDown.XForms.Android.dll",
-        "lib/MonoAndroid10/Syncfusion.SfNumericUpDown.XForms.dll",
-        "lib/MonoAndroid10/Syncfusion.SfNumericUpDown.XForms.xml",
-        "lib/Xamarin.iOS10/Syncfusion.SfNumericUpDown.XForms.dll",
-        "lib/Xamarin.iOS10/Syncfusion.SfNumericUpDown.XForms.iOS.dll",
-        "lib/Xamarin.iOS10/Syncfusion.SfNumericUpDown.XForms.xml",
-        "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.dll",
-        "lib/netstandard2.0/Syncfusion.SfNumericUpDown.XForms.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfNumericUpDown.XForms.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfNumericUpDown.XForms.xml",
-        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.UWP.XML",
-        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.UWP.dll",
-        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.dll",
-        "lib/uap10.0/Syncfusion.SfNumericUpDown.XForms.xml",
-        "syncfusion.xamarin.sfnumericupdown.17.4.0.51.nupkg.sha512",
-        "syncfusion.xamarin.sfnumericupdown.nuspec"
       ]
     },
     "System.Buffers/4.5.0": {
@@ -1978,6 +2003,43 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "Xam.Forms.MarkdownView/0.6.1-pre": {
+      "sha512": "StztN0Y+XFrBJoCpxeMmAfUP8fvGf8S1KG9lF+OACbvjMsu0MN7DEVKx5ldUiQV/Uvu+/Ppvcnz19s4yy4nQog==",
+      "type": "package",
+      "path": "xam.forms.markdownview/0.6.1-pre",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Xam.Forms.MarkdownView.dll",
+        "xam.forms.markdownview.0.6.1-pre.nupkg.sha512",
+        "xam.forms.markdownview.nuspec"
+      ]
+    },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
+        "xam.plugin.media.nuspec"
+      ]
+    },
     "Xamarin.Auth/1.7.0": {
       "sha512": "F5yMDdHmcBRochGOeeyIRJ2fangsCEodSbOwg4TQT5kJnsT/CjP6ieXbFfFF9ccni66EgbQ7NTTjvajUlD3IGQ==",
       "type": "package",
@@ -2335,18 +2397,21 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Com.Airbnb.Xamarin.Forms.Lottie >= 3.0.4",
+      "Com.Airbnb.Xamarin.Forms.Lottie >= 3.1.0",
       "FirebaseAuthentication.net >= 4.0.0-alpha.1",
       "FirebaseDatabase.net >= 4.0.4",
+      "FirebaseStorage.net >= 1.0.3",
       "MagicGradients >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
+      "Plugin.Permissions >= 3.0.0.12",
       "PropertyChanged.Fody >= 3.2.6",
       "Rg.Plugins.Popup >= 1.2.0.223",
       "Sharpnado.Presentation.Forms >= 1.4.0",
       "SkiaSharp >= 1.68.2-preview.21",
       "SkiaSharp.Views.Forms >= 1.68.2-preview.21",
       "Spire.PDF >= 6.2.6",
-      "Syncfusion.Xamarin.SfNumericUpDown >= 17.4.0.51",
+      "Xam.Forms.MarkdownView >= 0.6.1-pre",
+      "Xam.Plugin.Media >= 4.0.1.5",
       "Xamarin.Auth >= 1.7.0",
       "Xamarin.Essentials >= 1.5.0",
       "Xamarin.Forms >= 4.5.0.356",
@@ -2354,23 +2419,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tkill\\.nuget\\packages\\": {},
+    "C:\\Users\\Dylan\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+      "projectUniqueName": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
       "projectName": "ZestHealthApp",
-      "projectPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
-      "packagesPath": "C:\\Users\\tkill\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tkill\\OneDrive\\Desktop\\Midterm Project Github\\Midterm-Xamarin.Forms\\ZestHealthApp\\ZestHealthApp\\obj\\",
+      "projectPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\ZestHealthApp.csproj",
+      "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
+      "outputPath": "E:\\Git Projects\\MidtermForms\\ZestHealthApp\\ZestHealthApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\tkill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2379,8 +2444,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
@@ -2398,7 +2462,7 @@
         "dependencies": {
           "Com.Airbnb.Xamarin.Forms.Lottie": {
             "target": "Package",
-            "version": "[3.0.4, )"
+            "version": "[3.1.0, )"
           },
           "FirebaseAuthentication.net": {
             "target": "Package",
@@ -2407,6 +2471,10 @@
           "FirebaseDatabase.net": {
             "target": "Package",
             "version": "[4.0.4, )"
+          },
+          "FirebaseStorage.net": {
+            "target": "Package",
+            "version": "[1.0.3, )"
           },
           "MagicGradients": {
             "target": "Package",
@@ -2417,6 +2485,10 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Plugin.Permissions": {
+            "target": "Package",
+            "version": "[3.0.0.12, )"
           },
           "PropertyChanged.Fody": {
             "target": "Package",
@@ -2442,9 +2514,13 @@
             "target": "Package",
             "version": "[6.2.6, )"
           },
-          "Syncfusion.Xamarin.SfNumericUpDown": {
+          "Xam.Forms.MarkdownView": {
             "target": "Package",
-            "version": "[17.4.0.51, )"
+            "version": "[0.6.1-pre, )"
+          },
+          "Xam.Plugin.Media": {
+            "target": "Package",
+            "version": "[4.0.1.5, )"
           },
           "Xamarin.Auth": {
             "target": "Package",
@@ -2473,7 +2549,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

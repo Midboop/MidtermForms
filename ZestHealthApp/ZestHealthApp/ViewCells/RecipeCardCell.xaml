@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rv:MaterialFrame xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:ZestHealthApp.ViewModel"
+             x:Class="ZestHealthApp.ViewCells.RecipeCardCell"
+             Padding="{StaticResource StandardThickness}">
+
+    <StackLayout x:DataType="vm:FBRecipeView" BindingContext="vm:FBRecipeView"
+                 Spacing="0"
+                 VerticalOptions="Center"
+                 Orientation="Vertical">
+        <Image   Style="{StaticResource SmallAvatar}"
+                 Margin="0,0,0,10"
+                 VerticalOptions="Center"
+                 Aspect="AspectFill"
+                 Source="recipeDefault.PNG" />
+        <!--Note:Bind This later to user set image-->
+
+        <Label Style="{StaticResource TextBody}"
+               Margin="{StaticResource SmallTopThickness}"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Start"
+               MaxLines="1"
+               Text="{Binding RecipeName}" />
+
+        <Label Style="{StaticResource TextCaptionSecondary}"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Start"
+               Text="Placeholder" />
+        <!--Note:Make something to go here-->
+    </StackLayout>
+
+</rv:MaterialFrame>

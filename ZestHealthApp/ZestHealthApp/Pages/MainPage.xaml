@@ -4,15 +4,35 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              mc:Ignorable="d"
              x:Class="ZestHealthApp.MainPage">
-
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSlateGray" />
+                                <Setter Property="CornerRadius"
+                                        Value="0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
                 <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
             <magic:GradientView Grid.RowSpan="3">
@@ -28,10 +48,48 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
+            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="0" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="0" HorizontalItemSpacing="0"  />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <rv:MaterialFrame effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" Padding="0" CornerRadius="10" IsClippedToBounds="True" HasShadow="True">
+                                <StackLayout Spacing="0"
+                                         VerticalOptions="Center"
+                                         Orientation="Vertical"
+                                         BackgroundColor="WhiteSmoke">
+                                
+                                <Image   Margin="0,0,0,10"
+                                         VerticalOptions="Center"
+                                         HeightRequest="100"
+                                         WidthRequest="80"
+                                         Aspect="AspectFill"
+                                         Source="{Binding RecipeImage}" />  
+                                <!--Note:Bind This later to user set image-->
 
-            <lottie:AnimationView x:Name="buildingAnim" Grid.Row="0" Grid.RowSpan="2" Margin="0" AutoPlay="True" Loop ="True" Animation="buildinglottie.json" />
-            <Label Grid.Row="1" Text="Under Construction" TextColor="GhostWhite" FontAttributes="Bold" FontSize="Subtitle" HorizontalTextAlignment="Center"  VerticalTextAlignment="End"/>
+                                <Label Style="{StaticResource TextSubheadCenter}"
+                                       TextColor="#3d3d3d"
+                                       Margin="0,0,5,0"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Start"
+                                       MaxLines="1"
+                                       Text="{Binding RecipeName}" />
+                                
+                                <Label Style="{StaticResource TextCaption}"
+                                       TextColor="#4f4f4f"
+                                       Margin="0,0,0,5"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Start"
+                                       Text="Placeholder" />        
+                                    <!--Note:Make something to go here-->
+                            </StackLayout>
+                        </rv:MaterialFrame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
+            <ImageButton Grid.Row="2" Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"/>
 
         </Grid>
     </ContentPage.Content>
