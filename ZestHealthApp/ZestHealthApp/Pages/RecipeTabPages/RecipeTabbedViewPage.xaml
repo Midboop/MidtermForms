@@ -56,10 +56,30 @@
                          BackgroundColor="#99000000" />
 
             <Label Grid.Row="1"
+                   x:Name="RecipeTitleLabel"
                        Style="{StaticResource TextTitle}"
                        VerticalOptions="End"
                        TextColor="White"
                        Text="{Binding RecipeTitle}" />
+            <Entry Grid.Row="1"
+                   TextColor="{StaticResource Accent}" 
+                    
+                  Keyboard="Default"
+                   Margin="-16,0"
+                   x:Name="TitleEntry"
+                   Placeholder="New Title"
+                   PlaceholderColor="White"
+                   VerticalOptions="End"
+                   HorizontalOptions="FillAndExpand"
+                   IsVisible="False"
+                   IsEnabled="True"
+                   Completed="TitleEntry_Completed"/>
+            <Button x:Name="UpdateTitleButton"
+                    Grid.RowSpan="3"
+                    Grid.Row="1"
+                    Margin="-16,0"
+                    BackgroundColor="Transparent"
+                    Clicked="UpdateTitleButton_Clicked"/>
 
             <Label x:Name="CalorieLabel" Grid.Row="2"
                        Style="{StaticResource TextSubhead}"

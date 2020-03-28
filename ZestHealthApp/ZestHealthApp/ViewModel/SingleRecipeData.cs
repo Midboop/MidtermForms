@@ -27,7 +27,7 @@ namespace ZestHealthApp.ViewModel
         public NutritionFacts NutritionValues { get; set; }
         public int TotalCalories { get; private set; }
 
-        public string RecipeTitle { get; }
+        public string RecipeTitle { get; set; }
         public double RatingStars { get; set; }
 
         public ObservableCollection<IngredientItem> Items { get; set; }

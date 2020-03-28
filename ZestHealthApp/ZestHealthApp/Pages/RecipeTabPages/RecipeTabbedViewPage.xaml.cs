@@ -110,5 +110,37 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 AddPicture();
             }
         }
+
+        private async void TitleEntry_Completed(object sender, EventArgs e)
+        {
+
+            var recipeNames = await FirebaseHelper.GetRecipeNames();
+            if (recipeNames.Contains(TitleEntry.Text))
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "This name already exists, please enter a different name.", "Cancel");
+                RecipeTitleLabel.Text = null;
+            }
+            else
+            {
+                await FirebaseHelper.UpdateRecipeTitle(TitleEntry.Text, thisRecipe);
+                thisRecipe = (BindingContext as SingleRecipeData);
+                RecipeTitleLabel.Text = TitleEntry.Text;
+                TitleEntry.IsEnabled = false;
+                TitleEntry.IsVisible = false;
+                UpdateTitleButton.IsEnabled = true;
+                thisRecipe.RecipeTitle = TitleEntry.Text;
+
+            }
+
+
+        }
+
+        private void UpdateTitleButton_Clicked(object sender, EventArgs e)
+        {
+            RecipeTitleLabel.Text = null;
+            TitleEntry.IsEnabled = true;
+            TitleEntry.IsVisible = true;
+            UpdateTitleButton.IsEnabled = false;
+        }
     }
 }

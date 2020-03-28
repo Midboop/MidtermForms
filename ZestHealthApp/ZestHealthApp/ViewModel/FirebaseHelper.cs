@@ -233,6 +233,49 @@ namespace ZestHealthApp.ViewModel
             }
         }
 
+        public static async Task<bool> UpdateRecipeTitle(string name, SingleRecipeData data)
+        {
+
+
+            try
+            {
+                var toUpdateTitle =
+                (await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == data.RecipeTitle).FirstOrDefault();
+
+                await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .Child(toUpdateTitle.Key)
+                .PutAsync(new RecipeItems() { RecipeName = name, IngredientsList = data.Items.ToList(), NutritionValues = data.NutritionValues, RecipeRating = data.RatingStars });
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+
+        }
+
+
+
+        public async static Task<List<string>> GetRecipeNames()
+        {
+            var allRecipes = await GetRecipes();
+            List<string> RecipeNames = new List<string>();
+            for (int i = 0; i < allRecipes.Count; i++)
+            {
+                RecipeNames.Add(allRecipes[i].RecipeName);
+            }
+
+
+            return RecipeNames;
+        }
+
         // Add ingredient item
         public static async void UpdateRecipeAdd(RecipeItems selectedRecipe, IngredientItem newIngredient)
         {
