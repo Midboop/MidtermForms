@@ -247,6 +247,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                     ResetNewItemFrame();
                     EditButtonFrame.IsVisible = false;
                     AddButton.IsVisible = true;
+                    AddButton.PlayFrameSegment(45, 125);
                     AddButton.PlayFrameSegment(0, 25);
                     CurrentFrame = 25;
                     

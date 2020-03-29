@@ -249,7 +249,7 @@ namespace ZestHealthApp.ViewModel
                 .Child(Application.Current.Properties["Id"].ToString())
                 .Child("Recipes")
                 .Child(toUpdateTitle.Key)
-                .PutAsync(new RecipeItems() { RecipeName = name, IngredientsList = data.Items.ToList(), NutritionValues = data.NutritionValues, RecipeRating = data.RatingStars });
+                .PutAsync(new RecipeItems() { RecipeName = name, IngredientsList = data.Items.ToList(), NutritionValues = data.NutritionValues, RecipeRating = data.RatingStars, Instructions = data.Instructions }); ;
                 return true;
 
             }
@@ -360,6 +360,7 @@ namespace ZestHealthApp.ViewModel
                .Child("Recipes")
                .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == recipe.RecipeTitle)
                .FirstOrDefault(); ;
+
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString())
                     .Child("Recipes")

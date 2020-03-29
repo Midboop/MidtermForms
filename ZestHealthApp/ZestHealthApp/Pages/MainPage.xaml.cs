@@ -32,8 +32,7 @@ namespace ZestHealthApp
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            // the following is an example entry until we get everything flushed out 
-
+            
             RecipeItems newRecipe = new RecipeItems();
             newRecipe.RecipeImage = await FirebaseHelper.GetDefaultImage();
             newRecipe.RecipeName = "New Recipe";

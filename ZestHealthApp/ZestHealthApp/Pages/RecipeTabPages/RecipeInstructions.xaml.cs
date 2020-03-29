@@ -59,7 +59,8 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 // all odd elements are of Editor Type
                 if (i % 2 == 0)
                     i++;
-                else if (i < stackLayout.Children.Count - 1)
+
+                if (i < stackLayout.Children.Count - 1)
                 {
                     var thisEditor = (stackLayout.Children.ElementAt(i) as Editor);
                     thisEditor.BackgroundColor = Color.Transparent;
@@ -69,7 +70,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         }
         public void SavePage()
         {
-            if (((Editor)stackLayout.Children.ElementAt(stackLayout.Children.Count - 2)).Text == null && stackLayout.Children.Count > 3)
+            while ((((Editor)stackLayout.Children.ElementAt(stackLayout.Children.Count - 2)).Text == null || ((Editor)stackLayout.Children.ElementAt(stackLayout.Children.Count - 2)).Text == string.Empty )&& stackLayout.Children.Count > 3)
             {
                 // This is done twice to remove both the editor and Label (in that order)
                 stackLayout.Children.Remove(stackLayout.Children.ElementAt(stackLayout.Children.Count - 2));
@@ -100,8 +101,11 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                     }
                     else
                     {
-                        newSet.Directive = ((Editor)stackLayout.Children.ElementAt(i)).Text;
-                        instructions.Add(newSet);
+                        if (((Editor)stackLayout.Children.ElementAt(i)).Text != string.Empty && ((Editor)stackLayout.Children.ElementAt(i)).Text != null)
+                        {
+                            newSet.Directive = ((Editor)stackLayout.Children.ElementAt(i)).Text;
+                            instructions.Add(newSet);
+                        }
                     }
 
                 }
