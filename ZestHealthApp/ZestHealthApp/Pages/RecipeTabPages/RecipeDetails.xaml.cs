@@ -128,11 +128,22 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         {
             if (WeightEntry.Text.ToString() != string.Empty)
             {
+                int i = 0;
                 // Go to Name
-                singleItem.Weight = Convert.ToInt32(WeightEntry.Text.ToString());
-                WeightEntry.IsEnabled = false;
-                NameEntry.IsVisible = true;
-                NameEntry.Focus();
+                bool result = int.TryParse(WeightEntry.Text.ToString(), out i);
+                if (result == true)
+                {
+                    singleItem.Weight = i;
+                    WeightEntry.IsEnabled = false;
+                    NameEntry.IsVisible = true;
+                    NameEntry.Focus();
+                }
+                else
+                {
+                    App.Current.MainPage.DisplayAlert("Alert", "Please round to the nearest whole number.", "Continue");
+                }
+
+
             }
         }
 
@@ -150,11 +161,22 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void CaloriesEntry_Completed(object sender, EventArgs e)
         {
+            int i = 0;
+            bool result = int.TryParse(CaloriesEntry.Text.ToString(), out i);
+
             if (CaloriesEntry.Text.ToString() != string.Empty)
             {
+                if (result == true)
+                {
+                    singleItem.Calories = i;
+                    newItemEntry_Completed();
+                }
+                else
+                {
+                    App.Current.MainPage.DisplayAlert("Alert", "Please round to the nearest whole number.", "Continue");
+                }
                 // Completed Item
-                singleItem.Calories = Convert.ToInt32(CaloriesEntry.Text.ToString());
-                newItemEntry_Completed();
+
             }
         }
 

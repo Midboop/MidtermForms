@@ -29,13 +29,13 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="80"/>
                     </Grid.ColumnDefinitions>
-                    <Entry x:Name="QuantityEntry" Grid.Column="0" TextColor="{StaticResource Accent}" Placeholder="#" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="True" Completed="QuantityEntry_Completed"/>
+                    <Entry x:Name="QuantityEntry" Keyboard="Numeric" Grid.Column="0" TextColor="{StaticResource Accent}" Placeholder="#" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="True" Completed="QuantityEntry_Completed"/>
                         <Label x:Name="QuantityLabel" Grid.Column="1" Grid.ColumnSpan="4" TextColor="Accent" Text="Quantity" Style="{StaticResource TextSubhead}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="True" />
                     <Entry x:Name="UnitEntry" Grid.Column="1" TextColor="{StaticResource Accent}" Placeholder="Unit" PlaceholderColor="Accent"  IsSpellCheckEnabled="True" IsVisible="False" Completed="UnitEntry_Completed"/>
                         <Label x:Name="UnitLabel" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Accent" Text="(Cups, Tsp, Grams(Raw Meat)" Style="{StaticResource TextSubhead}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="False" />
-                    <Entry x:Name="WeightEntry" Grid.Column="2" TextColor="{StaticResource Accent}" Placeholder="Grams" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="WeightEntry_Completed"/>
+                    <Entry x:Name="WeightEntry" Keyboard="Numeric" Grid.Column="2" TextColor="{StaticResource Accent}" Placeholder="Grams" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="WeightEntry_Completed"/>
                     <Entry x:Name="NameEntry" Grid.Column="3" TextColor="{StaticResource Accent}" Placeholder="Name" PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="NameEntry_Completed"/>
-                    <Entry x:Name="CaloriesEntry" Grid.Column="4" TextColor="{StaticResource Accent}" Placeholder="Cal." PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="CaloriesEntry_Completed"/>
+                    <Entry x:Name="CaloriesEntry" Keyboard="Numeric" Grid.Column="4" TextColor="{StaticResource Accent}" Placeholder="Cal." PlaceholderColor="Accent" IsSpellCheckEnabled="True" IsVisible="False" Completed="CaloriesEntry_Completed"/>
                 </Grid>
             </Frame>
             <ScrollView>
