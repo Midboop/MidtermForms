@@ -43,6 +43,7 @@ namespace ZestHealthApp
 
             RecipeItems newRecipe = new RecipeItems();
             newRecipe.RecipeName = "Frosted Flakes";
+            newRecipe.RecipeImage = await FirebaseHelper.GetDefaultImage();
             newRecipe.RecipeRating = 3;
             newRecipe.NutritionValues.TotalCalories = 1600;
             newRecipe.NutritionValues.TotalWeight = 500;

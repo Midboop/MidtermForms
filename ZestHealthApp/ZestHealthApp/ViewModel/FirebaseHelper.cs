@@ -442,10 +442,34 @@ namespace ZestHealthApp.ViewModel
         // Add picture to firebase
         public static async Task<string> RecipeImage(Stream imageStream, string name)
         {
+            try
+            {
+                var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").PutAsync(imageStream);
+                string imgurl = storageImage;
+                return imgurl;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
 
-            var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").PutAsync(imageStream);
-            string imgurl = storageImage;
-            return imgurl;
+
+        }
+
+        public static async Task<ImageSource> GetDefaultImage()
+        {
+            try
+            {
+
+                return await new FirebaseStorage(storage).Child("Default Picture").Child("recipeDefault.PNG").GetDownloadUrlAsync();
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
 
         }
 
@@ -471,8 +495,17 @@ namespace ZestHealthApp.ViewModel
 
         public static async Task<bool> DeleteImage(string name)
         {
-            await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
-            return true;
+            try
+            {
+                await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+
         }
 
         // Read all pantry items

@@ -102,8 +102,12 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             thisRecipe = (BindingContext as SingleRecipeData);
             if (answer == true)
             {
-                if (await FirebaseHelper.DeleteRecipe(thisRecipe) && await FirebaseHelper.DeleteImage(thisRecipe.RecipeTitle))
-                    thisTabbedPage.GoToRecipe();
+                if (await FirebaseHelper.DeleteRecipe(thisRecipe))
+                {
+                    await FirebaseHelper.DeleteImage(thisRecipe.RecipeTitle);
+                        thisTabbedPage.GoToRecipe();
+                }
+                    
                 else
                     Debug.WriteLine("Delete Failed");
             }
