@@ -8,18 +8,20 @@
              mc:Ignorable="d"
              x:Class="ZestHealthApp.Pages.RecipeTabPages.RecipeInstructions">
     <ContentView.Content>
-        <StackLayout>
-            <ScrollView HeightRequest="330">
+        <ScrollView HeightRequest="380">
+            <StackLayout x:Name="stackLayout">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <StackLayout x:Name="stackLayout" Grid.Column="0" Grid.ColumnSpan="2" >
-                        <ImageButton Source="addButtonStatic2.jpg" HorizontalOptions="Center" BackgroundColor="Transparent" Clicked="AddButton_OnClick" HeightRequest="40" WidthRequest="40"/>
-                    </StackLayout>
+                    <Label x:Name="firstLabel" Text="Step 1" Grid.Column="0" TextColor="White" Style="{StaticResource TextSubhead}" VerticalOptions="End"/>
                     <lottie:AnimationView Grid.Column="1" x:Name="SaveAnim" AutoPlay="True" Loop ="True" IsVisible="False" Animation="savewiggle.json" HorizontalOptions="End" OnClick="SaveAnim_OnClick" />
                 </Grid>
-            </ScrollView>
-        </StackLayout>
+
+                <Editor x:Name="firstEditor" Placeholder="Enter First Step Here" PlaceholderColor="Accent" TextColor="White" AutoSize="TextChanges" BackgroundColor="Transparent" Style="{StaticResource TextBody}" TextChanged="Editor_TextChanged"/>
+                <ImageButton Source="addButtonStatic2.jpg" HorizontalOptions="Center" Clicked="AddButton_OnClick" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40"/>
+            </StackLayout>
+        </ScrollView>
+
     </ContentView.Content>
 </ContentView>

@@ -19,19 +19,19 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         {
             InitializeComponent();
             isSaved = true;
-          
+
         }
 
         public bool Animate { get; set; }
 
         private void AddButton_OnClick(object sender, EventArgs e)
         {
-            
-            var previousEditor = (stackLayout.Children.ElementAt(stackLayout.Children.Count -2) as Editor);
-            if (previousEditor.Text != string.Empty)
+
+            var previousEditor = (stackLayout.Children.ElementAt(stackLayout.Children.Count - 2) as Editor);
+            if (previousEditor.Text != null)
             {
                 string stepNum = (stackLayout.Children.Count / 2 + 1).ToString();
-                AddNewSet(stepNum, string.Empty);
+                AddNewSet(stepNum, null);
             }
             else
                 previousEditor.Placeholder = "Add Instructions Here First Before Adding Next Step";
@@ -54,12 +54,12 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             isSaved = true;
 
             SavePage();
-            for (int i = 0; i < stackLayout.Children.Count -1; i++)
+            for (int i = 0; i < stackLayout.Children.Count - 1; i++)
             {
                 // all odd elements are of Editor Type
                 if (i % 2 == 0)
                     i++;
-               else if (i < stackLayout.Children.Count -1)
+                else if (i < stackLayout.Children.Count - 1)
                 {
                     var thisEditor = (stackLayout.Children.ElementAt(i) as Editor);
                     thisEditor.BackgroundColor = Color.Transparent;
@@ -69,10 +69,10 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         }
         public void SavePage()
         {
-            if (((Editor)stackLayout.Children.Last()).Text == null && stackLayout.Children.Count > 3)
+            if (((Editor)stackLayout.Children.ElementAt(stackLayout.Children.Count - 2)).Text == null && stackLayout.Children.Count > 3)
             {
                 // This is done twice to remove both the editor and Label (in that order)
-                stackLayout.Children.Remove(stackLayout.Children.ElementAt(stackLayout.Children.Count-2));
+                stackLayout.Children.Remove(stackLayout.Children.ElementAt(stackLayout.Children.Count - 2));
                 stackLayout.Children.Remove(stackLayout.Children.ElementAt(stackLayout.Children.Count - 2));
             }
             ConvertInstructions();
@@ -80,36 +80,42 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         }
         public void ConvertInstructions()
         {
-            int stepCounter = 1;
+            int stepCounter = 2;
             List<InstructionItem> instructions = new List<InstructionItem>();
             InstructionItem newSet = new InstructionItem();
-           
-            for(int i = 0; i < stackLayout.Children.Count -1; i++)
+            newSet.Step = 1;
+            newSet.Directive = firstEditor.Text;
+            instructions.Add(newSet);
+            if (stackLayout.Children.Count > 3)
             {
-                // Even elements are labels
-                if (i % 2 == 0)
+                for (int i = 2; i < stackLayout.Children.Count - 1; i++)
                 {
-                    newSet = new InstructionItem();
-                    newSet.Step = stepCounter;
-                    stepCounter++;
-                      
-                }
-                else
-                {
-                    newSet.Directive = ((Editor)stackLayout.Children.ElementAt(i)).Text;
-                    instructions.Add(newSet);
+                    // Even elements are labels
+                    if (i % 2 == 0)
+                    {
+                        newSet = new InstructionItem();
+                        newSet.Step = stepCounter;
+                        stepCounter++;
+
+                    }
+                    else
+                    {
+                        newSet.Directive = ((Editor)stackLayout.Children.ElementAt(i)).Text;
+                        instructions.Add(newSet);
+                    }
+
                 }
             }
             preSavedRecipe = (BindingContext as SingleRecipeData);
-            FirebaseHelper.SaveInstructions(preSavedRecipe,instructions);
+            FirebaseHelper.SaveInstructions(preSavedRecipe, instructions);
             preSavedRecipe.Instructions = instructions;
-           
+
         }
         private void AddNewSet(string stepNum, string directive)
         {
 
             var label = new Label { Text = "Step " + stepNum, TextColor = Color.White, Style = (Style)Application.Current.Resources["TextSubhead"] };
-            var editor = new Editor {Text = directive, Placeholder = "Instructions", PlaceholderColor = Color.Accent, TextColor = Color.White, BackgroundColor = Color.Transparent, AutoSize = EditorAutoSizeOption.TextChanges, Style = (Style)Application.Current.Resources["TextBody"] };
+            var editor = new Editor { Text = directive, Placeholder = "Instructions", PlaceholderColor = Color.Accent, TextColor = Color.White, BackgroundColor = Color.Transparent, AutoSize = EditorAutoSizeOption.TextChanges, Style = (Style)Application.Current.Resources["TextBody"] };
             editor.TextChanged += Editor_TextChanged;
             stackLayout.Children.Insert((stackLayout.Children.Count - 1), label);
             stackLayout.Children.Insert((stackLayout.Children.Count - 1), editor);
@@ -118,9 +124,14 @@ namespace ZestHealthApp.Pages.RecipeTabPages
         {
             preSavedRecipe = (BindingContext as SingleRecipeData);
             List<InstructionItem> list = preSavedRecipe.Instructions;
-            for(int i = 0; i < list.Count; i++)
+            if (list[0].Directive != null)
             {
-                AddNewSet(list[i].Step.ToString(), list[i].Directive);
+                firstEditor.Text = list[0].Directive;
+                firstEditor.BackgroundColor = Color.Transparent;
+                for (int i = 1; i < list.Count; i++)
+                {
+                    AddNewSet(list[i].Step.ToString(), list[i].Directive);
+                }
             }
         }
     }

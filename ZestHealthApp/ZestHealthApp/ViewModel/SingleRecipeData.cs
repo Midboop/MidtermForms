@@ -21,7 +21,7 @@ namespace ZestHealthApp.ViewModel
                 TotalCalories = NutritionValues.TotalCalories;
                 RatingStars = recipe.RecipeRating;
                 RecipeImage = recipe.RecipeImage;
-                Instructions = recipe.InstructionsList;
+                Instructions = recipe.Instructions;
             }
             
         }

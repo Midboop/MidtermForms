@@ -197,7 +197,7 @@ namespace ZestHealthApp.ViewModel
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeRating = NewRecipe.RecipeRating, NutritionValues = NewRecipe.NutritionValues, InstructionsList = NewRecipe.InstructionsList });
+                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeRating = NewRecipe.RecipeRating, NutritionValues = NewRecipe.NutritionValues, Instructions = NewRecipe.Instructions });
                 return true;
             }
             catch (Exception e)
@@ -359,7 +359,7 @@ namespace ZestHealthApp.ViewModel
                .Child(Application.Current.Properties["Id"].ToString())
                .Child("Recipes")
                .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == recipe.RecipeTitle)
-               .Where(a => a.Object.InstructionsList.Count == recipe.Instructions.Count).FirstOrDefault(); ;
+               .Where(a => a.Object.Instructions.Count == recipe.Instructions.Count).FirstOrDefault(); ;
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString())
                     .Child("Recipes")
@@ -548,7 +548,7 @@ namespace ZestHealthApp.ViewModel
                  {
                      RecipeName = item.Object.RecipeName,
                      IngredientsList = item.Object.IngredientsList,
-                     InstructionsList = item.Object.InstructionsList,
+                     Instructions = item.Object.Instructions,
                      NutritionValues = item.Object.NutritionValues,
                      RecipeRating = item.Object.RecipeRating
                  }).ToList();
