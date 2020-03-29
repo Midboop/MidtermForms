@@ -179,7 +179,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -1141,7 +1141,6 @@
           "FirebaseDatabase.net": "4.0.4",
           "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
-          "Newtonsoft.Json": "12.0.3",
           "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -1342,7 +1341,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -2212,7 +2211,6 @@
           "FirebaseDatabase.net": "4.0.4",
           "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
-          "Newtonsoft.Json": "12.0.3",
           "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -2413,7 +2411,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -3286,7 +3284,6 @@
           "FirebaseDatabase.net": "4.0.4",
           "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
-          "Newtonsoft.Json": "12.0.3",
           "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -3487,7 +3484,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -4360,7 +4357,6 @@
           "FirebaseDatabase.net": "4.0.4",
           "FirebaseStorage.net": "1.0.3",
           "MagicGradients": "1.0.0",
-          "Newtonsoft.Json": "12.0.3",
           "Plugin.Permissions": "3.0.0.12",
           "PropertyChanged.Fody": "3.2.6",
           "Rg.Plugins.Popup": "1.2.0.223",
@@ -4635,10 +4631,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.3",
+      "path": "newtonsoft.json/11.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4661,9 +4657,8 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.3.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "packageIcon.png"
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "Plugin.Permissions/3.0.0.12": {

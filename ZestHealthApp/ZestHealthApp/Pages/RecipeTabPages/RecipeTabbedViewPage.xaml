@@ -8,7 +8,6 @@
                          xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                          xmlns:skiaRate="clr-namespace:ZestHealthApp.ViewModel.SkiaRate"
                          xmlns:details="clr-namespace:ZestHealthApp.Pages.RecipeTabPages"
-                         xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
                          mc:Ignorable="d"
                          x:Class="ZestHealthApp.Pages.RecipeTabPages.RecipeTabbedViewPage" >
     <ContentPage.Resources>
@@ -49,6 +48,7 @@
                     BackgroundColor="Transparent"
                     Clicked="ChangePicture_Clicked"
                     CommandParameter="11" />
+            <!--Note:Bind this Later to user set image-->
 
             <BoxView Grid.Row="1"
                          Grid.RowSpan="3"
@@ -80,6 +80,7 @@
                     Margin="-16,0"
                     BackgroundColor="Transparent"
                     Clicked="UpdateTitleButton_Clicked"/>
+
 
             <Label x:Name="CalorieLabel" Grid.Row="2"
                        Style="{StaticResource TextSubhead}"
