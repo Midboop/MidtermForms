@@ -451,6 +451,22 @@ namespace ZestHealthApp.ViewModel
 
         }
 
+        public static async Task<ImageSource> GetDefaultImage()
+        {
+            try
+            {
+
+                return await new FirebaseStorage(storage).Child("Default Picture").Child("recipeDefault.PNG").GetDownloadUrlAsync();
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+
+        }
+
         public static async Task<bool> DeleteImage(string name)
         {
             await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
