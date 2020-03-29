@@ -359,7 +359,7 @@ namespace ZestHealthApp.ViewModel
                .Child(Application.Current.Properties["Id"].ToString())
                .Child("Recipes")
                .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == recipe.RecipeTitle)
-               .Where(a => a.Object.Instructions.Count == recipe.Instructions.Count).FirstOrDefault(); ;
+               .FirstOrDefault(); ;
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString())
                     .Child("Recipes")
@@ -450,7 +450,14 @@ namespace ZestHealthApp.ViewModel
 
             try 
             {
-                var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").PutAsync(imageStream);
+                var SingleRecipeObject =
+               (await firebase
+                 .Child(Application.Current.Properties["Id"].ToString())
+                 .Child("Recipes")
+                 .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == name)
+                 .FirstOrDefault(); ;
+
+                var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{SingleRecipeObject.Key}").PutAsync(imageStream);
                 string imgurl = storageImage;
                 return imgurl;
             }
@@ -469,8 +476,15 @@ namespace ZestHealthApp.ViewModel
             // Changed
             try
             {
+                var SingleRecipeObject =
+              (await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == name)
+                .FirstOrDefault(); ;
+
                 Debug.WriteLine($"Recipe:{name}");
-                return await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").GetDownloadUrlAsync();
+                return await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{SingleRecipeObject.Key}").GetDownloadUrlAsync();
 
             }
             catch (Exception e)
@@ -502,7 +516,14 @@ namespace ZestHealthApp.ViewModel
         {
             try
             {
-                await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
+                var SingleRecipeObject =
+              (await firebase
+                .Child(Application.Current.Properties["Id"].ToString())
+                .Child("Recipes")
+                .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == name)
+                .FirstOrDefault(); ;
+
+                await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{SingleRecipeObject.Key}").DeleteAsync();
                 return true;
             }
             catch (Exception e)
