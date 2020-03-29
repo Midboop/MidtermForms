@@ -50,7 +50,7 @@ namespace ZestHealthApp
             newRecipe.NutritionValues.CaloriesPerServing = 1600;
             newRecipe.NutritionValues.WeightPerServing = 500;
             // newRecipe.RecipeName = "New Recipe";
-
+            newRecipe.InstructionsList.Add(new InstructionItem(1, string.Empty));
             // End example entry changes
             newRecipe.IngredientsList = ingredients;
             //Taylor: add other dictionary items

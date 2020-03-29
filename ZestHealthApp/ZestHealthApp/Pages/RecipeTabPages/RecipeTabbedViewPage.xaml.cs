@@ -30,6 +30,9 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             BindingContext = thisRecipe;
             recipeDetails.BindingContext = thisRecipe;
             recipeDetails.thisNutrition = recipeNutrition;
+            recipeInstructions.BindingContext = thisRecipe;
+            recipeInstructions.preSavedRecipe = thisRecipe;
+            recipeInstructions.InitializeInstructions();
             recipeNutrition.BindingContext = thisRecipe;
             recipeNutrition.thisTabbedPage = this;
 
