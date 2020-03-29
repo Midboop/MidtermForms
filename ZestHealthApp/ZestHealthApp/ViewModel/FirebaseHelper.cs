@@ -22,13 +22,13 @@ namespace ZestHealthApp.ViewModel
         private static string storage = "zesthealth-1f666.appspot.com";
 
         // adds googleusers to firebase
-        public static async Task<bool> AddUser(string email, string picture, string name, string id)
+        public static async Task<bool> AddUser(string email, string picture, string name, string id, bool istoggled, bool isLoggedin)
         {
             try
             {
                 await firebase
                     .Child("GoogleUsers")
-                    .PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id });
+                    .PostAsync(new GoogleUsers() { Email = email, Picture = picture, Name = name, Id = id, IsToggled = istoggled, IsLoggedIn = isLoggedin });
                 return true;
             }
             catch (Exception e)
@@ -72,6 +72,20 @@ namespace ZestHealthApp.ViewModel
                 Debug.WriteLine($"Error:{e}");
                 return null;
             }
+        }
+     
+        
+        public static async Task<bool> GetLoggedIn()
+        {
+            string userId = Application.Current.Properties["Id"].ToString();
+            var thisUser =
+                (await firebase
+                   .Child("GoogleUsers")
+                   .OnceAsync<GoogleUsers>())
+                   .Where(a => a.Object.Id == userId).FirstOrDefault(); ;
+
+            return thisUser.Object.IsLoggedIn;
+
         }
 
         // get specific Facebook user

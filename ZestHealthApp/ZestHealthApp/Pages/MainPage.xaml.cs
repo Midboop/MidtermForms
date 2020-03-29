@@ -17,10 +17,13 @@ namespace ZestHealthApp
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        bool TileCards;
         public MainPage()
         {
             InitializeComponent();
             BindingContext = new FBRecipeView();
+           // if (Application.Current.Properties["IsToggled"] == null)
+
         }
 
         protected override async void OnAppearing()

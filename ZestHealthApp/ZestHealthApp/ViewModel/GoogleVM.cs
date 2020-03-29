@@ -96,6 +96,8 @@ namespace ZestHealthApp.ViewModel
 					// The users email address will be used to identify data in SimpleDB
 					string userJson = await response.GetResponseTextAsync();
 					user = JsonConvert.DeserializeObject<GoogleUsers>(userJson);
+					user.IsToggled = false;
+					user.IsLoggedIn = true;
 				}
 
 
@@ -114,27 +116,21 @@ namespace ZestHealthApp.ViewModel
 				bool newuser = false;
 				if (await FirebaseHelper.CheckEmail(user.Email) == false)
 				{
-					await FirebaseHelper.AddUser(user.Email, user.Picture, user.Name, user.Id);
+					await FirebaseHelper.AddUser(user.Email, user.Picture, user.Name, user.Id, user.IsToggled, user.IsLoggedIn);
 					newuser = true;
 				}
 
 
-				Application.Current.Properties.Remove("Id");
-				Application.Current.Properties.Remove("FirstName");
-				Application.Current.Properties.Remove("LastName");
-				Application.Current.Properties.Remove("DisplayName");
-				Application.Current.Properties.Remove("EmailAddress");
-				Application.Current.Properties.Remove("ProfilePicture");
-			
-					
-
+				ClearPersisitance();
+				
 				Application.Current.Properties.Add("Id", user.Id);
 				Application.Current.Properties.Add("FirstName", user.GivenName);
 				Application.Current.Properties.Add("LastName", user.FamilyName);
 				Application.Current.Properties.Add("DisplayName", user.Name);
 				Application.Current.Properties.Add("EmailAddress", user.Email);
 				Application.Current.Properties.Add("ProfilePicture", user.Picture);
-
+				Application.Current.Properties.Add("IsToggled", false); 
+				await Application.Current.SavePropertiesAsync(); //persistance
 				
 				if (newuser)
 					await FirebaseHelper.AddPantryItem("Example Item", "5", "12/15");
@@ -161,6 +157,16 @@ namespace ZestHealthApp.ViewModel
 			Debug.WriteLine("Authentication error: " + e.Message);
 		}
 
+		public static void ClearPersisitance()
+		{
+			Application.Current.Properties.Remove("Id");
+			Application.Current.Properties.Remove("FirstName");
+			Application.Current.Properties.Remove("LastName");
+			Application.Current.Properties.Remove("DisplayName");
+			Application.Current.Properties.Remove("EmailAddress");
+			Application.Current.Properties.Remove("ProfilePicture");
+			Application.Current.Properties.Remove("IsToggled");
+		}
 
 
 

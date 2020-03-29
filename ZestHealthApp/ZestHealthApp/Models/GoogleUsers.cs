@@ -35,6 +35,12 @@ namespace ZestHealthApp.Models
 		[JsonProperty("gender")]
 		public string Gender { get; set; }
 
+		[JsonProperty("isToggled")]
+		public bool IsToggled { get; set; }
+
+		[JsonProperty("isLoggedIn")]
+		public bool IsLoggedIn { get; set; }
+
 	
 
 	}
