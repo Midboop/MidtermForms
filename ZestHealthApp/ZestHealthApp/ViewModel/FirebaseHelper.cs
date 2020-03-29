@@ -197,7 +197,7 @@ namespace ZestHealthApp.ViewModel
             {
                 await firebase
                     .Child(Application.Current.Properties["Id"].ToString()).Child("Recipes")
-                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeRating = NewRecipe.RecipeRating, NutritionValues = NewRecipe.NutritionValues });
+                    .PostAsync(new RecipeItems { IngredientsList = NewRecipe.IngredientsList, RecipeName = NewRecipe.RecipeName, RecipeRating = NewRecipe.RecipeRating, NutritionValues = NewRecipe.NutritionValues, InstructionsList = NewRecipe.InstructionsList });
                 return true;
             }
             catch (Exception e)
@@ -350,6 +350,29 @@ namespace ZestHealthApp.ViewModel
             }
 
         }
+        public static async void SaveInstructions(SingleRecipeData recipe, List<InstructionItem> instructions)
+        {
+            try
+            {
+                var SingleRecipeObject =
+             (await firebase
+               .Child(Application.Current.Properties["Id"].ToString())
+               .Child("Recipes")
+               .OnceAsync<RecipeItems>()).Where(a => a.Object.RecipeName == recipe.RecipeTitle)
+               .Where(a => a.Object.InstructionsList.Count == recipe.Instructions.Count).FirstOrDefault(); ;
+                await firebase
+                    .Child(Application.Current.Properties["Id"].ToString())
+                    .Child("Recipes")
+                    .Child(SingleRecipeObject.Key)
+                    .Child("Instructions")
+                    .PutAsync(new List<InstructionItem>(instructions));
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+            }
+          
+        }
         public static async void UpdateRating(SingleRecipeData selectedRecipe)
         {
             try
@@ -492,12 +515,15 @@ namespace ZestHealthApp.ViewModel
                  {
                      RecipeName = item.Object.RecipeName,
                      IngredientsList = item.Object.IngredientsList,
+                     InstructionsList = item.Object.InstructionsList,
                      NutritionValues = item.Object.NutritionValues,
                      RecipeRating = item.Object.RecipeRating
                  }).ToList();
                 for(int i = 0; i < recipeList.Count; i++)
                 {
                     recipeList[i].RecipeImage = await GetImage(recipeList[i].RecipeName);
+                    if (recipeList[i].RecipeImage == null)
+                        recipeList[i].RecipeImage = "recipeDefault.PNG";
                 }
                 return recipeList;
             }
