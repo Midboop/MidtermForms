@@ -448,9 +448,17 @@ namespace ZestHealthApp.ViewModel
         public static async Task<string> RecipeImage(Stream imageStream, string name)
         {
 
-            var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").PutAsync(imageStream);
-            string imgurl = storageImage;
-            return imgurl;
+            try 
+            {
+                var storageImage = await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").PutAsync(imageStream);
+                string imgurl = storageImage;
+                return imgurl;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return "failed";
+            }
 
         }
 
@@ -492,8 +500,17 @@ namespace ZestHealthApp.ViewModel
 
         public static async Task<bool> DeleteImage(string name)
         {
-            await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
-            return true;
+            try
+            {
+                await new FirebaseStorage(storage).Child(Application.Current.Properties["Id"].ToString()).Child("Recipes").Child($"{name}").DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+
         }
 
         // Read all pantry items

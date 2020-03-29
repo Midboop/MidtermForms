@@ -125,8 +125,9 @@ namespace ZestHealthApp.Pages.RecipeTabPages
             }
             else
             {
-                await FirebaseHelper.UpdateRecipeTitle(TitleEntry.Text, thisRecipe);
                 thisRecipe = (BindingContext as SingleRecipeData);
+                await FirebaseHelper.UpdateRecipeTitle(TitleEntry.Text, thisRecipe);
+                
                 RecipeTitleLabel.Text = TitleEntry.Text;
                 TitleEntry.IsEnabled = false;
                 TitleEntry.IsVisible = false;
