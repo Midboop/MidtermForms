@@ -25,7 +25,7 @@ namespace ZestHealthApp
             catch(Exception e)
             {
                 istoggled = false;
-                
+                Application.Current.Properties.Add("isToggled", false);
             }
            
             if (!istoggled)
