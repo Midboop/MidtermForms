@@ -165,7 +165,7 @@ namespace ZestHealthApp.ViewModel
 			Application.Current.Properties.Remove("DisplayName");
 			Application.Current.Properties.Remove("EmailAddress");
 			Application.Current.Properties.Remove("ProfilePicture");
-			Application.Current.Properties.Remove("IsToggled");
+			Application.Current.Properties["IsToggled"] = false;
 		}
 
 

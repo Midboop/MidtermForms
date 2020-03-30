@@ -83,7 +83,7 @@
     <!-- This are the individual Menu Items Directing to their respective pages-->
     <TabBar>
         <Tab Title="Recipes" Icon="LemonIcon.png">
-        <ShellContent Style="{StaticResource BaseStyle}"
+        <ShellContent x:Name="ToggleTab" Style="{StaticResource BaseStyle}"
             ContentTemplate="{DataTemplate Zest:MainPage}"
                       Route="Recipe"/>
             

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             mc:Ignorable="d"
+             x:Class="ZestHealthApp.Pages.AltMainPage">
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSlateGray" />
+                                <Setter Property="CornerRadius"
+                                        Value="0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="0" Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <magic:GradientView Grid.RowSpan="3">
+                <magic:GradientView.GradientSource>
+                    <magic:CssGradientSource>
+                        <!-- Css Gradient Code -->
+                        <x:String>
+                            <![CDATA[
+                            linear-gradient(44deg, rgba(243, 243, 243, 0.05) 0%, rgba(243, 243, 243, 0.05) 33.333%,rgba(79, 79, 79, 0.05) 33.333%, rgba(79, 79, 79, 0.05) 66.666%,rgba(9, 9, 9, 0.05) 66.666%, rgba(9, 9, 9, 0.05) 99.999%),linear-gradient(97deg, rgba(150, 150, 150, 0.05) 0%, rgba(150, 150, 150, 0.05) 33.333%,rgba(34, 34, 34, 0.05) 33.333%, rgba(34, 34, 34, 0.05) 66.666%,rgba(40, 40, 40, 0.05) 66.666%, rgba(40, 40, 40, 0.05) 99.999%),linear-gradient(29deg, rgba(56, 56, 56, 0.05) 0%, rgba(56, 56, 56, 0.05) 33.333%,rgba(226, 226, 226, 0.05) 33.333%, rgba(226, 226, 226, 0.05) 66.666%,rgba(221, 221, 221, 0.05) 66.666%, rgba(221, 221, 221, 0.05) 99.999%),linear-gradient(90deg, rgb(163, 238, 211),rgb(149, 75, 252))
+                            ]]>
+                        </x:String>
+                    </magic:CssGradientSource>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+
+            <ListView x:Name="RecipeListView" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" Margin="0" SelectionMode="Single" ItemSelected="RecipeListView_ItemSelected" BackgroundColor="Transparent" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding RecipeName}" TextColor="Accent"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Switch x:Name="mySwitch" OnColor="Violet" ThumbColor="Accent" Grid.Row="0" Grid.RowSpan="2" Toggled="Switch_Toggled" IsToggled="True" VerticalOptions="Start" />
+            <lottie:AnimationView x:Name="AnimButton" Grid.Row="2" Scale="1.3" AutoPlay="False" Loop ="False" Animation="purpleaddlottie.json" OnClick="ImageButton_Clicked" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
