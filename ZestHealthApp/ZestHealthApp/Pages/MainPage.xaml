@@ -29,11 +29,11 @@
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
+        <Grid Margin="0" Padding="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="45"/>
+                <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
             <magic:GradientView Grid.RowSpan="3">
                 <magic:GradientView.GradientSource>
@@ -47,8 +47,8 @@
                     </magic:CssGradientSource>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
-
-            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="0" >
+            
+            <CollectionView x:Name="RecipeCards" ItemsSource="{Binding RecipeList}" Grid.Row="0" Grid.RowSpan="3" SelectionMode="Single" SelectionChanged="RecipeCards_SelectionChanged" Margin="0" >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="0" HorizontalItemSpacing="0"  />
                 </CollectionView.ItemsLayout>
@@ -59,38 +59,48 @@
                                          VerticalOptions="Center"
                                          Orientation="Vertical"
                                          BackgroundColor="WhiteSmoke">
-                                
-                                <Image   Margin="0,0,0,10"
-                                         VerticalOptions="Center"
-                                         HeightRequest="100"
-                                         WidthRequest="80"
-                                         Aspect="AspectFill"
-                                         Source="{Binding RecipeImage}" />  
-                                <!--Note:Bind This later to user set image-->
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="180" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                    </Grid.RowDefinitions>
+                                    <Image   Grid.Row="0"
+                                             Grid.RowSpan="3"
+                                             Aspect="AspectFill"
+                                             Source="{Binding RecipeImage}" />
+                                    <!--Note:Bind This later to user set image-->
+                                    <BoxView Grid.Row="1"
+                                             Grid.RowSpan="2"
+                                             BackgroundColor="#99000000" />     
 
-                                <Label Style="{StaticResource TextSubheadCenter}"
-                                       TextColor="#3d3d3d"
+                                    <Label Style="{StaticResource TextSubheadCenter}"
+                                       TextColor="White"
                                        Margin="0,0,5,0"
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Start"
                                        MaxLines="1"
+                                       Grid.Row="1"
                                        Text="{Binding RecipeName}" />
-                                
-                                <Label Style="{StaticResource TextCaption}"
-                                       TextColor="#4f4f4f"
+
+                                    <Label Style="{StaticResource TextCaption}"
+                                       Grid.Row="2"
+                                       TextColor="White"
                                        Margin="0,0,0,5"
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Start"
-                                       Text="Placeholder" />        
+                                       Text="Placeholder" />
                                     <!--Note:Make something to go here-->
+
+                                </Grid>
+                                
                             </StackLayout>
                         </rv:MaterialFrame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-            <ImageButton Grid.Row="2" Source="newItem.png" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"/>
-
+            <Switch OnColor="Violet" ThumbColor="Accent" Grid.Row="0" />
+            <lottie:AnimationView x:Name="AnimButton" Grid.Row="2" Scale="1.3" AutoPlay="False" Loop ="False" Animation="purpleaddlottie.json" OnClick="ImageButton_Clicked" />
         </Grid>
     </ContentPage.Content>
 

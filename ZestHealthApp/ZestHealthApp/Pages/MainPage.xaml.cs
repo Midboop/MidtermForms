@@ -17,6 +17,7 @@ namespace ZestHealthApp
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        int CurrentFrame = 0;
         bool TileCards;
         public MainPage()
         {
@@ -30,7 +31,8 @@ namespace ZestHealthApp
         {
             base.OnAppearing();
             await (BindingContext as FBRecipeView).RefreshRecipes();
-
+            AnimButton.PlayFrameSegment(0, 25);
+            CurrentFrame = 25;
         }
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
