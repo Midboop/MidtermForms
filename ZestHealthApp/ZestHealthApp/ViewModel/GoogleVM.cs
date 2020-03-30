@@ -129,7 +129,7 @@ namespace ZestHealthApp.ViewModel
 				Application.Current.Properties.Add("DisplayName", user.Name);
 				Application.Current.Properties.Add("EmailAddress", user.Email);
 				Application.Current.Properties.Add("ProfilePicture", user.Picture);
-				Application.Current.Properties.Add("IsToggled", false); 
+				//Application.Current.Properties.Add("IsToggled", false); 
 				await Application.Current.SavePropertiesAsync(); //persistance
 				
 				if (newuser)
