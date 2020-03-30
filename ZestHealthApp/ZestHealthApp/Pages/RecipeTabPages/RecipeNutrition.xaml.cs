@@ -39,8 +39,8 @@ namespace ZestHealthApp.Pages.RecipeTabPages
                 calorieCalculator.Text = (caloriesPerGram * Convert.ToDouble(calorieEntry.Text)).ToString() + " cal.";
 
             }
-            if (calorieCalculator.TextColor != Color.White) 
-                     calorieCalculator.Text = "0 cal.";
+           // if (calorieCalculator.TextColor != Color.White) 
+                   //  calorieCalculator.Text = "0 cal.";
                
         }
 

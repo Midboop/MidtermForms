@@ -89,7 +89,7 @@
                                        Margin="0,0,0,5"
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Start"
-                                       Text="Placeholder" />
+                                       Text="4 servings" />
                                     <!--Note:Make something to go here-->
 
                                 </Grid>
