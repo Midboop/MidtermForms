@@ -15,6 +15,7 @@ namespace ZestHealthApp.Pages.RecipeTabPages
     {
         public SingleRecipeData preSavedRecipe { get; set; }
         public bool isSaved { get; private set; }
+        bool enable = false;
         public RecipeInstructions()
         {
             InitializeComponent();
@@ -26,12 +27,13 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void AddButton_OnClick(object sender, EventArgs e)
         {
-
+            enable = true;
             var previousEditor = (stackLayout.Children.ElementAt(stackLayout.Children.Count - 2) as Editor);
             if (previousEditor.Text != null)
             {
                 string stepNum = (stackLayout.Children.Count / 2 + 1).ToString();
                 AddNewSet(stepNum, null);
+                
             }
             else
                 previousEditor.Placeholder = "Add Instructions Here First Before Adding Next Step";
@@ -39,13 +41,18 @@ namespace ZestHealthApp.Pages.RecipeTabPages
 
         private void Editor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (isSaved)
+            
+            if (enable == true)
             {
-                SaveAnim.IsVisible = true;
-                isSaved = false;
+                if (isSaved)
+                {
+                    SaveAnim.IsVisible = true;
+                    isSaved = false;
+                }
+                Editor editor = (sender as Editor);
+                editor.BackgroundColor = Color.Accent;
             }
-            Editor editor = (sender as Editor);
-            editor.BackgroundColor = Color.Accent;
+
         }
 
         private void SaveAnim_OnClick(object sender, EventArgs e)
