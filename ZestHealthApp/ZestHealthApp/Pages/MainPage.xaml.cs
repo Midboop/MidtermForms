@@ -18,13 +18,12 @@ namespace ZestHealthApp
     public partial class MainPage : ContentPage
     {
         int CurrentFrame = 0;
+        bool TileCards;
         public MainPage()
         {
-            if ((bool)Application.Current.Properties["isToggled"] == true)
-                Switch_Toggled(this, null);
-
             InitializeComponent();
             BindingContext = new FBRecipeView();
+           // if (Application.Current.Properties["IsToggled"] == null)
 
         }
 
@@ -58,12 +57,6 @@ namespace ZestHealthApp
             selected.RecipeImage = await FirebaseHelper.GetImage(selectedItem.RecipeName);
             await Navigation.PushModalAsync(new RecipeTabbedViewPage(selected));
             selectedItem = null;
-        }
-
-        private async void Switch_Toggled(object sender, ToggledEventArgs e)
-        {
-            Application.Current.Properties["isToggled"] = true;
-            await Shell.Current.GoToAsync("AltMainPage");
         }
     }
 }
